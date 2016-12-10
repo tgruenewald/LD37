@@ -26,17 +26,17 @@ public class roomScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("getting room background");
+		Debug.Log ("getting room background!");
 		illustration = GameObject.Find ("illustration").GetComponent<Image> ();	
 		illustration.sprite = Resources.Load<Sprite>("Sprites/aquarium_tile");
 		illustration.enabled = true;
+		Debug.Log ("room has started");
 	}
 
 
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
 	public void gotoDeck(){

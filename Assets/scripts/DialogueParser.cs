@@ -30,7 +30,7 @@ public class DialogueParser : MonoBehaviour {
 	public List<DialogueLine> activeList;
 
 	public Dictionary<string, bool> Flags = new Dictionary<string, bool> ();
-
+	static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
 
 	void Start () {
 		
@@ -48,7 +48,7 @@ public class DialogueParser : MonoBehaviour {
 	}
 
 	public void init() {
-		string file = "Assets/TextAssets/ludum37.txt";
+		string file = "TextAssets/ludum37";
 		lines = new List<DialogueLine> ();
 
 		LoadDialogue (file, lines);
@@ -65,41 +65,45 @@ public class DialogueParser : MonoBehaviour {
 
 	void LoadDialogue(string textfile, List<DialogueLine> list){
 		string line;
-		StreamReader r = new StreamReader (textfile);
 
-		using (r){
-			int l = 1;
-			do{
-				line = r.ReadLine();
-				if (line!= null){
-					string[] lineData = line.Split ('|');
+		TextAsset data = Resources.Load (textfile) as TextAsset;
 
-					//if it's a roomline
-					if (lineData[0].Contains("."))
+		var lines_of_text = Regex.Split (data.text, LINE_SPLIT_RE);
+
+
+		int l = 1;
+		for(var ii=1; ii < lines_of_text.Length; ii++) 
+		{
+			line = lines_of_text[ii];
+			if (line!= null){
+				string[] lineData = line.Split ('|');
+
+				//if it's a roomline
+				if (lineData[0].Contains("."))
+				{
+					if (lineData[0].Split('.')[0] == "englab")
 					{
-						if (lineData[0].Split('.')[0] == "englab")
-						{
-							list = roomLines;
-						}
+						list = roomLines;
 					}
+				}
 
-					if (list == roomLines)
-					{
-						Debug.Log("room line: " + lineData[1]);
-					}
+				if (list == roomLines)
+				{
+					Debug.Log("room line: " + lineData[1]);
+				}
 
-					//normal parsing
-					if (lineData[0] == "Choice")
+				//normal parsing
+				if (lineData[0] == "Choice")
+				{
+					DialogueLine lineEntry = new DialogueLine(lineData[0], "", "");
+					lineEntry.options = new string[lineData.Length-1];
+					for (int i = 1; i < lineData.Length; i++)
 					{
-						DialogueLine lineEntry = new DialogueLine(lineData[0], "", "");
-						lineEntry.options = new string[lineData.Length-1];
-						for (int i = 1; i < lineData.Length; i++)
-						{
-							CreateDictionary(lineData[i]);
-							lineEntry.options [i-1] = lineData[i];
-						}
-						list.Add(lineEntry);
+						CreateDictionary(lineData[i]);
+						lineEntry.options [i-1] = lineData[i];
 					}
+					list.Add(lineEntry);
+				}
 //					else if (lineData[1] == "Check")
 //					{
 //						DialogueLine lineEntry = new DialogueLine(lineData[0],lineData[1],"");
@@ -110,31 +114,30 @@ public class DialogueParser : MonoBehaviour {
 //						}
 //						list.Add(lineEntry);
 //					}
-					else{
-						if (lineData.Length != (3))
-						{
-							Debug.Log("error cannot parse at  line: " + l + ", which is: " + line);
-						}
-						else
-						{
-							CreateDictionary(lineData[1]);
-							DialogueLine lineEntry = new DialogueLine(lineData[0], lineData[1], lineData[2]);
-							list.Add(lineEntry);
-						}
-					}
-
-					if (lineData[1] == "over")
+				else{
+					if (lineData.Length != (3))
 					{
-						activeList = lines;
+						Debug.Log("error cannot parse at  line: " + l + ", which is: " + line);
 					}
-
-
-
+					else
+					{
+						CreateDictionary(lineData[1]);
+						DialogueLine lineEntry = new DialogueLine(lineData[0], lineData[1], lineData[2]);
+						list.Add(lineEntry);
+					}
 				}
-				l++;
-			} while (line!= null);
-		} 
-		r.Close();
+
+				if (lineData[1] == "over")
+				{
+					activeList = lines;
+				}
+
+
+
+			}
+			l++;
+		} //end for
+
 	}
 
 	public void CreateDictionary (string line)
