@@ -26,6 +26,10 @@ public class roomScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Debug.Log ("getting room background");
+		illustration = GameObject.Find ("illustration").GetComponent<Image> ();	
+		illustration.sprite = Resources.Load<Sprite>("Sprites/stage_1");
+		illustration.enabled = true;
 	}
 
 
@@ -107,7 +111,7 @@ public class roomScript : MonoBehaviour {
 		storyText.enabled = false;
 		characterArt.enabled = false;
 		characterName.enabled = false;
-		illustration.enabled = false;
+		//illustration.enabled = false;
 		inRoom = "";
 	}
 
