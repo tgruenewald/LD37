@@ -56,8 +56,8 @@ public class DialogueParser : MonoBehaviour {
 
 		activeList = lines;
 
-		PrintAllContent(lines);
-		Debug.Log (FlagCheck ("giraffe.sold=T"));		
+		//PrintAllContent(lines);
+		//Debug.Log (FlagCheck ("giraffe.sold=T"));		
 	}
 
 	void Update () {
@@ -169,6 +169,9 @@ public class DialogueParser : MonoBehaviour {
 			}
 			else
 			{
+				if (!commands.Contains (",")) {
+					Debug.Log ("Error: incorrect flag setting at line: " + line + " with commands: " + commands);
+				}
 				newFlag = commands.Split(',')[1];
 				if (FlagExists (newFlag))
 					return;
