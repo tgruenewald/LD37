@@ -17,6 +17,7 @@ public class roomScript : MonoBehaviour {
 	public Text characterName;
 
 	public gameManager gameManager;
+	public mapTracker mapTracker;
 	public storyManager storyManager;
 	public DialogueManager DialogueManager;
 	public DialogueParser parser;
@@ -25,10 +26,6 @@ public class roomScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("getting room background");
-		illustration = GameObject.Find ("illustration").GetComponent<Image> ();	
-		illustration.sprite = Resources.Load<Sprite>("Sprites/medievalStructure_07");
-		illustration.enabled = true;
 	}
 
 
@@ -40,6 +37,7 @@ public class roomScript : MonoBehaviour {
 
 	public void gotoDeck(){
 		blackbg.enabled = true;
+		mapTracker.showPlanets ();
 		choiceText [2].text = "Leave the room.";
 		ChoiceButton cb = button [2].GetComponent<ChoiceButton> ();
 		cb.option = "leaveRoom";
@@ -104,11 +102,12 @@ public class roomScript : MonoBehaviour {
 	{
 		blackbg.enabled = false;
 		hideChoices();
+		mapTracker.hidePlanets ();
 		gameManager.inStory = false;
 		storyText.enabled = false;
 		characterArt.enabled = false;
 		characterName.enabled = false;
-		//illustration.enabled = false;
+		illustration.enabled = false;
 		inRoom = "";
 	}
 
@@ -164,6 +163,7 @@ public class roomScript : MonoBehaviour {
 		if (gameManager.inChoice)
 		{
 			storyManager.pickedChoice = choice;
+			startStory (mapTracker.location);
 			gameManager.inChoice = false;
 			storyText.enabled = true;
 		}
