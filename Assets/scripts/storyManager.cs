@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class storyManager : MonoBehaviour {
 
 	public gameManager gameManager;
-	public mapTracker mapTracker;
 	public roomScript roomScript;
 	DialogueParser parser;
 
@@ -193,7 +192,6 @@ public class storyManager : MonoBehaviour {
 					return "Last stage in the adventure!";
 				default:
 					textStage = 0;
-					mapTracker.planet [mapTracker.location].visited = true;
 					return "over";
 			}
 
@@ -295,7 +293,6 @@ public class storyManager : MonoBehaviour {
 					}
 				default: 
 					textStage = 0;
-					mapTracker.planet [mapTracker.location].visited = true;
 					return "over";
 				}//switch
 
@@ -473,7 +470,6 @@ public class storyManager : MonoBehaviour {
 						"\nOld Tree: Y’all come back now!";
 				default:
 					textStage = 0;
-					mapTracker.planet [mapTracker.location].visited = true;
 					return "over";
 				}//switch
 
@@ -561,7 +557,6 @@ public class storyManager : MonoBehaviour {
 								
 					default:
 						textStage = 0;
-						mapTracker.planet [mapTracker.location].visited = true;
 						return "over";
 					}//switch
 
@@ -680,7 +675,6 @@ public class storyManager : MonoBehaviour {
 						"delay. The ship’s reserve power can only maintain life support feature for only a few more days. You write and then wait.";
 				default:
 					textStage = 0;
-					mapTracker.planet [mapTracker.location].visited = true;
 					return "over";
 				}//switch
 
