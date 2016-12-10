@@ -57,7 +57,7 @@ public class DialogueParser : MonoBehaviour {
 		activeList = lines;
 
 		PrintAllContent(lines);
-		Debug.Log (FlagCheck ("giraffe.sold"));		
+		Debug.Log (FlagCheck ("giraffe.sold=T"));		
 	}
 
 	void Update () {
@@ -235,6 +235,7 @@ public class DialogueParser : MonoBehaviour {
 
 	public bool FlagCheck(string statcheck)
 	{
+		Debug.Log ("FlagCheck[" + statcheck + "]");
 		string flag = statcheck.Split ('=') [0];
 		string checkString = statcheck.Split ('=') [1];
 		bool check;
