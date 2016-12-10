@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.IO;
