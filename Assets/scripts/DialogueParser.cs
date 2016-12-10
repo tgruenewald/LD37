@@ -35,6 +35,20 @@ public class DialogueParser : MonoBehaviour {
 
 	void Start () {
 		
+//		string file = "Assets/TextAssets/ludum37.txt";
+//		lines = new List<DialogueLine> ();
+//
+//		LoadDialogue (file, lines);
+//
+//		activeList = lines;
+//
+//		PrintAllContent(lines);
+//		Debug.Log (FlagCheck ("giraffe.sold"));
+
+
+	}
+
+	public void init() {
 		string file = "Assets/TextAssets/ludum37.txt";
 		lines = new List<DialogueLine> ();
 
@@ -43,9 +57,7 @@ public class DialogueParser : MonoBehaviour {
 		activeList = lines;
 
 		PrintAllContent(lines);
-		Debug.Log (FlagCheck ("giraffe.sold"));
-
-
+		Debug.Log (FlagCheck ("giraffe.sold=T"));		
 	}
 
 	void Update () {
@@ -142,7 +154,8 @@ public class DialogueParser : MonoBehaviour {
 					if (command[i].Split(',')[0] == "SetFlag")
 					{
 						newFlag = command[i].Split(',')[1];
-						if (FlagExists (newFlag))
+//						if (FlagExists (newFlag))
+						if (Flags.ContainsKey(newFlag))
 							return;
 						else
 							Flags.Add(newFlag, false);
@@ -212,7 +225,7 @@ public class DialogueParser : MonoBehaviour {
 	{
 		foreach (KeyValuePair<string, bool> temp in Flags) 
 		{
-			if (temp.Key==flagString)
+			if (temp.Key.CompareTo(flagString) == 0)
 				return true;
 			else
 				return false;
@@ -222,6 +235,7 @@ public class DialogueParser : MonoBehaviour {
 
 	public bool FlagCheck(string statcheck)
 	{
+		Debug.Log ("FlagCheck[" + statcheck + "]");
 		string flag = statcheck.Split ('=') [0];
 		string checkString = statcheck.Split ('=') [1];
 		bool check;
