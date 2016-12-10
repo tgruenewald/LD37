@@ -24,10 +24,10 @@ public static class GameState
 	private static GameObject pc = null;
 
 	public static void makeInventoryButtonsInteractable(bool enable) {
-		for (int i = 0; i< Player.MAX_INVENTORY; i++) {
+		/*for (int i = 0; i< Player.MAX_INVENTORY; i++) {
 			Button inventorySlot = GameObject.Find ("InventoryButton" + (i+1)).GetComponent<UnityEngine.UI.Button> ();
 			inventorySlot.interactable = enable;
-		}		
+		}	*/	
 	}
 
 	public static void SetPC(GameObject player){

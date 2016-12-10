@@ -1,0 +1,114 @@
+adventure.moon|Let's go to the moon!|Captain
+|Which moon?|Zed
+Choice|The morale-boosting moon.~SetFlag,adv1.f.pickedMorale,T:line,next|morale<=16*bot<2~The Medical Skill-boosting moon.~med,5:line,adv1.medmoon|Whatever moon Ngozi chooses.~ngo,3:SetFlag,adv1.f.pickedPokemoon,T:line,adv1.ngo
+|Excellent choice! I myself am going to use a lot of words to say very little, in hopes that eventually this will go off the screen and we will know exactly how long my line can be, but I'm not really sure yet so I guess I'll keep singing songs. Far across the distance and spaces between us you have come to show you go on. Near, far!|Captain
+|The Captain just won't shut up.|
+|Gain 3 morale.~morale,3:food,-4:line,next|
+|It feels so good to have morale that you want to test an adventure!~line,adventure.test|
+|over|
+adv1.medmoon|Gain 5 Medical.|
+|Check|adv1.f.pickedMorale=T~adv1.alreadyMorale|adv1.defaultMed
+adv1.alreadyMorale|Since you've already been to the morale planet, you feel pretty good.|
+adv1.defaultMed|Did we really need to know this much about medicine?|Wong
+|Yes, we did.|Yasmine
+|over|
+adv1.ngo|I choose you, Moon!|Ngozi
+|You go to the Pokemoon.|
+adv1.ngo.ck|Check|bot>2*cp>2~adv1.ngo.mechplant|bot>2~adv1.ngo.plant|adv1.ngo.normal
+adv1.ngo.mechplant|Because of your high botany and programming, you catch a Mechaplant!~line,adv1.ngo.end|
+adv1.ngo.plant|Because of your high botany, you catch a Normalplant!~SetFlag,adv1.caughtPlant,T:line,adv1.ngo.end|
+adv1.ngo.normal|Because of your lack of skill, you catch something of Type Normal.|
+adv1.ngo.end|Ngozi is very pleased.|
+|over|
+englab.ngo|adv1.f.pickedPokemoon=T~Thank you so much! I really enjoyed the Pokemoon!|Ngozi
+|You spend an hour watching your new Pokemoon chirrup its name.|
+|over|
+adventure.test|This is an adventure test.|Cadet
+Choice|Go up a hill.~line,advtest.hill|Walk in the valley.~line,advtest.valley
+advtest.hill|Check|eng>2~advtest.hill.success|advtest.hill.fail
+advtest.hill.success|Your engineering is so high that you climbed a hill!|
+advtest.hill.fail|Your engineering sucks so you fall down the hill.~line,advtest.valley|
+advtest.valley|You just walk in the valley like a weirdo.|
+|over|
+|Howdy, folks. Bless yer hearts, but yer awful lucky I don’t hold grudges. What can I do you for?|Old Tree
+|Well, I never! Yeh think you’ll jest mosey on back and walk all over me? Shame on you. Leave now… AND NEVER COME BACK!|Old Tree
+|Remembering that you still need metal, you reach to snap a small branch off of a healthy young tree. It flails its branches in shock and whips you in the face. Glancing down, you notice that the branch you’ve taken is full of eyes. One by one, each eye opens and swivels towards you. The other trees nearby begin to stir.|
+|Vine-like intestines hang from one tree, while another grows smooth, plump livers. On one of the trees, you notice a strange white moss growing in the shape of a hand. The moss glows faintly in the gloom of the forest.|
+adventure.roboplant|You enter the planet’s orbit a little quicker than you intended, and a piece melts off your thrusters before you land. Your replicator should be able to fix the breakage, but it looks like you’ll need to scavenge for some more metal while you’re here.|
+|You peer out of the window of your ship. The area is covered by a dense forest of metal trees, their silver branches dangling with what appear to be the organs of animals. Vine-like intestines hang from one tree, while another grows smooth, plump livers.|
+|Are those what I think they are? I call dibs on this mission.|Yasmine
+|Wong, go with Yas and explore the plant life. Take the cadet with you. I’ll stay here… this place gives me the creeps.|Captain
+|Aye aye, Captain.|Wong
+|You, Yas, and Wong step out of the shuttle and look around. Up close, you notice that all of the organs are pulsating gently. They give off the fragrant odor of ripened fruit.|
+|Sweet mother of transhumanism... take a look at this! The collecting duct, the glomerular capillaries, the nephron… it’s a perfect replica of an owl kidney. Amazing! I think I see some human ones up on the high branches. Wong, think you can climb that tree?|Yas
+|Just a minute. My stomach feels a little funny.|Wong
+|You walk a little further and come to a clearing in the woods. A withered silver tree stands at the center of the clearing. Its gnarled branches are bare of any organs.|
+Choice|Talk to the tree.~line,next|Climb.~line,adv1.climb
+|Feeling faintly ridiculous, you begin speaking to the tree.|
+|Your branchiness, we are explorers from the Democratic Federation of the Intergalactic Union, and we come in peace.|Cadet
+|Howdy, folks. What can I do you for?|Old Tree
+|Well, to get to the root of the problem, we’re stranded on your planet, and we need metal to repair our thrusters. Could we trouble you for a stray branch or two?|Cadet
+|Beggin’ yer pardon, but I can’t help. Y’see, the rot’s got into my trunk, and it’s near hollowed me out. Givin’ up one of my branches would all but kill me. Back in the day, I used to grow the most beauteous red hearts for miles around.|Old Tree
+|And I was in love.|Old Tree
+|Oakie was her name, and flirtin’ was her game. She had the pearliest teeth for miles around. That oak truly stole my hearts, heh heh. I was all set to recite this grand love poem to her, but I lost my nerve at the last second. Wish I’d had the courage to tell her…|Old Tree
+|You quickly make up an excuse, and escape before the tree starts telling you any more of its life story.~line,adv1.discuss|
+|You huff and puff at the old tree, but it seems like your Arborese could use some brushing up. Maybe Wong will be able to help you out?|
+|He performs an elaborate interpretive dance before assuming the tree pose. Looks like you’re on your own.~line,adv1.discuss|
+adv1.climb|You think it’s about time you put your Star Scouts training to good use. After all, you didn’t just earn your badges by selling boxes of Minty Moons! You scamper up the tree, and it begins to creak alarmingly. No matter! You plant your feet firmly and continue on up.|
+|At the top of the tree, you take in the view. The forest spreads out around you as far as your eyes can see. Besides the trees and the organs, there aren’t any other signs of life.|
+|As you start climbing down, your foot catches on a thin branch, and you hear it snap. Apparently, that’s the last straw. The tree begins to speak with a metallic rasp.|
+|Well, I never… What nerve! Y’all had better leave, now. And NEVER COME BACK!|Old Tree
+|Whoopsie daisy.|Cadet
+|The tree starts to shake and sends you tumbling into the dirt. You wisely decide to escape the clearing as fast as you can.|
+adv1.discuss|You, Yas and Wong regroup by your shuttle to discuss your situation.|
+|Do you realize what a treasure trove we’ve landed on? Kidneys, lungs, spleens, all there for the taking.|Yasmine
+|Look, Yas, I don’t want to be a party pooper. I am all about the party. But you’re starting to sound, I dunno, a little mad scientisty?|Wong
+|I don’t know what you mean.|Yasmine
+|Well, do you remember Federation oath we all took? The one where we, uhh, promised to defend new species? I mean, I’m pretty sure that was in there.|Wong
+|Yes, Wong, I hear your petty concerns and I understand them. But this could be bigger than us. This could be the key to the advancement of human civilization. Think of the work! The research!|Yasmine
+|Okay, Dr. Crazypants. Or we could try talking to the trees, you know? Maybe they’re pretty chill dudes.|Wong
+|Since it seems we don’t agree, let’s have a vote. Cadet, what’s your decision?|Yasmine
+Choice|Side with Wong and talk to the trees.~line,adv1.Wong|Side with Yas and harvest the trees.~line,next
+|You’re both nuts! Oh well, I tried my best. I’m gonna go wait in the shuttle.|Wong
+|Cadet, I knew you’d make the right decision. Now, we’ll have to work quickly. If that old tree was any indication, this forest will not take kindly to strangers.|Yasmine
+|Got it, Doc.|Cadet
+|Experimentally, you pick a fresh stomach from one of the trees. The tree appears to stretch its limbs, and settles back into its original position. Your work in the med bay pays off, as you nimbly pluck organ after organ from the branches.~food,3|
+|You look over at Yas and see that she has already gathered a pulsating stomach, three pancreases, and a brain stem. Her maniacal cackles fill you with devotion.|
+|Experimentally, you pick a fresh stomach from one of the trees. The tree appears to stretch its limbs, and settles back into its original position. You look over at Yas and see that she has already gathered a pulsating stomach, three pancreases, and a brain stem.~food,1|
+|Remembering that you still need metal, you snap a small branch off of a healthy young tree. It flails its branches in shock and whips you in the face. The other trees nearby begin to stir.|
+|Get back to the shuttle. Go, go, go!|Yasmine
+|You don’t need to be told twice. You and Yas race towards the shuttle. You manage to jam the branch into the replicator and fix the thruster just in time to prevent your shuttle from being overtaken by grasping tree limbs.|
+|As you shoot off into the sky, you think of the fine dinner you’ll be having tonight. Sauteed liver with onions, and perhaps some boiled tongue on the side.~metal,1:morale,-1:yas,2:wong,-1:line,next|
+|over|
+adv1.Wong|You address the forest, telling the trees about your situation. You humbly request a stray branch or two, so that you can repair your shuttle.|
+|Branches rustle and chime in the wind. Slowly, the branches begin to bend towards the old, barren tree. You glance with trepidation at Yas and Wong. The voice of the forest rumbles through you.|
+|TAKE THAT ONE, IF YOU WISH.|The Forest
+|What, little old me?|Old Tree
+Choice|Cut down the old tree.~line,next|Uh, no thanks!~line,adv1.nope
+|You walk up to the tree with your laser.|
+| Y’all just make it quick, y’hear?|Old Tree
+|You slice off two long branches. The old tree writhes in agony and makes a sound like gears grinding together. The sound follows you the whole way back to the shuttle. The old tree’s metal turns out to be a perfect alloy for repairing the thrusters, and you even have more metal left over afterwards.|
+|Yas approves of your levelheaded approach to the situation, but Wong avoids you and Yas for the next week. For many nights to come, your dreams are haunted by the sound of grinding gears.~metal,2:morale,-1:yas,1:wong,-2:line,next|
+|over|
+adv1.nope|You edge towards the shuttle, signaling urgently to Yas and Wong with your eyes.|
+|Thanks, but that’s an offer I’ll have to refuse.|Cadet
+|Wow… Really?|Old Tree
+|The soil beneath your feet begins to rumble. An enormous oak full of teeth howls with rage. You snap off a couple of its branches as you race back to the shuttle.|
+|You manage to jam the branch into the replicator and fix the thruster just in time to prevent your shuttle from being overtaken by grasping tree limbs. As you shoot off into the sky, you hear a lone voice call out to you from down below.|
+|Y’all come back now!~metal,1:morale,2:wong,1:line,next|Old Tree
+|over|
+|Oakie!|Cadet
+|Whadda ya want, brat?|Oakie
+|This old tree has something he wants to say to you. Take it away, Grandpa.|Cadet
+|Now? But- I suppose you’re right, Cadet. It’s now or never. Well, Oakie, it’s a little sappy, but here goes.|Old Tree
+|There are other great oaks, to be sure|
+|But none quite as lovely and pure.|
+|Oh, her leaves are spellbinding,|
+|Her teeth are so blinding,|
+|My hearts go thump-thumping for her.|
+|Oh, Gerald! Why didn’t you ever say?|Oakie
+|Oakie, I was terrified back then, but I suppose I’m gettin’ bold in my old age. Will yeh still have me, after all these years?|Gerald
+|How about you take me on a date, first?|Oakie
+|It’d be my pleasure. I hope we’ll have many years to grow together, Oakie.|Gerald
+|As Gerald and Oakie’s branches tentatively reach out towards each other, you hear the other trees sigh in disappointment. Oakie later gives you a giant branch full of her teeth to thank you for your matchmaking services. You use the branch to fix your thruster, and shoot off into the sky, your heart just a little fuller than before.~metal,2:morale,3:yas,-1:wong,2:line,next|
+|over|

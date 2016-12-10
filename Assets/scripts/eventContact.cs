@@ -18,7 +18,7 @@ public class eventContact : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		Debug.Log ("collided");
-		interactions = GameObject.Find ("judy").GetComponent<Player> ().Interactions;
+	//	interactions = GameObject.Find ("judy").GetComponent<Player> ().Interactions;
 		interactions.showText (this.tag);
 
 	}

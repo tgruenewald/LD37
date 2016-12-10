@@ -1,0 +1,103 @@
+storyStart|Mrs. Slitherkins? Mrs. Slitherkins, can you hear me?|Nurse
+Choice|Yes, I can hear you.~line,next|-hiss-~line,next|Let me sleep.~line,next
+|Listen carefully, Mrs. Slitherkins. You've had a terrible accident. A bomb exploded in your shoe shop.|Nurse
+|A bomb? You jolt awake to find your tail in a cast and your head in a headache, but you have only one thought.|
+|My son! Is he--?|You
+|Alive, but unconscious still. Your shoe inventory is not so fortunate.|Nurse
+|Not that it was ever alive.|Nurse
+|She chortles to herself.|
+|How long until I can leave?|You
+|Your burns will heal, Mrs. Slitherkins, as soon as you are able to shed your skin. However, that may never happen. During your medical examination, we discovered poison in your veins.|Nurse
+|Someone tried to murder me ... twice?|You
+|Apparently so! Someone with a sense of humor.|Nurse
+|What's so funny?|You
+|A poisoned snake!|Nurse
+Choice|Ha. Ha. Very amusing.~line,next|I am not a poisonous snake.~line,next|What type of poison is it?~line,next
+|The nurse chuckles again, then recovers, remembering her role.|
+|Whatever venom is in your veins is fast-acting. You have only five days to live.|Nurse
+|Five days! Is it time to put your affairs in order? Say farewell to family and friends? Splurge on some final roller coaster rides?|
+|Nope, you have a mystery to solve!|
+|I need to speak to the police.|You
+|They're busy solving more important crimes.|Nurse
+|More important than a murder that is in progress?|You
+|More important than a snake.|Nurse
+|She turns up her nose in disdain.|
+|What, did a snake eat your parents?|You
+|Yes, actually.|Nurse
+|Awkward.|
+|You have visitors, but you are weak. You may only have one visitor every day.|Nurse
+|What's the point of limiting me to one visitor a day if I'm going to die soon anyway?|You
+|Two visitors will overtax you and you will die even sooner.|Nurse
+|This logic seems flawed, but the nurse will not be moved, and given the pain in your tail, you won't be moving anywhere either.|
+|Very well.|You
+|Three visitors have come to see you today. Who will you meet with today?|Nurse
+|More dialogue on who is who.|
+Choice|Giraffe~line,giraffe1|Mouse~line,mouse1|Penguin~line,penguin1
+|GIRAFFE - FIRST CONVERSATION|
+giraffe1|The nurse leaves, and after several minutes, a giraffe pokes his head through the open window.|
+|You should ask to be relocated to a higher floor. I have to bend down to talk to you and it is highly uncomfortable. Or should I say ... lowly?|Giraffe
+Choice|Did you come here to gloat?~line,giraffe.business|So slashing prices wasn’t enough, now you’re slashing throats?~line,next
+|You are crass, as usual.|Giraffe
+|The giraffe attempts to stretch pompously, which is made difficult as you can only see the head.|
+giraffe.business|I am here on business.|Giraffe
+|I was planning to speak to you earlier today, but then this unfortunate accident happened. However, your business was already floundering, Mrs. Slitherskins. You and your son are both hospitalized, and someone has to pay the medical bills.|Giraffe
+|You must sell your shoe business to me for five thousand. What do you say?|Giraffe
+|**if you already spoke with mouse**|
+Choice|I heard the explosion only destroyed part of my inventory.~line,next
+|Hmph. Six thousand then. That’s my final offer.|Giraffe
+Choice|Fine. My shoe store is yours.~SetFlag,giraffe.sold,T:SetFlag,giraffe.exhaust,T:line,giraffe.sell|Get lost, long-neck. (or something more insulting)~SetFlag,giraffe.exhaust,T:line,giraffe.refuse|giraffe.f.poison,T~I will sell to you, if you tell me the antidote for this poison.|I need time to consider.~line,giraffe.time
+giraffe.poison|I would gladly take that trade, but I didn’t even know you were poisoned. Hmm, maybe I don’t need to sell, if you’re about to die … then again … Is your son poisoned too?~setFlag,giraffe.f.poison,T|
+Choice|Yes. (lie)~line,next|No.~line,Giraffe.sonPoisonedNo|I don’t know.~line,Giraffe.sonPoisonedDunno
+giraffe.sonPoisonedYes|Hm. I guess I didn’t need to talk to you after all. Usually I only have this kind of luck when the moon is full.~setFlag,giraffe.f.exhausted:line,over|Giraffe
+|over|
+giraffe.sonPoisonedNo|Hm. I wonder if his room is well-guarded … not that I would consider poisoning him too. Anyway, what do you say to selling your business?
+giraffe.sonPoisonedDunno|Didn’t even think to ask? I always knew snakes were terrible mothers. They don’t know what to do once the child’s out of the egg. Anyway, what do you say to selling your business?
+giraffe.sell|Excellent! I will have the money transferred to your account right away. Wow, if I had known you would break this easily I would have hired someone to burn down your shop years ago!|Giraffe
+|Not that I hired anyone this time, of course. So tell whoever really burned your shop that I owe them a favor. I suspect it was that tiny penguin. He once asked me whether I would help him expand his business to the upper floor, but he seemed to be suggesting something quite illegal so I ended that conversation right away.|Giraffe
+|Because I would never do anything illegal. And it turns out I didn’t even need to!|Giraffe
+|The giraffe is so excited he hits his head on the window frame on his way out, but he doesn’t even care.|
+|As he gallops away, the nurse enters and urges you to rest.|
+|over|
+giraffe.refuse|Foolish reptile! Your business is already dead! I am offering you an incredible price, more than thrice what your business is worth, if I’m being generous, and I am being generous! Your fake snake shoes are worth 1500 at best, and that’s including what’s left of your inventory!|
+Choice|Stand firm.~line,next|Escalate.~line,next
+|Snakes don’t even wear shoes! Your store was always going to be ridiculous!|
+Choice|Stand firm.~line,next|Escalate.~line,next
+|Giraffe reacts poorly and starts sprouting fur.|
+Choice|Escalate.//not really a choice but the player can click~line,next
+Choice|Escalate.//not really a choice but the player can click~line,next
+|Giraffe turns into a weregiraffe and flees.|//player can no longer speak with giraffe, but can accuse giraffe of being a weregiraffe at end of game
+Giraffe.time|Very well. I will return tomorrow, but that will be my final offer.|Giraffe
+|more conversation that illuminates other suspects? Perhaps giraffe was a witness and saw some sort of commotion on the roof.|
+|over|
+|GIRAFFE - SECOND CONVERSATION|
+|MOUSE - FIRST CONVERSATION|
+mouse1|Such a terrible thing that happened, a terrible thing!|Mouse
+Choice|Thank you for visiting.~line,mouse.cont|You look delectable.~line,mouse.yum|What are you doing here?~line,mouse.cont
+mouse.yum|What's wrong with you? I'm one of your customers, remember?|Mouse
+|The mouse lifts his tiny feet and you can see indeed that is he is wearing genuine Snake Shoes.|
+Choice|I could just eat you alive.~line,next|Sorry, I just woke up and I'm delirious.~line,mouse.sorry
+|The mouse flees.~SetFlag,mouse.exhaust,T:line,over|
+mouse.sorry|That's all right. I'll take it as a compliment.|Mouse
+mouse.cont|
+|MOUSE - SECOND CONVERSATION|
+|PENGUIN - FIRST CONVERSATION|
+penguin1|Miss Guinn waddles in with fresh flowers that she exchanges with the stale flowers at your bedside.|
+|How are you feeling?|Penguin
+Choice|Like I'm about to die.~guin,1:line,guin.die|Very good, thanks for asking.~guin,-1
+guin.die|I'm sure it's not so drastic.|
+Choice|Actually, I've been poisoned.~line,guin.poison|True, at least I have all my limbs.~guin,-1:line,guin.limbs
+guin.poison|That's terrible! Who would do such a thing?
+Choice|That's what I will find out.~line,next|I don't have any enemies.~line,next|I must have done something wrong.~line,next
+guin.enemies|Perhaps it's an enemy you don't know about yet. What's the name of that mouse who's always sneaking around? I've caught him filching snowcones from my ice rink. 
+guin.limbs|How are you always so positive?|
+guin.cont|Your ice rink is right below my shoe shop. Was anything damaged in the blast?|
+|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.
+|//setting up other conversations, establishing rapport|
+|over|
+|PENGUIN - SECOND CONVERSATION|
+|speaking of the times they were in high school|
+|I'm really at the end of the tail. According to the nurse, I'll die soon if I don't have the antidote.|
+|As someone facing death, does that make you regret anything?|Penguin
+Choice|I should've gorged on cake instead of worrying about my weight.~line,next|I was a terrible mother.~line,next|I should have pursued my dream of being a sculptor.~line,next|I regret nothing.~line,next
+|(if no visitors, skip to fifth day)|
+|FIFTH DAY|

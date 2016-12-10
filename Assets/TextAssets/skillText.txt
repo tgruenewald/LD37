@@ -1,0 +1,38 @@
+med.beg.1|You enter the Medical Bay for your monthly check-up to find Ngozi gasping while holding her throat. Yasmine is nowhere in sight.|
+|Quick! You perform the Heimlich maneuver! Ngozi spits out a chicken bone.|
+|Yasmine appears from behind a curtain and congratulates you on passing your first medical exam.|
+|You gain 1 Medical.|
+med.beg.2|Yasmine teaches you how to draw blood. You spend the entire week practicing on yourself.|
+|Your right arm becomes bruised and bloody, but your left arm looks good.|
+|Guess you're not ambidextrous, after all.|
+|You gain 1 Medical.|
+med.int.1|You shadow Yasmine and record patient visits. As your knowledge of medical shorthand grows, your handwriting deteriorates from a neat cursive to the scribbles of a toddler.|
+|You gain 1 Medical.|
+med.int.2|Xola comes in, complaining of a stiff knee. Yasmine informs Xola that amputation may be necessary and takes out the saw.|
+|You laughingly assure Xola that Yasmine is only joking.|
+|Great bedside manner!|
+|You gain 1 Medical.|
+med.exp.1|You accidentally freeze off your middle finger while emptying the garbage.|
+|No fear: just Space BandAid that baby up.|
+|You gain 1 Medical.|
+med.exp.2|Zed comes in for a root canal. You skillfully shoot the anesthesia into Zed's arm, rendering them unconscious.|
+|Yasmine says you only needed to numb Zed's gums, but she applauds your decision nonetheless.|
+|You gain 1 Medical.|
+med.mas.1|The Captain comes in, complaining of nightmares and insomnia. You give him the perfect cure by cryogenically freezing him for a wonderful night of dreamless sleep.|
+|You even unfreeze him in the morning.|
+|You gain 1 Medical.|
+med.mas.2|Wong comes in for his monthly check-up and begins arguing that skill with scalpel doesn't translate into spiritual awareness.|
+|You hit all of his chi points and paralyze him for the next hour. You win!|
+|You gain 1 Medical.|
+bot.beg.1|You scrub the undersides of plant leaves for a week. You gain 1 Botany.|
+bot.beg.2|You add worms to different pots and watch them wriggle. You gain 1 Botany.|
+bot.int.1|You expertly clip all of the leaves off of a single plant, leaving only bare stems.  You gain 1 Botany.|
+bot.int.2|You only drown half of the plants when you water them this week! You gain 1 Botany.|
+bot.exp.1|You accidentally breed a new species of plant and immediately name it after your favorite holo-show character, much to Wong's dismay. You gain 1 Botany.|
+bot.exp.2|You discover a plant that is resistant to fire! When you tell Wong of your discovery, he says he already knew about it.|
+|You still gain 1 Botany.|
+bot.mas.1|You are now trusted with an entire greenhouse to do with as you will.|
+|You decide to devote most of it to whole-grain vegetables.|
+|You gain 1 Botany.|
+bot.mas.2|You grow a plant shaped exactly like Wong's left elbow. He is elated, but wonders why you know his left elbow so ... intimately. |
+|You gain 1 Botany.|
