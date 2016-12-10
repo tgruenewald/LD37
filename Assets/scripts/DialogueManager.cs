@@ -39,7 +39,7 @@ public class DialogueManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown("Fire1") && !gameManager.inChoice && gameManager.inStory && !inCheck)
+		if ((Input.GetButtonDown("Fire1") || Input.GetMouseButtonDown(0)) && !gameManager.inChoice && gameManager.inStory && !inCheck)
 		{
 			if (gameManager.delayedLineCommand)
 			{

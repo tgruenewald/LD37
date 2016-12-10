@@ -10,9 +10,7 @@ public class mapTracker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		unvisitPlanets ();
-		planet[location].visited = true;
-		glowLocation ();
+
 		//showPlanets ();
 
 	}
