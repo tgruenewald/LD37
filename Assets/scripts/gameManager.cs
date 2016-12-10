@@ -8,7 +8,6 @@ public class gameManager : MonoBehaviour {
 	DialogueParser parser;
 	public roomScript roomScript;
 	public storyManager storyManager;
-	public mapTracker mapTracker;
 	public animateText animateText;
 
 
@@ -78,27 +77,11 @@ public class gameManager : MonoBehaviour {
 		inStory = false;
 		expRound = false;
 		weekText.text = "Week: " + week;
-		mapTracker.hidePlanets ();
 		updateStats ();
 		roomScript.leaveRoom ();
 
 	}
-
-/*	void nextScreen(){
-		if (expRound) {
-			roomScript.gotoPlanet (mapTracker.location);
-		}
-		else if (gainingSkill)
-		{
-			gainSkill ();
-		}
-
-		else{
-			//AdvanceWeek();
-			roomScript.leaveRoom ();
-		}
-
-	}*/
+		
 
 	public void gainSkill(){
 		if (expRound) {
