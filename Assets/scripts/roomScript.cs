@@ -28,7 +28,7 @@ public class roomScript : MonoBehaviour {
 	void Start () {
 		Debug.Log ("getting room background!");
 		illustration = GameObject.Find ("illustration").GetComponent<Image> ();	
-		illustration.sprite = Resources.Load<Sprite>("Sprites/aquarium_tile");
+		illustration.sprite = Resources.Load<Sprite>("Sprites/bed");
 		illustration.enabled = true;
 		Debug.Log ("room has started");
 	}
