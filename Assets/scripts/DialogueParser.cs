@@ -35,6 +35,20 @@ public class DialogueParser : MonoBehaviour {
 
 	void Start () {
 		
+//		string file = "Assets/TextAssets/ludum37.txt";
+//		lines = new List<DialogueLine> ();
+//
+//		LoadDialogue (file, lines);
+//
+//		activeList = lines;
+//
+//		PrintAllContent(lines);
+//		Debug.Log (FlagCheck ("giraffe.sold"));
+
+
+	}
+
+	public void init() {
 		string file = "Assets/TextAssets/ludum37.txt";
 		lines = new List<DialogueLine> ();
 
@@ -43,9 +57,7 @@ public class DialogueParser : MonoBehaviour {
 		activeList = lines;
 
 		PrintAllContent(lines);
-		Debug.Log (FlagCheck ("giraffe.sold"));
-
-
+		Debug.Log (FlagCheck ("giraffe.sold"));		
 	}
 
 	void Update () {

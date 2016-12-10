@@ -54,6 +54,7 @@ public class gameManager : MonoBehaviour {
 		dialogueManager = GameObject.Find ("Dialogue Manager").GetComponent<DialogueManager> ();
 		parser = GameObject.Find ("Dialogue Parser").GetComponent<DialogueParser> ();
 
+		parser.init ();
 		roomScript.startStory (1);
 	}
 
