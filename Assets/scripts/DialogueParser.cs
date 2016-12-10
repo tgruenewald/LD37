@@ -154,7 +154,8 @@ public class DialogueParser : MonoBehaviour {
 					if (command[i].Split(',')[0] == "SetFlag")
 					{
 						newFlag = command[i].Split(',')[1];
-						if (FlagExists (newFlag))
+//						if (FlagExists (newFlag))
+						if (Flags.ContainsKey(newFlag))
 							return;
 						else
 							Flags.Add(newFlag, false);
@@ -224,7 +225,7 @@ public class DialogueParser : MonoBehaviour {
 	{
 		foreach (KeyValuePair<string, bool> temp in Flags) 
 		{
-			if (temp.Key==flagString)
+			if (temp.Key.CompareTo(flagString) == 0)
 				return true;
 			else
 				return false;
