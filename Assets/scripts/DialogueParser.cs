@@ -199,7 +199,7 @@ public class DialogueParser : MonoBehaviour {
 				return i;
 			}
 		}
-		Debug.Log ("searched text asset for key " + code + ", key not found");
+		Debug.Log ("searched text asset for key [" + code + "], key not found");
 		return -1;
 
 	}
@@ -260,6 +260,11 @@ public class DialogueParser : MonoBehaviour {
 			Debug.Log ("Error: " + statcheck + " does not contain true or false");
 		}
 
+		Debug.Log ("Flag: " + flag);
+		if (!Flags.ContainsKey (flag)) {
+			Debug.Log ("not in dictionary: " + flag);
+			return false;
+		}
 		if (Flags [flag] == check) {
 			return true;
 		} else {
