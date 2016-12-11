@@ -33,7 +33,7 @@ Choice|Ha. Ha. Very amusing.~line,next|I am not a poisonous snake.~line,next|Wha
 |Very well.|You
 threeVisitors|Three visitors have come to see you. Who will you meet with today?|Nurse
 |**the nurse and some internal thoughts from the narrator explain the giraffe is a rival, the mouse is a frequent customer, and the penguin is the owner of the downstairs ice-skating rink|
-Choice|Girwoffe the giraffe.~line,giraffe1|Mr. Scamperfoot, the mouse.~line,mouse1|Miss Guinn the penguin.~SetFlag,penguin.appears,T:line,penguin1
+Choice|Girwoffe the giraffe.~SetFlag,giraffe.appears,T:line,giraffe1|Mr. Scamperfoot, the mouse.~SetFlag,mouse.appears,T:line,mouse1|Miss Guinn the penguin.~SetFlag,penguin.appears,T:line,penguin1
 |GIRAFFE - FIRST CONVERSATION|
 giraffe1|The nurse leaves, and after several minutes, a giraffe pokes his head through the open window.|
 |You should ask to be relocated to a higher floor. I have to bend down to talk to you and it is highly uncomfortable. Or should I say ... lowly?|Giraffe
@@ -56,7 +56,7 @@ giraffe.sell|Excellent! I will have the money transferred to your account right 
 |Not that I hired anyone this time, of course. So tell whoever really burned your shop that I owe them a favor. I suspect it was that tiny penguin. He once asked me whether I would help him expand his business to the upper floor, but he seemed to be suggesting something quite illegal so I ended that conversation right away.|Giraffe
 |Because I would never do anything illegal. And it turns out I didn’t even need to!|Giraffe
 |The giraffe is so excited he hits his head on the window frame on his way out, but he doesn’t even care.|
-|As he gallops away, the nurse enters and urges you to rest.~line,threeVisitors|
+|As he gallops away, the nurse enters and urges you to rest.~SetFlag,giraffe.appears,F:line,threeVisitors|
 |over|
 giraffe.refuse|Foolish reptile! Your business is already dead! I am offering you an incredible price, more than thrice what your business is worth, if I’m being generous, and I am being generous! Your fake snake shoes are worth 1500 at best, and that’s including what’s left of your inventory!|
 Choice|I apologize. Still, I will not sell.~line,giraffe.refusecont|**Insult.**~line,next

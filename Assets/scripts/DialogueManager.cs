@@ -26,7 +26,8 @@ public class DialogueManager : MonoBehaviour {
 	bool firstScreen = true;
 	public bool inCheck = false;
 
-	private string[] visitors = new string[] {"penguin", "mouse", "nurse", "police", "giraffe", "weregiraffe"};
+	private string[] visitors = new string[] {"penguin", "mouse", "nurse", "police"};
+	private string[] giraffes = new string[] {"giraffe", "weregiraffe"};
 
 	// Use this for initialization
 	void Start () {
@@ -59,21 +60,47 @@ public class DialogueManager : MonoBehaviour {
 
 	}
 
+	private void check_for_window_visitor() {
+		Image giraffeImage = GameObject.Find ("giraffe").GetComponent<Image> ();
+		bool showSomeone = false;
+		foreach (var visitor in giraffes) {
+			bool showVisitor = false;
+			parser.Flags.TryGetValue (visitor+".appears", out showVisitor);
+			if (showVisitor) { 
+				Debug.Log (visitor + " appears");
+
+				giraffeImage.sprite = Resources.Load<Sprite> ("Sprites/" + visitor);
+				giraffeImage.enabled = true;
+				showSomeone = true;
+				break;
+			}
+
+		}
+		if (!showSomeone) {
+			giraffeImage.enabled = false;
+		}		
+	}
+
 	private void check_for_visitor() {
+		Image visitorImage = GameObject.Find ("visitor").GetComponent<Image> ();
+		bool showSomeone = false;
 		foreach (var visitor in visitors) {
 			bool showVisitor = false;
 			parser.Flags.TryGetValue (visitor+".appears", out showVisitor);
 			if (showVisitor) { 
 				Debug.Log (visitor + " appears");
-				var location = "visitor";
-				if (visitor.CompareTo ("giraffe") == 0 || visitor.CompareTo ("weregiraffe") == 0) {
-					location = "giraffe";
-				}
-				Image visitorImage = GameObject.Find (location).GetComponent<Image> ();
 				visitorImage.sprite = Resources.Load<Sprite> ("Sprites/" + visitor);
 				visitorImage.enabled = true;
-			}			
+				showSomeone = true;
+				break;
+			}
+
 		}
+		if (!showSomeone) {
+			visitorImage.enabled = false;
+		}
+
+
 	}
 
 	public void ShowDialogue(){
@@ -82,7 +109,7 @@ public class DialogueManager : MonoBehaviour {
 
 		// check flags
 		check_for_visitor();
-
+		check_for_window_visitor ();
 	}
 
 	void ResetImages(){
