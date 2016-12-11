@@ -174,7 +174,7 @@ public class DialogueManager : MonoBehaviour {
 		Debug.Log ("we are at line " + lineNum + " with this content: " + parser.GetContent (lineNum));
 		if (parser.GetContent(lineNum) == "Check")
 		{
-			
+			Debug.Log ("In check");
 			inCheck = true;
 			checks = parser.GetOptions (lineNum);
 			Debug.Log ("LINE NUM: " + lineNum);
@@ -239,7 +239,7 @@ public class DialogueManager : MonoBehaviour {
 			gameManager.inChoice = false;
 			characterName = parser.GetSpeaker (lineNum);
 			var text = parser.GetContent (lineNum);
-
+			Debug.Log ("In not choice");
 			//if dialogue contains commands
 			if (text == "over" && !gameManager.inChoice)
 			{
@@ -261,7 +261,7 @@ public class DialogueManager : MonoBehaviour {
 		//	DisplayImages ();
 		}
 		else {
-
+			Debug.Log ("In else so assume choice: " + lineNum);
 			gameManager.inChoice = true;
 			characterName = "";
 			dialogue = "";

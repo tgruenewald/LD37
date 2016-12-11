@@ -106,16 +106,16 @@ public class DialogueParser : MonoBehaviour {
 					}
 					list.Add(lineEntry);
 				}
-//					else if (lineData[1] == "Check")
-//					{
-//						DialogueLine lineEntry = new DialogueLine(lineData[0],lineData[1],"");
-//						lineEntry.options = new string[lineData.Length-1];
-//						for (int i = 2; i < lineData.Length; i++)
-//						{
-//							lineEntry.options[i-2] = lineData[i];
-//						}
-//						list.Add(lineEntry);
-//					}
+					else if (lineData[1] == "Check")
+					{
+						DialogueLine lineEntry = new DialogueLine(lineData[0],lineData[1],"");
+						lineEntry.options = new string[lineData.Length-1];
+						for (int i = 2; i < lineData.Length; i++)
+						{
+							lineEntry.options[i-2] = lineData[i];
+						}
+						list.Add(lineEntry);
+					}
 				else{
 					if (lineData.Length != (3))
 					{

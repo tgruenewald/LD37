@@ -273,7 +273,7 @@ noVisitors|Looks like you have no visitors today.~SetFlag,nurse.appears,T|Nurse
 |over|
 |FINAL DAY|
 finalDay|You awake today feeling immensely weakened. It is difficult to think, much less string together a sentence.|
-|As you awaken, you see your visitor for today has already arrived. Finally, a uniform.~SetFlag,police.appears,T|
+|As you awaken, you see your visitor for today has already arrived. Finally, a uniform.~SetFlag,police.appears,T:line,next|
 |It sssounds like you've been a busssy sssnake.|Officer
 Choice|Have you come to take my statement?~line,police.statement|Are you making fun of the snake accent, offissser?~line,police.accent|
 police.accent|Of course not. That would be unprofessional.~line,police.cont|Officer
@@ -288,8 +288,8 @@ accuse.nurse|She has a personal vendetta against snakes and has refused allowing
 |If I had been able to see more than one visitor, I would have sussed out the true killer.|You
 |Also, her comments had a dispiriting effect on my immune system.|You
 |The officer scribbles down everything you have said.|
-|Very well. We will further examine the nurse for evidence of murder.~SetFlag,nurseAccused,T|Officer
-|You settle back as the officer leaves.~SetFlag,police.appears,F|
+|Very well. We will further examine the nurse for evidence of murder.~SetFlag,nurseAccused,T:line,next|Officer
+|You settle back as the officer leaves.~SetFlag,police.appears,F:line,next|
 |You might not have caught the poisoner, but you pinpointed someone who murdered you all the same.|
 |It is quite a relief to close your eyes and not have to awaken to the nurse's voice.|
 |On the other hand, that is because you do not awaken again.~line,postDeath|
@@ -312,7 +312,7 @@ seriousAccusation|That is a serious accusation Mrs. Slitherkins. We will investi
 |I provided only one sentence. Let me tell you what else I discovered in my investigation.|You
 |You do your job, I do mine.|Officer
 |The police officer stands, snapping shut his notebook. Your snakelike senses also detect his stomach rumbling.|
-|That explains his hasty departure.~SetFlag,police.appears,F|
+|That explains his hasty departure.~SetFlag,police.appears,F:line,next|
 |You settle in to wait for the investigation that hopefully will occur.|
 |Check|penguinCorrect=T~penguin.ending|ending.death
 |PENGUIN CORRECT ENDING|
@@ -353,5 +353,4 @@ ending.postDeath|
 |Check|giraffeRevealed=T~
 |Check|mouseCorrect=T~
 |Check|mouseAdmitted=T~
-|Check|nurseAccused=T~
 |over|
