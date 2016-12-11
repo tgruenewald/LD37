@@ -26,6 +26,8 @@ public class DialogueManager : MonoBehaviour {
 	bool firstScreen = true;
 	public bool inCheck = false;
 
+	private string[] visitors = new string[] {"penguin", "mouse", "nurse", "police", "giraffe", "weregiraffe"};
+
 	// Use this for initialization
 	void Start () {
 		dialogue = "";
@@ -57,11 +59,30 @@ public class DialogueManager : MonoBehaviour {
 
 	}
 
-
+	private void check_for_visitor() {
+		foreach (var visitor in visitors) {
+			bool showVisitor = false;
+			parser.Flags.TryGetValue (visitor+".appears", out showVisitor);
+			if (showVisitor) { 
+				Debug.Log (visitor + " appears");
+				var location = "visitor";
+				if (visitor.CompareTo ("giraffe") == 0 || visitor.CompareTo ("weregiraffe") == 0) {
+					location = "giraffe";
+				}
+				Image visitorImage = GameObject.Find (location).GetComponent<Image> ();
+				visitorImage.sprite = Resources.Load<Sprite> ("Sprites/" + visitor);
+				visitorImage.enabled = true;
+			}			
+		}
+	}
 
 	public void ShowDialogue(){
 		//ResetImages ();
 		ParseLine ();
+
+		// check flags
+		check_for_visitor();
+
 	}
 
 	void ResetImages(){

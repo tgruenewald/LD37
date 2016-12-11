@@ -31,9 +31,9 @@ Choice|Ha. Ha. Very amusing.~line,next|I am not a poisonous snake.~line,next|Wha
 |Two visitors at once will overtax you and you will die even sooner.|Nurse
 |This logic seems flawed, but the nurse will not be moved, and given the pain in your tail, you won't be moving either.|
 |Very well.|You
-|Three visitors have come to see you. Who will you meet with today?|Nurse
+threeVisitors|Three visitors have come to see you. Who will you meet with today?|Nurse
 |**the nurse and some internal thoughts from the narrator explain the giraffe is a rival, the mouse is a frequent customer, and the penguin is the owner of the downstairs ice-skating rink|
-Choice|Girwoffe the giraffe.~line,giraffe1|Mr. Scamperfoot, the mouse.~line,mouse1|Miss Guinn the penguin.~line,penguin1
+Choice|Girwoffe the giraffe.~line,giraffe1|Mr. Scamperfoot, the mouse.~line,mouse1|Miss Guinn the penguin.~SetFlag,penguin.appears,T:line,penguin1
 |GIRAFFE - FIRST CONVERSATION|
 giraffe1|The nurse leaves, and after several minutes, a giraffe pokes his head through the open window.|
 |You should ask to be relocated to a higher floor. I have to bend down to talk to you and it is highly uncomfortable. Or should I say ... lowly?|Giraffe
@@ -43,7 +43,7 @@ giraffe.business|The giraffe attempts to stretch pompously. His task is rather i
 |I am here on business.|Giraffe
 |I was planning to speak to you earlier today, but then this unfortunate accident happened. However, your business was already floundering, Mrs. Slitherskins. You and your son are both hospitalized, and someone has to pay the medical bills.|Giraffe
 |You must sell your shoe business to me for five thousand. What do you say?|Giraffe
-|explosionKnown=T~I heard the explosion only destroyed part of my inventory.|You
+|I heard the explosion only destroyed part of my inventory.~SetFlag,explosionKnown,T:line,next|You
 |Hmph. Six thousand then. That’s my final offer.|Giraffe
 Choice|Fine. My shoe store is yours.~SetFlag,giraffe.sold,T:SetFlag,giraffe.exhaust,T:line,giraffe.sell|Get lost, long-neck. (or something more insulting)~SetFlag,giraffe.exhaust,T:line,giraffe.refuse|giraffe.f.poison,T~I will sell to you, if you tell me the antidote for this poison.|I need time to consider.~line,giraffe.time
 giraffe.poison|I would gladly take that trade, but I didn’t even know you were poisoned. Hmm, maybe I don’t need to sell, if you’re about to die … then again … Is your son poisoned too?~SetFlag,giraffe.f.poison,T|
@@ -56,7 +56,7 @@ giraffe.sell|Excellent! I will have the money transferred to your account right 
 |Not that I hired anyone this time, of course. So tell whoever really burned your shop that I owe them a favor. I suspect it was that tiny penguin. He once asked me whether I would help him expand his business to the upper floor, but he seemed to be suggesting something quite illegal so I ended that conversation right away.|Giraffe
 |Because I would never do anything illegal. And it turns out I didn’t even need to!|Giraffe
 |The giraffe is so excited he hits his head on the window frame on his way out, but he doesn’t even care.|
-|As he gallops away, the nurse enters and urges you to rest.|
+|As he gallops away, the nurse enters and urges you to rest.~line,threeVisitors|
 |over|
 giraffe.refuse|Foolish reptile! Your business is already dead! I am offering you an incredible price, more than thrice what your business is worth, if I’m being generous, and I am being generous! Your fake snake shoes are worth 1500 at best, and that’s including what’s left of your inventory!|
 Choice|I apologize. Still, I will not sell.~line,giraffe.refusecont|**Insult.**~line,next

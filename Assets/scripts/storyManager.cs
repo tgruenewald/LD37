@@ -36,7 +36,11 @@ public class storyManager : MonoBehaviour {
 
 	public void changeStat(string stat, int change)
 	{
-		Stat [stat] += change;
+		if (!Stat.ContainsKey (stat)) {
+			Stat.Add (stat, change);
+		} else {
+			Stat [stat] += change;
+		}
 		gameManager.updateStats ();
 	}
 

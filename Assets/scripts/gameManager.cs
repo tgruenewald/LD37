@@ -74,13 +74,15 @@ public class gameManager : MonoBehaviour {
 	}//if Update
 
 	public void ExitAdventure(){
-		AdvanceWeek ();
-		inStory = false;
-		expRound = false;
-		weekText.text = "Week: " + week;
-		mapTracker.hidePlanets ();
-		updateStats ();
-		roomScript.leaveRoom ();
+		// loop back to beginning of nurse
+
+//		AdvanceWeek ();
+//		inStory = false;
+//		expRound = false;
+//		weekText.text = "Week: " + week;
+//		mapTracker.hidePlanets ();
+//		updateStats ();
+//		roomScript.leaveRoom ();
 
 	}
 
@@ -148,12 +150,6 @@ public class gameManager : MonoBehaviour {
 
 	public void AdvanceWeek(){
 		Debug.Log ("Week advanced");
-		updateStats ();
-		player[turn].statText.text = player[turn].name +
-			"\n\nEngineering: " + player[turn].eng +
-			"\nBotany: " + player[turn].bot +
-			"\nProgramming: " + player[turn].cp +
-			"\nMedical: " + player[turn].med;
 
 		week++;
 		if (week % 4 == 0){
