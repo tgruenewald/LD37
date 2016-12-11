@@ -192,8 +192,8 @@ mouse2|Hello. How are you doing, Mrs. Slitherkins?~SetFlag,secondMouseMeeting,T:
 |I'm glad you enjoyed it. I better get going.|Scampers
 |Wait, before you go ...|You
 Choice|Is this pudding poisoned?~line,mouse.pudding|mouseAdvised=F~Should I sell to Girwoffe?~line,mouse.advise|How is your daughter doing?~line,mouse.daughter2
-mouse.pudding|
-mouse.daughter2|
+mouse.pudding||
+mouse.daughter2||
 |**further daughter conversation could result in admitting that he bombed the shop, but he swears he is not behind the poisoning|
 |PENGUIN - FIRST CONVERSATION|
 penguin1|Miss Guinn waddles in with fresh flowers that she exchanges with the stale flowers at your bedside. She's the proprieter of the ice rink under your shoe shop. You've known her since high school, albeit not very well.~SetFlag,penguin.appears,T:SetFlag,penguinMet,T|
@@ -323,7 +323,7 @@ werewolfAccusation|The officer sits up straight.~SetFlag,werewolfAccused,T|
 |They've probably been voting to hang the wrong animal during the daytime. If the werewolves ever become the majority of eligible voters ...|
 |If you've discovered a werewolf, you will be greatly rewarded.|Officer
 |I must speak with my superiors at once.|Officer
-|The officer scurries out.~SetFlag,police.appears,F:line,ending.death
+|The officer scurries out.~SetFlag,police.appears,F:line,ending.death|
 |if correct with Girwoffe, player dies but Girwoffe is imprisoned and player is rewarded posthumously and player's son makes a killing selling shoes.|
 |if correct with Guin, Guin goes to jail and player continues to sell shoes and reflect on how to be a better person. if player sold shoe store, they run the ice skating rink instead|
 |if correct with Mouse, player dies but learns mouse's daughter goes to therapy for her kleptomania but is not able to cure a hatred for snakes|
@@ -345,7 +345,7 @@ ending.death|Well. Given that you appear quite on the verge of death, I'll waive
 |At least he lives to carry on your legacy.|
 |The nurse approaches you with the chosen antidote.|
 |You nod and close your eyes.~SetFlag,nurse.appears,F|
-ending.postDeath|
+ending.postDeath||
 |Check|Werewolf accused/disocvered
 |Check|giraffe.sold=T
 |Check|if so, how much it was sold for

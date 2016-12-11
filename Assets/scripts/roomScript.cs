@@ -31,6 +31,8 @@ public class roomScript : MonoBehaviour {
 		illustration.sprite = Resources.Load<Sprite>("Sprites/bedwithsnake");
 		illustration.enabled = true;
 
+		parser = GameObject.Find ("Dialogue Parser").GetComponent<DialogueParser> ();
+
 		Debug.Log ("room has started");
 
 
@@ -123,9 +125,9 @@ public class roomScript : MonoBehaviour {
 		characterName.enabled = true;
 	}
 
-	public void startStory(int destination)
+	public void startStory(int destination, DialogueManager diaMan)
 	{
-		
+		this.DialogueManager = diaMan;
 //		if (gameManager.expRound) {
 //			if (System.Array.IndexOf (mapTracker.planet [mapTracker.location].accessiblePlanets, destination) != -1 || destination == mapTracker.location) {
 //				hideChoices();
@@ -138,10 +140,12 @@ public class roomScript : MonoBehaviour {
 					illustration.enabled = true;
 					enableCharacterArt ();
 					storyText.enabled = true;
-
+					Debug.Log ("----------startStory diaMan " + this.DialogueManager);
+		Debug.Log ("diaman.name  = " + this.DialogueManager.name + ", " + this.DialogueManager.lineNum + ", " + parser.SearchStory("storyStart") );
 					//string text = "";
 					if (destination == 1) {
-						DialogueManager.lineNum = parser.SearchStory("storyStart");
+			
+						this.DialogueManager.lineNum = parser.SearchStory("storyStart");
 
 
 						//text = gameManager.animateStory ("adventure.default");
@@ -170,7 +174,7 @@ public class roomScript : MonoBehaviour {
 		if (gameManager.inChoice)
 		{
 			storyManager.pickedChoice = choice;
-			startStory (mapTracker.location);
+			startStory (mapTracker.location, this.DialogueManager);
 			gameManager.inChoice = false;
 			storyText.enabled = true;
 		}

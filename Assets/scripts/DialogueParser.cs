@@ -33,6 +33,7 @@ public class DialogueParser : MonoBehaviour {
 	static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
 
 	void Start () {
+		Debug.Log ("DiaParser STARTING");
 		
 //		string file = "Assets/TextAssets/ludum37.txt";
 //		lines = new List<DialogueLine> ();
@@ -48,6 +49,7 @@ public class DialogueParser : MonoBehaviour {
 	}
 
 	public void init() {
+		Debug.Log ("DiaPars: calling init");
 		string file = "TextAssets/ludum37";
 		lines = new List<DialogueLine> ();
 

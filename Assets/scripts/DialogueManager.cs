@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour {
-
+	public string name = "dia man!!";
 	DialogueParser parser;
 	storyManager storyManager;
 	public gameManager gameManager;
@@ -33,12 +33,13 @@ public class DialogueManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Debug.Log ("DiaMgr STARTING");
 		dialogue = "";
 		characterName = "";
 		//inChoice = false;
 		parser = GameObject.Find ("Dialogue Parser").GetComponent<DialogueParser> ();
 		storyManager = GameObject.Find ("gameManager").GetComponent<storyManager> ();
-
+		Debug.Log ("Setting linenum back to zero" + lineNum);
 		lineNum = 0;
 	}
 	IEnumerator wait_a_bit(){
@@ -207,6 +208,7 @@ public class DialogueManager : MonoBehaviour {
 						{
 							gameManager.runLineCommand (lineCommand);
 							inCheck = false;
+							Debug.Log ("1. decrement linenum: " + lineNum);
 							lineNum--;
 							return;
 						}
@@ -217,6 +219,7 @@ public class DialogueManager : MonoBehaviour {
 						if (storyManager.checkStat(allChecks))
 						{
 							gameManager.runLineCommand(lineCommand);
+							Debug.Log ("2. decrement linenum: " + lineNum);
 							lineNum--;
 							inCheck = false;
 							return;
@@ -229,6 +232,7 @@ public class DialogueManager : MonoBehaviour {
 				else 
 				{
 					gameManager.runLineCommand (entireCheck);
+					Debug.Log ("3. decrement linenum: " + lineNum);
 					lineNum--;
 					inCheck = false;
 					return;

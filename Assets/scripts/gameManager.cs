@@ -63,10 +63,11 @@ public class gameManager : MonoBehaviour {
 	public void Start()
 	{
 		dialogueManager = GameObject.Find ("Dialogue Manager").GetComponent<DialogueManager> ();
+		Debug.Log ("dialogMangaer is " + dialogueManager);
 		parser = GameObject.Find ("Dialogue Parser").GetComponent<DialogueParser> ();
 
 		parser.init ();
-		roomScript.startStory (1);
+		roomScript.startStory (1,dialogueManager);
 		Image illustration = GameObject.Find ("illustration").GetComponent<Image> ();	
 		illustration.CrossFadeAlpha (0f, 0f, false);
 		Text dayDisplayText = GameObject.Find ("DayDisplayText").GetComponent<Text> ();
