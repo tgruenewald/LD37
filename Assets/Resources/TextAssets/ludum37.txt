@@ -45,8 +45,8 @@ giraffe.business|The giraffe attempts to stretch pompously. His task is rather i
 |You must sell your shoe business to me for five thousand. What do you say?|Giraffe
 |I heard the explosion only destroyed part of my inventory.~SetFlag,explosionKnown,T:line,next|You
 |Hmph. Six thousand then. That’s my final offer.|Giraffe
-Choice|Fine. My shoe store is yours.~SetFlag,giraffe.sold,T:SetFlag,giraffe.exhaust,T:line,giraffe.sell|Get lost, long-neck. (or something more insulting)~SetFlag,giraffe.exhaust,T:line,giraffe.refuse|giraffe.f.poison,T~I will sell to you, if you tell me the antidote for this poison.|I need time to consider.~line,giraffe.time
-giraffe.poison|I would gladly take that trade, but I didn’t even know you were poisoned. Hmm, maybe I don’t need to sell, if you’re about to die … then again … Is your son poisoned too?~SetFlag,giraffe.f.poison,T|
+Choice|Fine. My shoe store is yours.~SetFlag,giraffe.sold,T:SetFlag,giraffe.exhaust,T:line,giraffe.sell|Get lost, long-neck. (or something more insulting)~SetFlag,giraffe.exhaust,T:line,giraffe.refuse|I will sell to you, if you tell me the antidote for this poison.~SetFlag,giraffe.f.poison,T:line,giraffe.poison|I need time to consider.~line,giraffe.time
+giraffe.poison|I would gladly take that trade, but I didn’t even know you were poisoned. Hmm, maybe I don’t need to sell, if you’re about to die … then again … Is your son poisoned too?|
 Choice|Yes. (lie)~line,next|No.~line,Giraffe.sonPoisonedNo|I don’t know.~line,Giraffe.sonPoisonedDunno
 giraffe.sonPoisonedYes|Hm. I guess I didn’t need to talk to you after all. Usually I only have this kind of luck when the moon is full.~SetFlag,giraffe.exhaust,T:line,over|Giraffe
 |over|
@@ -59,13 +59,13 @@ giraffe.sell|Excellent! I will have the money transferred to your account right 
 |As he gallops away, the nurse enters and urges you to rest.~SetFlag,giraffe.appears,F:line,threeVisitors|
 |over|
 giraffe.refuse|Foolish reptile! Your business is already dead! I am offering you an incredible price, more than thrice what your business is worth, if I’m being generous, and I am being generous! Your fake snake shoes are worth 1500 at best, and that’s including what’s left of your inventory!|
-Choice|I apologize. Still, I will not sell.~line,giraffe.refusecont|**Insult.**~line,next
+Choice|I apologize. Still, I will not sell.~line,giraffe.refusecont|Insult~line,next
 |Snakes don’t even wear shoes! Your store was always going to be ridiculous!|
-Choice|I apologize. Still, I will not sell.~line,giraffe.refusecont|**Insult**~line,next
+Choice|I apologize. Still, I will not sell.~line,giraffe.refusecont|Insult~line,next
 |Girwoffe is now so livid that appears gray. In fact, he seems to be spouting gray fur?|
-Choice|**Insult**~line,next
+Choice|Insult~line,next
 |The very shape of the giraffe's face is morphing, becoming more like that of a canine. The snout lenghthens, Girwoffe throws back his head and howls.|
-Choice|**Insult**~line,next
+Choice|Insult~line,next
 |**Giraffe turns into a weregiraffe and flees.**~SetFlag,weregiraffeReaveled,T:SetFlag,giraffe.exhaust,T:line,over|//player can no longer speak with giraffe, but can accuse giraffe of being a weregiraffe at end of game
 giraffe.refusecont|You stubborn serpent. Doubtless you'll change your mind.|
 giraffe.time|I will return tomorrow, but that will be my final offer.|Giraffe

@@ -62,6 +62,7 @@ public class DialogueParser : MonoBehaviour {
 	void Update () {
 	
 	}
+		
 
 	void LoadDialogue(string textfile, List<DialogueLine> list){
 		string line;
@@ -175,6 +176,7 @@ public class DialogueParser : MonoBehaviour {
 					Debug.Log ("Error: incorrect flag setting at line: " + line + " with commands: " + commands);
 				}
 				newFlag = commands.Split(',')[1];
+				Debug.Log ("adding key: " + newFlag);
 				if (FlagExists (newFlag))
 					return;
 				else

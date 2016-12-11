@@ -25,6 +25,8 @@ public class DialogueManager : MonoBehaviour {
 
 	bool firstScreen = true;
 	public bool inCheck = false;
+	bool debugging = false;
+	public bool gameOver = false;
 
 	private string[] visitors = new string[] {"penguin", "mouse", "nurse", "police"};
 	private string[] giraffes = new string[] {"giraffe", "weregiraffe"};
@@ -39,9 +41,33 @@ public class DialogueManager : MonoBehaviour {
 
 		lineNum = 0;
 	}
+	IEnumerator wait_a_bit(){
+		yield return new WaitForSeconds (1f);
+	}
+	public void run_all_lines() {
+		debugging = true;
+		while (!gameOver) {
+			Debug.Log ("running all lines");
+			if (gameManager.delayedLineCommand) {
+				Debug.Log ("releasing delayed line command");
+				gameManager.runLineCommand (gameManager.commandModifier);
+				gameManager.delayedLineCommand = false;
+
+			} else {
+				Debug.Log ("updating dialogue after click");
+				UpdateDialogue (true);
+			}	
+			Debug.Log ("waiting");
+			StartCoroutine (wait_a_bit());
+			Debug.Log ("done waiting");
+		}
+		Debug.Log ("compile success");
+	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (debugging)
+			return;
 		if ((Input.GetButtonDown("Fire1") || Input.GetMouseButtonDown(0)) && !gameManager.inChoice && gameManager.inStory && !inCheck)
 		{
 			if (gameManager.delayedLineCommand)
@@ -129,6 +155,7 @@ public class DialogueManager : MonoBehaviour {
 			parser.activeList = parser.skillLines;
 			if (parser.GetKey(lineNum) != "" && !firstScreen)
 			{
+				gameOver = true;
 				gameManager.ExitAdventure ();
 				firstScreen = true;
 				return;
