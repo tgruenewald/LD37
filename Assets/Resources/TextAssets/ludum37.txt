@@ -258,7 +258,7 @@ startday4|The nurse enters, whistling through her buckteeth.~SetFlag,nurse.appea
 |GENERAL CHOICE|
 genChoice|Check|giraffe.exhaust=T*mouse.exhaust=T*penguin.exhaust=T~line,noVisitors|line,pickVisitor
 pickVisitor|Who is your visitor today?|Nurse
-Choice|giraffeMet=T,giraffe.exhaust=F~Girwoffe the giraffe.~line,giraffe2|giraffeMet=F~The giraffe.~line,giraffe|penguinMet=T,penguin.exhaust=F~Miss Guin the penguin.~line,penguin2|penguinMet=T~The penguin.~line,penguin1|mouseMet=T,mouse.exhaust=F~Mr. Scampers the mouse.~line,mouse2|mouseMet=F~The mouse.~line,mouse1
+Choice|giraffeMet=T*giraffe.exhaust=F~Girwoffe the giraffe.~line,giraffe2|giraffeMet=F~The giraffe.~line,giraffe|penguinMet=T*penguin.exhaust=F~Miss Guin the penguin.~line,penguin2|penguinMet=T~The penguin.~line,penguin1|mouseMet=T*mouse.exhaust=F~Mr. Scampers the mouse.~line,mouse2|mouseMet=F~The mouse.~line,mouse1
 |IF NO VISITORS|
 noVisitors|Looks like you have no visitors today.~SetFlag,nurse.appears,T|Nurse
 |Not even my son?|You
