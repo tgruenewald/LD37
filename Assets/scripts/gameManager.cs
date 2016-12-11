@@ -95,9 +95,10 @@ public class gameManager : MonoBehaviour {
 	public void ExitAdventure(){
 		
 		Debug.Log ("loop back to beginning of nurse");
-		dialogueManager.lineNum = parser.SearchStory("startday");
-		dialogueManager.lineNum--;
 		day++;
+		dialogueManager.lineNum = parser.SearchStory("startday"+day);
+		dialogueManager.lineNum--;
+
 		Text dayDisplayText = GameObject.Find ("DayDisplayText").GetComponent<Text> ();
 		dayDisplayText.text = "Day " + day;
 		dayDisplayText.CrossFadeAlpha(1.0f, 0f, true);

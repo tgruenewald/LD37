@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class ChoiceButton : MonoBehaviour {
+public class ChoiceButton : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler {
 
 	public string option;
 
@@ -11,7 +12,8 @@ public class ChoiceButton : MonoBehaviour {
 	DialogueManager dialogueManager;
 	storyManager storyManager;
 	roomScript roomScript;
-
+	AudioSource audioHighlight;
+	AudioSource audioSelect;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +22,9 @@ public class ChoiceButton : MonoBehaviour {
 		gameManager = GameObject.Find ("gameManager").GetComponent<gameManager> ();
 		//storyManager = GameObject.Find ("gameManager").GetComponent<storyManager> ();
 		//roomScript = GameObject.Find ("Rooms").GetComponent<roomScript> ();
+		audioSelect = GameObject.Find ("ui_select").GetComponent<AudioSource>();
+		audioHighlight = GameObject.Find ("ui_highlight").GetComponent<AudioSource>();
+
 	}
 	
 	// Update is called once per frame
@@ -42,4 +47,14 @@ public class ChoiceButton : MonoBehaviour {
 		gameManager.parseOption (option);
 
 	}//parseOptions
+	public void OnPointerEnter( PointerEventData ped ) {
+		Debug.Log ("=============================hover");
+		audioHighlight.Play ();
+
+	}
+
+	public void OnPointerDown( PointerEventData ped ) {
+		Debug.Log ("=============================CLICK");
+		audioSelect.Play ();
+	}    
 }

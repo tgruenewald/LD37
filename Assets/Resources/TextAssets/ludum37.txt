@@ -115,7 +115,7 @@ mouse.flee|You flicker your tongue at Mr. Scampers, who snatches up his briefcas
 mouse.sorry|That's all right. I'll, uh, take it as a compliment.|Scampers
 mouse.cont|I came because I hoped you are well. That is, you are well ... I hope. I just had to see you for myself.|Scampers
 |And you are well. I'm grateful. Because shoes. You know. I need somewhere to get new shoes.|Scampers
-Choice|Actually, I am not well. I need to find out who's trying to kill me.~line,mouse.cont|What about Girwoffe's shoes?~line,mouse.shoes|giraffe.sold=T~I just sold my business to Girwoffe.~T:line,mouse.sold|giraffe.sold=F*mouse.advised=F*giraffeMet=T~Do you think I should sell my business to Girwoffe?~line,mouse.advice
+Choice|Actually, I am not well. I need to find out who's trying to kill me.~line,mouse.cont|What about Girwoffe's shoes?~line,mouse.shoes|I just sold my business to Girwoffe.~giraffe.sold=T:line,mouse.sold|Do you think I should sell my business to Girwoffe?~giraffe.sold=F*mouse.advised=F*giraffeMet=T:line,mouse.advice
 mouse.advice|No, definitely not!~SetFlag,mouse.advised,T|Scampers
 |Why not?|You
 |That giraffe is a bully! And he's too tall.|Scampers
@@ -196,7 +196,7 @@ mouse.pudding||
 mouse.daughter2||
 |**further daughter conversation could result in admitting that he bombed the shop, but he swears he is not behind the poisoning|
 |PENGUIN - FIRST CONVERSATION|
-penguin1|Miss Guinn waddles in with fresh flowers that she exchanges with the stale flowers at your bedside. She's the proprieter of the ice rink under your shoe shop. You've known her since high school, albeit not very well.~SetFlag,penguin.appears,T:SetFlag,penguinMet,T|
+penguin1|Miss Guinn waddles in with fresh flowers that she exchanges with the stale flowers at your bedside. She's the proprieter of the ice rink under your shoe shop. You've known her since high school, albeit not very well.~SetFlag,penguin.appears,T:SetFlag,penguinMet,T:line,next|
 |How are you feeling?|Miss Guin
 Choice|Like I'm about to die.~guin,1:line,guin.die|Very good, thanks for asking.~guin,-1:line,guin.cont
 guin.die|I'm sure it's not so drastic.|Miss Guin
@@ -206,13 +206,14 @@ Choice|It's a genetic snake trait.~guin,-1:line,guin.positive|Daily meditation.~
 guin.positive|<positive>|
 guin.pretend|<pretend>|
 guin.poison|That's terrible! Who would do such a thing?|Miss Guin
-Choice|That's what I will find out.~guin.who|I don't have any enemies.~guin,-1:line,guin.enemies|I must have done something wrong.~guin,1:line,guin.cont
+Choice|That's what I will find out.~line,guin.who|I don't have any enemies.~guin,-1:line,guin.enemies|I must have done something wrong.~guin,1:line,guin.cont
 guin.enemies|Perhaps it's an enemy you don't know about yet.|
 guin.who|What's the name of that mouse who's always sneaking around? I've caught him filching snowcones from my ice rink.|
-Choice|Mr. Scampers is a loyal customer.|Everyone steals from you.|
+Choice|Mr. Scampers is a loyal customer.~line,next|Everyone steals from you.~line,next
 guin.cont|After a strained silence, you decide to speak.|
-Choice|Was your ice rink damaged in the blast?~guin,2:line,guin.rink|giraffe.sold=T~Should I sell my business?~line,guin.business
-guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.~SetFlag,explosionKnown,T|
+Choice|Was your ice rink damaged in the blast?~guin,2:line,guin.rink|Should I sell my business?~SetFlag,giraffe.sold=T:line,guin.business
+guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.~SetFlag,explosionKnown,T:line,next|
+guin.business|guin.business|
 |**more speaking about the other suspects and what happened**|
 |over|
 |PENGUIN - SECOND CONVERSATION|
@@ -234,13 +235,13 @@ guin.ending|I thought you would have more visitors.|Miss Guin
 Choice|It's good to talk to someone who isn't trying to kill me.|I would rather see my son.
 |NURSE LINES|
 |DAY TWO|
-day2|Wake up.~SetFlag,nurse.appears,T:line,next|Nurse
+startday2|Wake up.~SetFlag,nurse.appears,T:line,next|Nurse
 |You have visitors.|Nurse
 |Shouldn't I have something to eat first?|You
 |Unless you want me to eat a visitor.|Nurse
 |The nurse hands you a plate of questionable jellylike substance.~line,genChoice|
 |DAY THREE|
-day3|Wake up.~SetFlag,nurse.appears,T:line,next|Nurse
+startday3|Wake up.~SetFlag,nurse.appears,T:line,next|Nurse
 |You're snoring.|Nurse
 |What do you care whether I hiss?|You
 |I don't care.|Nurse
@@ -248,7 +249,7 @@ day3|Wake up.~SetFlag,nurse.appears,T:line,next|Nurse
 |How is my son?|You
 |Alive. Not awake.~line,genChoice|Nurse
 |DAY FOUR|
-day4|The nurse enters, whistling through her buckteeth.~SetFlag,nurse.appears,T:line,next|
+startday4|The nurse enters, whistling through her buckteeth.~SetFlag,nurse.appears,T:line,next|
 |Someone's in a good mood today.|You
 |Someone's going to die today.|Nurse
 |Ouch.|

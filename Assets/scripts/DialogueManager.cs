@@ -22,6 +22,7 @@ public class DialogueManager : MonoBehaviour {
 	public Text dialogueBox;
 	public Text nameBox;
 	public GameObject choiceBox;
+	Image characterArt;
 
 	bool firstScreen = true;
 	public bool inCheck = false;
@@ -34,6 +35,7 @@ public class DialogueManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("DiaMgr STARTING");
+		characterArt = GameObject.Find ("characterArt").GetComponent<Image> ();
 		dialogue = "";
 		characterName = "";
 		//inChoice = false;
@@ -41,6 +43,8 @@ public class DialogueManager : MonoBehaviour {
 		storyManager = GameObject.Find ("gameManager").GetComponent<storyManager> ();
 		Debug.Log ("Setting linenum back to zero" + lineNum);
 		lineNum = 0;
+
+
 	}
 	IEnumerator wait_a_bit(){
 		yield return new WaitForSeconds (1f);
@@ -242,6 +246,7 @@ public class DialogueManager : MonoBehaviour {
 		else if (parser.GetKey (lineNum) != "Choice" && parser.GetKey (lineNum) != "endChoice"){
 			gameManager.inChoice = false;
 			characterName = parser.GetSpeaker (lineNum);
+
 			var text = parser.GetContent (lineNum);
 			Debug.Log ("In not choice");
 			//if dialogue contains commands
@@ -355,6 +360,9 @@ public class DialogueManager : MonoBehaviour {
 			dialogueBox.text = "The next day";
 		//gameManager.animateStory (dialogue);
 		nameBox.text = characterName;
+		characterArt.sprite = Resources.Load<Sprite> ("Sprites/" + characterName + "_avatar");
+
+
 	}//UpdateUI
 
 	void ClearButtons(){
