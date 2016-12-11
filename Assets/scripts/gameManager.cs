@@ -15,6 +15,7 @@ public class gameManager : MonoBehaviour {
 
 	public int week = 1;
 	public int turn = 0;
+	public int day = 1;
 
 	string command = "";
 	public string commandModifier = "";
@@ -56,6 +57,10 @@ public class gameManager : MonoBehaviour {
 
 		parser.init ();
 		roomScript.startStory (1);
+
+		Text dayDisplayText = GameObject.Find ("DayDisplayText").GetComponent<Text> ();
+		dayDisplayText.text = "Day " + day;
+		dayDisplayText.CrossFadeAlpha(0, 4f, false);
 	}
 
 	public void Update(){
@@ -74,8 +79,14 @@ public class gameManager : MonoBehaviour {
 	}//if Update
 
 	public void ExitAdventure(){
-		// loop back to beginning of nurse
-
+		
+		Debug.Log ("loop back to beginning of nurse");
+		dialogueManager.lineNum = parser.SearchStory("startday");
+		day++;
+		Text dayDisplayText = GameObject.Find ("DayDisplayText").GetComponent<Text> ();
+		dayDisplayText.text = "Day " + day;
+		dayDisplayText.CrossFadeAlpha(1.0f, 0f, true);
+		dayDisplayText.CrossFadeAlpha(0, 4f, false);
 //		AdvanceWeek ();
 //		inStory = false;
 //		expRound = false;
@@ -296,16 +307,15 @@ public class gameManager : MonoBehaviour {
 	public void runLineCommand(string lineCommand)
 	{
 		int previouslineNum = dialogueManager.lineNum;
-		
-		if (lineCommand == "next")
+		if (lineCommand == "over")
+		{
+			Debug.Log ("over in runLineCommand");
+			ExitAdventure ();
+		}		
+		else if (lineCommand == "next")
 		{
 			Debug.Log ("updating dialogue for going to next line");
 			dialogueManager.UpdateDialogue (true);
-		}
-		else if (lineCommand == "over")
-		{
-
-			ExitAdventure ();
 		}
 		else
 		{

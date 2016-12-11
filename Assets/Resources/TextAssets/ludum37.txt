@@ -1,4 +1,3 @@
-|**note: exhaust flag means the character will no longer show up to visit. when no characters show up, skip to final day**|
 storyStart|Mrs. Slitherkins? Mrs. Slitherkins, can you hear me?|Nurse
 Choice|Yes, I can hear you.~line,next|-hiss-~line,next|Let me sleep.~line,next
 |Listen carefully, Mrs. Slitherkins. You've had a terrible accident. A bomb exploded in your shoe shop.|Nurse
@@ -22,7 +21,7 @@ Choice|Ha. Ha. Very amusing.~line,next|I am not a poisonous snake.~line,next|Wha
 |They're busy solving more important crimes.|Nurse
 |More important than a murder that is in progress?|You
 |More important than a snake.|Nurse
-|She wrinkles up her pink nose in disdain.|
+|She wrinkles her pink nose in disdain.|
 |What, did a snake eat your parents?|You
 |Yes, actually.|Nurse
 |Awkward.|
@@ -31,63 +30,90 @@ Choice|Ha. Ha. Very amusing.~line,next|I am not a poisonous snake.~line,next|Wha
 |Two visitors at once will overtax you and you will die even sooner.|Nurse
 |This logic seems flawed, but the nurse will not be moved, and given the pain in your tail, you won't be moving either.|
 |Very well.|You
-threeVisitors|Three visitors have come to see you. Who will you meet with today?|Nurse
-|**the nurse and some internal thoughts from the narrator explain the giraffe is a rival, the mouse is a frequent customer, and the penguin is the owner of the downstairs ice-skating rink|
-Choice|Girwoffe the giraffe.~SetFlag,giraffe.appears,T:line,giraffe1|Mr. Scamperfoot, the mouse.~SetFlag,mouse.appears,T:line,mouse1|Miss Guinn the penguin.~SetFlag,penguin.appears,T:line,penguin1
+startday|Three visitors have come to see you. A giraffe, a mouse, and a penguin. Who will you meet with today?|Nurse
+|Do you by any chance know their names?|You
+|What am I, your personal assistant? Ask them yourself.|
+Choice|Girwoffe the giraffe.~line,giraffe1|Mr. Scamperfoot, the mouse.~line,mouse1|Miss Guinn the penguin.~line,penguin1
 |GIRAFFE - FIRST CONVERSATION|
-giraffe1|The nurse leaves, and after several minutes, a giraffe pokes his head through the open window.|
-|You should ask to be relocated to a higher floor. I have to bend down to talk to you and it is highly uncomfortable. Or should I say ... lowly?|Giraffe
+giraffe1|The nurse leaves, and after several minutes, a giraffe pokes his head through the open window.~SetFlag,giraffe.appears,T:line,next|
+|You should ask to be relocated to a higher floor. I have to bend down to talk to you and it is highly uncomfortable. Or should I say ... lowly?|Girwoffe
+|Of course. It’s Girwoffe, your longtime business rival. He’s been cutting his prices like a beaver cuts trees to drive you out of business.|
 Choice|Did you come here to gloat?~line,giraffe.business|So slashing prices wasn’t enough, now you’re slashing throats?~line,next
-|You are crass, as usual.|Giraffe
+|You are crass, as usual.|Girwoffe
 giraffe.business|The giraffe attempts to stretch pompously. His task is rather impossible, since you can only see the head.|
-|I am here on business.|Giraffe
-|I was planning to speak to you earlier today, but then this unfortunate accident happened. However, your business was already floundering, Mrs. Slitherskins. You and your son are both hospitalized, and someone has to pay the medical bills.|Giraffe
-|You must sell your shoe business to me for five thousand. What do you say?|Giraffe
-|I heard the explosion only destroyed part of my inventory.~SetFlag,explosionKnown,T:line,next|You
-|Hmph. Six thousand then. That’s my final offer.|Giraffe
-Choice|Fine. My shoe store is yours.~SetFlag,giraffe.sold,T:SetFlag,giraffe.exhaust,T:line,giraffe.sell|Get lost, long-neck. (or something more insulting)~SetFlag,giraffe.exhaust,T:line,giraffe.refuse|I will sell to you, if you tell me the antidote for this poison.~SetFlag,giraffe.f.poison,T:line,giraffe.poison|I need time to consider.~line,giraffe.time
-giraffe.poison|I would gladly take that trade, but I didn’t even know you were poisoned. Hmm, maybe I don’t need to sell, if you’re about to die … then again … Is your son poisoned too?|
+|I am here on business.|Girwoffe
+|I was planning to speak to you earlier today, but then this unfortunate accident happened. However, your business was already floundering, Mrs. Slitherskins. You and your son are both hospitalized, and someone has to pay the medical bills.|Girwoffe
+|You must sell your shoe business to me for five thousand. What do you say?|Girwoffe
+|I heard the explosion only destroyed part of my inventory.|You
+|Hmph. Six thousand then. That’s my final offer.|Girwoffe
+Choice|Fine. My shoe store is yours.~line,giraffe.sell|I will not sell.~line,giraffe.refuse|I will sell to you, if you tell me the antidote for this poison.~SetFlag,giraffe.f.poison,T:line,giraffe.poison|I need time to consider.~line,giraffe.time
+giraffe.poison|I would gladly take that trade, but I didn’t even know you were poisoned. Hmm, maybe I don’t need to sell, if you’re about to die … then again … Is your son poisoned too?~SetFlag,giraffe.f.poison,T:line,next|
 Choice|Yes. (lie)~line,next|No.~line,Giraffe.sonPoisonedNo|I don’t know.~line,Giraffe.sonPoisonedDunno
-giraffe.sonPoisonedYes|Hm. I guess I didn’t need to talk to you after all. Usually I only have this kind of luck when the moon is full.~SetFlag,giraffe.exhaust,T:line,over|Giraffe
+giraffe.sonPoisonedYes|Hm. I guess I didn’t need to talk to you after all. Usually I only have this kind of luck when the moon is full.~SetFlag,giraffe.appears,F:line,over|Girwoffe
 |over|
-giraffe.sonPoisonedNo|Hm. I wonder if his room is well-guarded ... not that I would consider poisoning him too. Anyway, what do you say to selling your business?|
-giraffe.sonPoisonedDunno|Didn’t even think to ask? I always knew snakes were terrible mothers. They don’t know what to do once the child’s out of the egg. Anyway, what do you say to selling your business?|
-giraffe.sell|Excellent! I will have the money transferred to your account right away. Wow, if I had known you would break this easily I would have hired someone to burn down your shop years ago!|Giraffe
-|Not that I hired anyone this time, of course. So tell whoever really burned your shop that I owe them a favor. I suspect it was that tiny penguin. He once asked me whether I would help him expand his business to the upper floor, but he seemed to be suggesting something quite illegal so I ended that conversation right away.|Giraffe
-|Because I would never do anything illegal. And it turns out I didn’t even need to!|Giraffe
-|The giraffe is so excited he hits his head on the window frame on his way out, but he doesn’t even care.|
-|As he gallops away, the nurse enters and urges you to rest.~SetFlag,giraffe.appears,F:line,threeVisitors|
+giraffe.sonPoisonedNo|Hm. I wonder if his room is well-guarded ... not that I would consider poisoning him too. Anyway, what do you say to selling your business?|Girwoffe
+giraffe.sonPoisonedDunno|Didn’t even think to ask? Snakes are terrible mothers. They don’t know what to do once the child’s out of the egg. Anyway, what do you say to selling your business?~SetFlag,giraffe.askSonPoison,T|Girwoffe
+giraffe.sell|Excellent! I will have the money transferred to your account right away. Wow, if I had known you would break this easily I would have hired someone to burn down your shop years ago!~SetFlag,giraffe.sold,T:SetFlag,giraffe.exhaust,T:line,next|Girwoffe
+|Not that I hired anyone this time, of course. So tell whoever really burned your shop that I owe them a favor. I suspect it was that tiny penguin. He once asked me whether I would help him expand his business to the upper floor, but he seemed to be suggesting something quite illegal so I ended that conversation right away.|Girwoffe
+|Because I would never do anything illegal. And it turns out I didn’t even need to!|Girwoffe
+|The giraffe is so excited he hits his head on the window frame on his way out, but he doesn’t even care.~SetFlag,giraffe.appears,F:line,next|
+|What’s all this shouting?|Nurse
+|I just bargained away my livelihood.|You
+|Sounds like you’re using your time well.|Nurse
+|She snaps the curtain shut.|
 |over|
 giraffe.refuse|Foolish reptile! Your business is already dead! I am offering you an incredible price, more than thrice what your business is worth, if I’m being generous, and I am being generous! Your fake snake shoes are worth 1500 at best, and that’s including what’s left of your inventory!|
-Choice|I apologize. Still, I will not sell.~line,giraffe.refusecont|Insult~line,next
-|Snakes don’t even wear shoes! Your store was always going to be ridiculous!|
-Choice|I apologize. Still, I will not sell.~line,giraffe.refusecont|Insult~line,next
-|Girwoffe is now so livid that appears gray. In fact, he seems to be spouting gray fur?|
-Choice|Insult~line,next
-|The very shape of the giraffe's face is morphing, becoming more like that of a canine. The snout lenghthens, Girwoffe throws back his head and howls.|
-Choice|Insult~line,next
-|**Giraffe turns into a weregiraffe and flees.**~SetFlag,weregiraffeReaveled,T:SetFlag,giraffe.exhaust,T:line,over|//player can no longer speak with giraffe, but can accuse giraffe of being a weregiraffe at end of game
+Choice|I apologize. Still, I will not sell.~line,giraffe.refusecont|I would demand an apology, but it would take you too long to swallow your pride.~line,next
+|Snakes don’t even wear shoes! Your store was always doomed to fail!|Girwoffe
+|The giraffe quivers with such rage that he strikes his head on the window frame, then barks in pain. The sound is distinctly not giraffe-like.|
+|He looks ready to headbutt you, which could be lethal in your condition.|
+Choice|Okay, I apologize, but I refuse to sell.~line,giraffe.refusecont|On the other hand, it’s a good thing your neck is so long, because your shoes smell.~line,next
+|Your shoes aren’t even worth shed snake skin! Which is worthless! And disgusting!|
+giraffe.beforeReveal|Girwoffe is now so livid that appears gray. In fact, he seems to be spouting gray fur?~SetFlag,giraffe.appears,F:SetFlag,weregiraffe.appears,T:line,next|
+Choice|You should probably leave before you cause a giraffic jam.~line,next
+|The very shape of the giraffe's face is morphing, becoming more like that of a canine. The snout lengthens, Girwoffe throws back his head and howls.|
+Choice|It must be your feet that smell, not the shoes.~line,next
+|The giraffe's neck shrinks rapidly, and the spots increase in size until the giraffe's coat is a deep, dark brown. In fact, Girwoffe isn't a giraffe anymore.|
+|He's a wolf.|
+|The creature hangs half in, half out of the window, snarling. You stretch hastily for the Emergency Aid button, but it's just out of reach.|
+|Help! Werewolf!|You
+|The werewolf topples backwards out of the window.~SetFlag,weregiraffe.appears,F:line,next|
+|Well, that was unexpected.|You
+|Another two minutes pass before the nurse hops calmly into the room.|
+|I heard screaming. Did you eat your visitor?|Nurse
+|That giraffe is a werewolf! He fell out the window!|You
+|The rabbit hops to the window and looks out.|
+|Very funny, Mrs. Slitherkins. There's nothing there. Now, next time you feel a need to exercise your vocal cords, press the emergency button. That's what it's for.|Nurse
+|Actually, I can't reach it.|You
+|Try harder.|Nurse
+|The nurse hops out.|
+|Harsh. Hopefully that werewolf doesn't come back.~SetFlag,girwoffe.revealed,T:SetFlag,giraffe.exhaust,T:line,over|
 giraffe.refusecont|You stubborn serpent. Doubtless you'll change your mind.|
-giraffe.time|I will return tomorrow, but that will be my final offer.|Giraffe
+giraffe.time|I will return tomorrow, and when I do, it will be with my final offer.|Girwoffe
 |I will give you your answer then.|You
 |Good.|Giraffe
-|The giraffe withdraws from the window, careful not to let his horns scrape the windowframe. Soon he is gone and you are quite alone.|
+|The giraffe withdraws from the window, careful not to let his horns scrape the window frame. Soon he is gone.~SetFlag,giraffe.appears,F:line,over|
 |over|
 |GIRAFFE - SECOND CONVERSATION|
-|**the giraffe returns to make a second offer, the above possibilities are there again, except that the player cannot ask for more time and refusal is final**|
-|**before giraffe makes the offer, player can pump giraffe for more information about one other suspect:|
+giraffe2|**before giraffe makes the offer, player can pump giraffe for more information about one other suspect:|
 |giraffe reveals he saw the mouse on the roof arguing with his daughter and notes that mice live in your walls|
 |giraffe is surprised that Penguin wants to visit you and expects Penguin will want to buy you out as well. snake internally reflects surprise since the penguin has alwasy been a good neighbor|
 |**if price was not already increased, player can use explosion information to improve price**|
+|**offer is higher this day than it was on first day, and if it is also increased, set flag for player retires wealthily, leading to more positive endings**|
+Choice|Very well. My shoe store is yours.~line,giraffe.sell|I will not sell.~line,giraffe.refuse2
+giraffe.refuse2|What a waste of my time. But at least I'm not a waste of oxygen.|
+Choice|Anything else to say?~line,giraffe.cont2|Get lost, stiff-neck.~line,giraffe.beforeReveal|
+giraffe.cont2|Only this. I can't wait for you to die.|Girwoffe
+|The giraffe stalks away.~SetFlag,giraffe.exhaust,T:line,over|
 |MOUSE - FIRST CONVERSATION **to add, if player already spoke to giraffe/asked for more time or refused gently, player can ask mouse for advice on whether to sell. mouse will strongly recommend against**|
 mouse1|Such a terrible thing that happened, a terrible thing!|Mouse
 Choice|Thank you for visiting.~line,mouse.cont|You look delectable.~line,mouse.yum|What are you doing here?~line,mouse.cont
 mouse.yum|What's wrong with you? I'm one of your customers, remember?|Mouse
 |The mouse lifts his tiny feet and you can see indeed that is he is wearing genuine Snake Shoes.|
 Choice|Mm, I could just eat ... you ... alive.~line,next|I am so sorry, I just woke up and I'm delirious.~line,mouse.sorry
-|The mouse flees.~SetFlag,mouse.exhaust,T:line,over|
-mouse.sorry|That's all right. I'll take it as a compliment.|Mouse
-mouse.cont|I came because I hoped you are well. That is, you are well ... I hope-I just had to see you for myself.|
+|You flicker your tongue at Mr. Scampers, who snatches up his briefcase and flees without another word.~SetFlag,mouse.exhaust,T:line,over|
+mouse.sorry|That's all right. I'll, uh, take it as a compliment.|Mouse
+mouse.cont|I came because I hoped you are well. That is, you are well ... I hope. I just had to see you for myself.|
 |And you are well. I'm grateful. Because shoes. You know. I need somewhere to get new shoes.|
 Choice|Actually, I am not well. I need to find out who's trying to kill me.~line,mouse.cont|What about Girwoffe's shoes?~line,mouse.shoes|(if has sold business)I just sold my business to Girwoffe.~SetFlag,mouse.f.sold,T:line,mouse.sold
 mouse.shoes|Girwoffe's shoes may be cheap, but they fall apart in a week! I would bet my whiskers that Girwoffe's the one to blame!|Mouse
@@ -96,13 +122,14 @@ mouse.shoes|Girwoffe's shoes may be cheap, but they fall apart in a week! I woul
 |Yes, I've been poisoned. Do you think Girwoffe did it?|
 |He's a ruthless businessanimal, but I don't think he would stoop to murder.|Mouse
 |He's much too tall.|Mouse
+|Mr. Scamper grins, his whiskers trembling as though trying to contain a laugh.|
 |Is that the only reason?|You
 |I just--I don't think he has it in him. Most people don't.|Mouse
 |Like us mice! Ha ha! We're so afraid of everything!~line,mouse.cont|Mouse
 mouse.sold|Y-you did? But it was such a small explosion! Barely any of your inventory was damaged!|Mouse
-|How do you know about the size of the explosion?|
+|How do you know about the size of the explosion?|You
 |You don't think I would have set off a bomb in your--why would I! I need new shoes!|Mouse
-|You'll have to get your new shoes from Girwoffe.|
+|You'll have to get your new shoes from Girwoffe.|You
 |The mouse squeaks in horror.|
 |But-but what will you do?|Mouse
 Choice|Retire.~line,mouse.retire|Girwoffe might be hiring new employees.~line,mouse.hire|Pursue my ice-skating dream.~line,mouse.skate
@@ -111,14 +138,14 @@ mouse.skate|The mouse stops trembling to grin earnestly.|
 |You're wonderful skater already! At least, you're good at sliding gracefully on ice. Are you going to tie real shoes to your belly though?|
 |I'll look ridiculous. But it's the only way to compete.|
 |You'll look beautiful! Here, wait.|
-|The old mouse straightens his spectacles and pulls a thicket of cash from his wallet.|
+|The old mouse straightens his spectacles and pulls a thicket of cash from his wallet.~SetFlag,mouse.moneygiven,T:line,next|
 |Here. The first investment in what I hope will be a flourishing career.|Mouse
 |No, that's far too much. Keep that money for your daughter's education.|You
 |I insist. You've done so much for me.|Mouse
 |All I've done is sell you shoes!|You
 |Since your cast renders you near helpless, you are unable to refuse as the mouse scrambles onto you and stuffs the wad of cash among your coils. My, but he smells tasty!|
 |You bid the mouse a fond farewell.~SetFlag,mouse.exhaust,T:line,over|
-mouse.hire|the mouse is so horrified that he admits his crime|
+mouse.hire|the mouse is so horrified that his actions have caused the closing of his favorite store that he admits his crime|
 |over|
 mouse.cont|Do you happen to know anything about who might be poisoning me?|
 |The mouse looks uncomfortable.|
@@ -138,29 +165,86 @@ mouse1.end|Well, ah, I need to get going. Should check up on my daughter. Uh. Gi
 |She yanks your bed curtains shut.|
 |over|
 |MOUSE - SECOND CONVERSATION|
-|**main thing is that further dauther conversation could result in admitting that he bombed the shop, but he swears he is not behind the poisoning|
+mouse2|Hello. How are you doing?|Scampers
+|I didn't expect to see you again.|You
+|**further daughter conversation could result in admitting that he bombed the shop, but he swears he is not behind the poisoning|
 |**also, if the player sells to girwoffe, the selling conversation above should be available here|
 |PENGUIN - FIRST CONVERSATION**as w/ mouse, player can ask for advice on whether to sell, revealing weakness will improve penguin's attitude**|
 |**main way I want to write the penguin conversation is by giving player chances to establish sympathy, with when sympathy is over certain number determining whether penguin confesses at end of second conversation. the penguin also continuously deflects blame on the other suspects and provides information that is at odds with what the other two say|
-penguin1|Miss Guinn waddles in with fresh flowers that she exchanges with the stale flowers at your bedside.|
-|How are you feeling?|Penguin
-Choice|Like I'm about to die.~guin,1:line,guin.die|Very good, thanks for asking.~guin,-1
+penguin1|Miss Guinn waddles in with fresh flowers that she exchanges with the stale flowers at your bedside. She's the proprieter of the ice rink under your shoe shop. You've known her since high school, albeit not very well.~SetFlag,penguin.appear,T:SetFlag,penguinMet,T|
+|How are you feeling?|Miss Guin
+Choice|Like I'm about to die.~guin,1:line,guin.die|Very good, thanks for asking.~guin,-1:line,guin.cont
 guin.die|I'm sure it's not so drastic.|Miss Guin
-Choice|Actually, I've been poisoned.~line,guin.poison|True, at least I have all my limbs.~guin,-1:line,guin.limbs
+Choice|Actually, I've been poisoned and they don’t know the antidote.~line,guin.poison|True, at least I have all my limbs.~guin,-1:line,guin.limbs
+guin.limbs|How are you so positive?|Miss Guin
+Choice|It’s a genetic snake trait.~guin,-1:line,guin.positive|Daily meditation.~line,guin.positive|I only pretend to be happy.~guin,2:line,guin.pretend
+guin.positive|<positive>|
+guin.pretend|<pretend>|
 guin.poison|That's terrible! Who would do such a thing?|Miss Guin
-Choice|That's what I will find out.~line,next|I don't have any enemies.~line,next|I must have done something wrong.~line,next
-guin.enemies|Perhaps it's an enemy you don't know about yet. What's the name of that mouse who's always sneaking around? I've caught him filching snowcones from my ice rink.|
-guin.limbs|How are you always so positive?|
-guin.cont|Your ice rink is right below my shoe shop. Was anything damaged in the blast?|
-|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.|
+Choice|That's what I will find out.~guin.who|I don't have any enemies.~guin,-1:line,guin.enemies|I must have done something wrong.~guin,1:line,guin.cont
+guin.enemies|Perhaps it's an enemy you don't know about yet.|
+guin.who|What's the name of that mouse who's always sneaking around? I've caught him filching snowcones from my ice rink.|
+Choice|Mr. Scampers is a loyal customer.|Everyone steals from you.|
+guin.cont|After a strained silence, you decide to speak.|
+Choice|Was your ice rink damaged in the blast?~line,guin.rink|giraffe.sold=T~Should I sell my business?~line,guin.business
+guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.~SetFlag,explosionKnown,T|
 |**more speaking about the other suspects and what happened**|
 |over|
 |PENGUIN - SECOND CONVERSATION|
-|**opportunities to sympathize about school memories and their paths since then**|
-|I'm really at the end of the tail. According to the nurse, I'll die soon if I don't have the antidote.|
+|**opportunities to sympathize about school memories**|
+|**parenthood conversation**|
+|I'm really at the end of my tail. According to the nurse, I'll die soon if I don't have the antidote.|
 |Tell me, serpent, as someanimal facing death, what do you regret the most?|Penguin
-Choice|I should've gorged on cake instead of worrying about my waistline.~line,next|I could have been a more attentive mother.~line,next|I should have pursued my dream of being an ice skater.~line,next|I regret nothing.~line,next
-|**planning to write some short unique lines for the nurse at the start of each day and dialogue for no visitors**|
+Choice|I should've gorged on cake instead of worrying about my waistline.~line,guin.weight|I could have been a more attentive mother.~line,guin.mother|I should have pursued my dream of being a figure skater.~line,guin.skate|I regret nothing.~line,guin.noregret
+guin.weight|<weight>|
+guin.mother|<mother>|
+guin.skate|<skate>|
+guin.noregret|It sounds like you’re prepared for death.~guin,-1:line,next|Miss Guin
+|That is the task of all animals. Preparing to die.|You
+|Miss Guin shuffles on her flippers.|
+|Well, I’m prepared to eat snow cones.~line,guin.ending|
+guin.ending|I thought you would have more visitors.|Miss Guin
+|The nurse only lets in one visitor a day.|You
+|And you’ve used up two of your days to see me.|Miss Guin
+Choice|It’s good to talk to someone who isn’t trying to kill me.|I would rather see my son.
+|NURSE LINES|
+|DAY TWO|
+|Wake up.~SetFlag,nurse.appears,T:line,next|Nurse
+|You have visitors.|Nurse
+|Shouldn't I have something to eat first?|You
+|Unless you want me to eat a visitor.|Nurse
+|The nurse hands you a plate of questionable jellylike substance.~line,genChoice|
+|DAY THREE|
+|Wake up.~SetFlag,nurse.appears,T:line,next|Nurse
+|You're snoring.|Nurse
+|What do you care whether I hiss?|You
+|I don't care.|Nurse
+|The nurse hands you what could be generously called a misshapen pancake, if pancakes are also hard enough to break tooth. At least it's drizzled with lizard blood.|
+|How is my son?|You
+|Alive. Not awake.~line,genChoice|Nurse
+|DAY FOUR|
+|The nurse enters, whistling through her buckteeth.~SetFlag,nurse.appears,T:line,next|
+|Someone's in a good mood today.|You
+|Someone's going to die today.|Nurse
+|Ouch.|
+|Not you. You'll die tomorrow.|Nurse
+|Well, that makes me feel better.~line,genChoice|You
+|GENERAL CHOICE|
+genChoice|Who is your visitor today?|Nurse
+Choice|giraffeMet=T,giraffe.exhaust=F~Girwoffe the giraffe.~line,giraffe2|giraffeMet=F~The giraffe.~line,giraffe|penguinMet=T,penguin.exhaust=F~Miss Guin the penguin.~line,penguin2|penguinMet=T~The penguin.~line,penguin1|mouseMet=T,mouse.exhaust=F~Mr. Scampers the mouse.~line,mouse2|mouseMet=F~The mouse.~line,mouse1
+|IF NO VISITORS**need to code for if no choices**|
+|Looks like you have no visitors today.|Nurse
+|Not even my son?|You
+|Nope! He was transferred to another hospital!|Nurse
+|Is his condition ... worse?|You
+|Nah, it got better. This hospital that you're in is the one for serious health problems.|Nurse
+|Great. Thanks.|You
+|Just take a nap. The police will eventually come for a statement.|Nurse
+|Thanks.|You
+|Have a carrot. It's healthy.|Nurse
+|The rabbit leaves a carrot on your tray.~SetFlag,nurse.appear,F|
+|You eat it. There's nothing else you can do.|
+|over|
 |FINAL DAY|
 |police officer comes for a statement. player can accuse one person and guess something to go along with it.|
 |if correct with Girwoffe, player dies but Girwoffe is imprisoned and player is rewarded posthumously and player's son makes a killing selling shoes.|

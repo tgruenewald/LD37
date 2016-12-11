@@ -57,6 +57,10 @@ public class DialogueManager : MonoBehaviour {
 				Debug.Log ("updating dialogue after click");
 				UpdateDialogue (true);
 			}	
+			if (lineNum > 140) {
+				Debug.Log ("at line 200");
+				break;
+			}
 			Debug.Log ("waiting");
 			StartCoroutine (wait_a_bit());
 			Debug.Log ("done waiting");
@@ -248,6 +252,7 @@ public class DialogueManager : MonoBehaviour {
 
 			else if (dialogue == "over" && !gameManager.inChoice)
 			{
+				Debug.Log ("over called in DM");
 				gameManager.ExitAdventure ();
 				gameManager.gainingSkill = false;
 			}

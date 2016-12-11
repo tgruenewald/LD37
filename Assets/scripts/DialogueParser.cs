@@ -73,9 +73,10 @@ public class DialogueParser : MonoBehaviour {
 
 
 		int l = 1;
-		for(var ii=1; ii < lines_of_text.Length; ii++) 
+		for(var ii=0; ii < lines_of_text.Length; ii++) 
 		{
 			line = lines_of_text[ii];
+//			Debug.Log ("LINE: " + line);
 			if (line!= null){
 				string[] lineData = line.Split ('|');
 
@@ -130,6 +131,7 @@ public class DialogueParser : MonoBehaviour {
 
 				if (lineData[1] == "over")
 				{
+					Debug.Log ("over called");
 					activeList = lines;
 				}
 
