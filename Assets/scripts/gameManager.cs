@@ -51,6 +51,11 @@ public class gameManager : MonoBehaviour {
 	public Player[] player;
 	public IEnumerator lightUpRoom(){
 		Image illustration = GameObject.Find ("illustration").GetComponent<Image> ();	
+		yield return new WaitForSeconds(1.2f);
+		illustration.CrossFadeAlpha (1f, 1f, true);		
+	}
+	public IEnumerator transitionToNewDaylightUpRoom(){
+		Image illustration = GameObject.Find ("illustration").GetComponent<Image> ();	
 		illustration.CrossFadeAlpha (0f, 2f, false);
 		yield return new WaitForSeconds(2.2f);
 		illustration.CrossFadeAlpha (1f, .5f, true);		
@@ -62,10 +67,11 @@ public class gameManager : MonoBehaviour {
 
 		parser.init ();
 		roomScript.startStory (1);
-
+		Image illustration = GameObject.Find ("illustration").GetComponent<Image> ();	
+		illustration.CrossFadeAlpha (0f, 0f, false);
 		Text dayDisplayText = GameObject.Find ("DayDisplayText").GetComponent<Text> ();
 		dayDisplayText.text = "Day " + day;
-		dayDisplayText.CrossFadeAlpha(0, 2.5f, false);
+		dayDisplayText.CrossFadeAlpha(0, 2f, false);
 		StartCoroutine (lightUpRoom ());
 
 	}
@@ -95,7 +101,7 @@ public class gameManager : MonoBehaviour {
 		dayDisplayText.text = "Day " + day;
 		dayDisplayText.CrossFadeAlpha(1.0f, 0f, true);
 		dayDisplayText.CrossFadeAlpha(0, 2.5f, false);
-		StartCoroutine (lightUpRoom ());
+		StartCoroutine (transitionToNewDaylightUpRoom ());
 //		AdvanceWeek ();
 //		inStory = false;
 //		expRound = false;
