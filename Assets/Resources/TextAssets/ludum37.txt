@@ -32,7 +32,7 @@ Choice|Ha. Ha. Very amusing.~line,next|I am not a poisonous snake.~line,next|Wha
 |Very well.|You
 startday|Three visitors have come to see you. A giraffe, a mouse, and a penguin. Who will you meet with today?|Nurse
 |Do you by any chance know their names?|You
-|What am I, your personal assistant? Ask them yourself.|
+|What am I, your personal assistant? Ask them yourself.|Nurse
 Choice|I want to meet the giraffe.~line,giraffe1|I want to meet the penguin.~line,penguin1|I want to meet the mouse.~line,mouse1
 |GIRAFFE - FIRST CONVERSATION|
 giraffe1|The nurse leaves, and after several minutes, a giraffe pokes his head through the open window.~SetFlag,nurse.appears,F:SetFlag,giraffe.appears,T:line,next|
@@ -211,10 +211,16 @@ mouse.cont|Do you happen to know anything about who might be poisoning me?|You
 |Maybe they got impatient.|You
 |I suppose you're right.|Scampers
 |The mouse plays absently with his whiskers.|
-Choice|How is your daughter?~line,mouse.daughter|Why would Girwoffe want to poison me?~line,mouse.girwoffe|Why would Miss Guinn want to poison me?~line,mouse.guinn|metGiraffe=T*giraffe.sold=F*mouse.advised=F~Should I sell my store to Girwoffe?~line,mouse.advice
-mouse.daughter|leads to more open conversation that could lead to a confession on next day if player continues to ask about daughter~line,mouse1.end|
-mouse.girwoffe|leads to rumor about werewolves~line,mouse1.end|
-mouse.guinn|leads to some overheard conversation that guinn despises Mrs. Slitherkins~line,mouse1.end|
+Choice|How is your daughter?~line,mouse.daughter|Why would Girwoffe want to poison me?~line,mouse.girwoffe|Why would Miss Guin want to poison me?~line,mouse.guin|metGiraffe=T*giraffe.sold=F*mouse.advised=F~Should I sell my store to Girwoffe?~line,mouse.advice
+mouse.daughter|She's well. But I'm worried about her. Because she's sick.|Scampers
+|I'm worried about my son too. I haven't seen him since the explosion.|You
+|You can hear the mouse's heart pounding underneath his fur.~line,mouse.end1|
+mouse.girwoffe|I don't know. But I've heard strange growling noises when passing by Girwoffe's shoe shop. He has something to hide.~line,mouse1.end|Scampers
+mouse.guin|I know she doesn't like you.|Scampers
+|How do you know that?|You
+|Just the way she glares at you when you're not looking. Especially when you're ice-skating.|Scampers
+|Is it an I-want-to-kill-you glare?|You
+|I don't know. I'm bad enough at reading bird expressions as it is.~line,mouse1.end|Scampers
 mouse.end1|Well, ah, I need to get going. Should check up on my daughter. She's sick. Uh. Give your son my regards when he wakes up. I really hope you find the poisoner. Yes. I do.|
 |Thank you.|You
 |Buh-bye!|Scampers
@@ -248,15 +254,15 @@ mouse.daughter2|She's fine...she's doing great...she's...|Scampers
 |She's a thief! She stole ... she stole ... and I ... I'm an accomplice ... I've done something terrible.|Scampers
 |That explains all this guilty behavior.~line,mouse.almostBroken|
 |PENGUIN - FIRST CONVERSATION|
-penguin1|Miss Guinn waddles in with fresh flowers that she exchanges with the stale flowers at your bedside. She's the proprieter of the ice rink under your shoe shop. You've known her since high school, albeit not very well.~SetFlag,penguin.appears,T:SetFlag,penguinMet,T:line,next|
+penguin1|Miss Guin waddles in with fresh flowers that she exchanges with the stale flowers at your bedside. She's the proprieter of the ice rink under your shoe shop. You've known her since high school, albeit not very well.~SetFlag,penguin.appears,T:SetFlag,penguinMet,T:line,next|
 |How are you feeling?|Miss Guin
 Choice|Like I'm about to die.~guin,1:line,guin.die|Very good, thanks for asking.~guin,-1:line,guin.cont
 guin.die|I'm sure it's not so drastic.|Miss Guin
 Choice|Actually, I've been poisoned and they don't know the antidote.~line,guin.poison|True, at least I have all my limbs.~guin,-1:line,guin.limbs
 guin.limbs|How are you so positive?|Miss Guin
 Choice|It's a genetic snake trait.~guin,-1:line,guin.positive|Daily meditation.~line,guin.positive|I only pretend to be happy.~guin,2:line,guin.pretend
-guin.positive|<positive>|
-guin.pretend|<pretend>|
+guin.positive|Hmmph.~line,guin.cont|Miss Guin
+guin.pretend|Hmmph.~line,guin.cont|Miss Guin
 guin.poison|That's terrible! Who would do such a thing?|Miss Guin
 Choice|That's what I will find out.~line,guin.who|I don't have any enemies.~guin,-1:line,guin.enemies|I must have done something wrong.~guin,1:line,guin.cont
 guin.enemies|Perhaps it's an enemy you don't know about yet.|
@@ -264,9 +270,14 @@ guin.who|What's the name of that mouse who's always sneaking around? I've caught
 Choice|Mr. Scampers is a loyal customer.~line,next|Everyone steals from you.~line,next
 guin.cont|After a strained silence, you decide to speak.|
 Choice|Was your ice rink damaged in the blast?~guin,2:line,guin.rink|Should I sell my business?~SetFlag,giraffe.sold=T:line,guin.business
-guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.~SetFlag,explosionKnown,T:line,next|
-guin.business|guin.business|
-|**more speaking about the other suspects and what happened**|
+guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.~SetFlag,explosionKnown,T:line,guin.blame|
+guin.business|I assume you're talking about to the giraffe.|Miss Guin
+Choice|Yes.~line,next|Yes, though I'd rather sell to you.~guin,1:line,next
+|Hmmph. If you don't die soon, the business will die. I would sell.|Miss Guin
+guin.blame|Do you have any idea who might be trying to kill me?|You
+|It could be anyone. Maybe that giraffe. He salivates over your shop whenever he passes by.|Miss Guin
+|Literally. Sometimes he drools on my skating rink.|Miss Guin
+|She leaves you with that lovely image.~SetFlag,penguin.appears,F:line,over|
 |over|
 |PENGUIN - SECOND CONVERSATION|
 penguin2|**opportunities to sympathize about school memories**|
@@ -284,8 +295,10 @@ guin.noregret|It sounds like you're prepared for death.~guin,-1:line,next|Miss G
 guin.ending|I thought you would have more visitors.|Miss Guin
 |The nurse only lets in one visitor a day.|You
 |And you've used up two of your days to see me.|Miss Guin
-Choice|It's good to talk to someone who isn't trying to kill me.|I would rather see my son.
-|SetFlag,penguin.exhaust,T
+Choice|It's good to talk to someone who isn't trying to kill me.~guin,1:|I would rather have seen my son.~guin,-1:
+
+guin.leave|~SetFlag,penguin.appears,F:SetFlag,penguin.exhaust,T:line,over|
+|over|
 |NURSE LINES|
 |DAY TWO|
 startday2|Wake up.~SetFlag,nurse.appears,T:line,next|Nurse
@@ -335,7 +348,7 @@ police.statement|Yes. I figured I would drop by during my lunch break.|Officer
 police.cont|I can only spare a few minutes, so tell me who poisoned you and we'll go arrest them.|Officer
 |What if I suspect several animals?|You
 |We don't have the resources to investigate more than one animal, so you better make your one accusation count.|Officer
-|It's time. Hopefully you've gathered enough information. You have only one chance.|
+|It's time. Hopefully you've gathered enough information. You have only one chance to save your own life.|
 endChoice|I accuse Girwoffe ...~accuse.Girwoffe|I accuse Miss Guin ...~line,accuse.penguin|I accuse Mister Scampers ...~line,accuse.mouse|More~line,next|
 Choice|I accuse the nurse!~line,accuse.nurse|I accuse you, officer!~line,accuse.officer|accused.none=F~I accuse no one.~line,accuse.none|Back~line,endChoice
 accuse.nurse|She has a personal vendetta against snakes and has refused allowing me to see more than one visitor a day.|You
@@ -380,7 +393,9 @@ werewolfAccusation|The officer sits up straight.~SetFlag,giraffeAccused,T|
 |The officer scurries out.~SetFlag,police.appears,F:line,ending.death|
 |DEATH ENDING|
 ending.death|Well. Given that you appear quite on the verge of death, I'll waive the rule against having more than one visitor today.~SetFlag,nurse.appears,T|Nurse
-|Even if the police to uncover the antidote, it's too late now. We have to act.|Nurse
+|I don't have any visitors, do I?|You
+|You're catching on.|Nurse
+|Now, even if the police do uncover the antidote, it's too late now. We have to act.|Nurse
 |With your permission, I will inject you with a random antidote. You have a one in three chance of surviving.|Nurse
 |And the rest of the time?|You
 |If the antidote fails, I will provide another injection to numb the pain.|Nurse
@@ -394,7 +409,8 @@ ending.death|Well. Given that you appear quite on the verge of death, I'll waive
 |You can still smell his scent on the card. You wheeze as your tongue flickers over it.|
 |At least he lives to carry on your legacy.|
 |The nurse approaches you with the chosen antidote.|
-|You nod and close your eyes.~SetFlag,nurse.appears,F:line,death.ending|
+|Do it.|You
+|You close your eyes.~SetFlag,nurse.appears,F:line,death.ending|
 live.ending|After your release from the hospital ...|
 live.giraffeCheck|Check|giraffeRevealed=T~live.weregiraffe|live.salecheck
 live.weregiraffe|With your health somewhat recovered, you return to the police to tell them of the werewolf that visited you one day.|
@@ -404,15 +420,16 @@ live.saleCheck|Check|giraffeRevealed=T*giraffe.sold~ending.soldWeregiraffe|giraf
 live.soldWeregiraffe|Once it is confirmed that Girwoffe really is a member of the secret werewolf society, your sale of the shoe shop is invalidated.|
 live.noSale|You return home to restock your inventory and are soon open for business once more.~line,live.moneyCheck|
 live.reallySold|You return home to find Girwoffe has already cleaned out the inventory from his new shoe store. Yet the ice rink downstairs is in need of a new proprieter.|
-|You buy up the ice rink and continue a business that is more successful than ever.~line,mouseCheck|
+|You buy up the ice rink and continue a business that is more successful than ever.~line,live.mouseCheck|
 live.moneyCheck|Check|receivedMouseMoney=T*giraffe.bestOffer=T*giraffe.sold=T~live.bestMoney|receivedMouseMoney=T~live.mouseMoney|giraffe.bestOffer=T*giraffe.sold~live.bestPrice|live.noExtraMoney
-live.bestMoney|With the extra money from Mister Scampers and the business deal with Girwoffe, you are able to launch a separate career in figure skating.|
-live.mouseMoney|With the extra money from Mister Scampers, you buy yourself several pairs of figure skates.|
-live.bestPrice|With the extra money from the business deal with the Girwoffe, you send your son to college.|
+live.bestMoney|With the extra money from Mister Scampers and the business deal with Girwoffe, you are able to launch a separate career in figure skating.~line,live.mouseCheck|
+live.mouseMoney|With the extra money from Mister Scampers, you buy yourself several pairs of figure skates.~line,live.mouseCheck|
+live.bestPrice|With the extra money from the business deal with the Girwoffe, you send your son to college.~line,live.mouseCheck|
 live.noExtraMoney|With some smart saving, you and your son are able to live comfortably for the rest of your days.|
 live.mouseCheck|Check|mouseAdmitted=T~live.mouseGrateful|live.finalEnding
 live.mouseGrateful|Mister Scampers is grateful that you say nothing about who caused the explosion. He is a loyal customer for life.|
-|Well, he was a loyal customer before already. Now he also brings you home-baked cookies.|
+|Well, he was a loyal customer before already. Now he also brings you home-baked cookies to help distract you from your constant hunger for mammalian blood.|
+|It never quite works.|
 live.finalEnding|THE END|
 |over|
 |POSTDEATH ENDING|
@@ -428,16 +445,18 @@ death.weregiraffe|As it turns out, investigating a secret werewolf society was e
 death.saleCheck|Check|giraffeAccused=T*giraffe.sold~death.soldWeregiraffe|giraffe.sold~death.reallySold|death.noSale
 death.soldWeregiraffe|Once it is confirmed that Girwoffe really is a member of the secret werewolf society, your sale of the shoe shop is invalidated.|
 death.noSale|Your son returns home to restock your inventory and is soon open for business once more.~line,death.moneyCheck|
-death.reallySold|Your son returns home to find Girwoffe has already cleaned out the inventory from his new shoe store. At first he's not quite sure what to do.~line,mouseCheck|
+death.reallySold|Your son returns home to find Girwoffe has already cleaned out the inventory from his new shoe store. At first he's not quite sure what to do.~line,death.mouseCheck|
 death.moneyCheck|Check|receivedMouseMoney=T*giraffe.bestOffer=T*giraffe.sold=T~live.bestMoney|receivedMouseMoney=T~live.mouseMoney|giraffe.bestoffer=T*giraffe.sold~live.bestPrice|live.noExtraMoney
-death.bestMoney|With the extra money from Mister Scampers and the business deal with Girwoffe, your son launches his own career as a figure skater in your memory.|
-death.mouseMoney|With the extra money from Mister Scampers, your son supports himself as an eclectic sculptor.|
-death.bestPrice|With the extra money from the business deal with the Girwoffe, your son moves into the country and becomes a corn farmer.|
-death.noExtraMoney|In the end, your son makes a meager living shining shoes.|
+death.bestMoney|With the extra money from Mister Scampers and the business deal with Girwoffe, your son launches his own career as a figure skater in your memory.~line,death.mousecheck|
+death.mouseMoney|With the extra money from Mister Scampers, your son supports himself as an eclectic sculptor.~line,death.mouseCheck|
+death.bestPrice|With the extra money from the business deal with the Girwoffe, your son moves into the country and becomes a corn farmer.~line,death.mouseCheck|
+death.noExtraMoney|In the end, your son makes a meager living shining shoes.~line,death.mouseCheck|
 death.mouseCheck|Check|mouseCorrect=T~death.mouseJailed|death.finalEnding
 death.mouseJailed|Mister Scampers is sentenced to three years in prison, but is out on parole for good behavior after one year.|
 |He doesn't get along with prisoners, but he does finally master the art of playing clock solitaire in your mind.|
-|His daughter goes to therapy to cure her kleptomaniac ways.|
+death.promiseCheck|Check|mouseCorrect=T*mouse.promiseMade=T~death.promiseBroken|death.therapy
+death.promiseBroken|He never forgives you for breaking your promise.|
+death.therapy|His daughter goes to therapy to cure her kleptomaniac ways.|
 |She eventually gains the self-confidence to stop, but not before stealing half the therapist's silverware.|
 death.finalEnding|THE END|
 |over|
