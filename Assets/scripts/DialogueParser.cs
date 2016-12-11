@@ -95,7 +95,7 @@ public class DialogueParser : MonoBehaviour {
 				}
 
 				//normal parsing
-				if (lineData[0] == "Choice")
+				if (lineData[0] == "Choice"||lineData[0] == "endChoice")
 				{
 					DialogueLine lineEntry = new DialogueLine(lineData[0], "", "");
 					lineEntry.options = new string[lineData.Length-1];

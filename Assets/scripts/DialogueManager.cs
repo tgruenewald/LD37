@@ -235,7 +235,7 @@ public class DialogueManager : MonoBehaviour {
 				}
 			}
 		}
-		else if (parser.GetKey (lineNum) != "Choice"){
+		else if (parser.GetKey (lineNum) != "Choice" && parser.GetKey (lineNum) != "endChoice"){
 			gameManager.inChoice = false;
 			characterName = parser.GetSpeaker (lineNum);
 			var text = parser.GetContent (lineNum);
