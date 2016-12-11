@@ -116,7 +116,15 @@ mouse.sorry|That's all right. I'll, uh, take it as a compliment.|Scampers
 mouse.cont|I came because I hoped you are well. That is, you are well ... I hope. I just had to see you for myself.|Scampers
 |And you are well. I'm grateful. Because shoes. You know. I need somewhere to get new shoes.|Scampers
 Choice|Actually, I am not well. I need to find out who's trying to kill me.~line,mouse.cont|What about Girwoffe's shoes?~line,mouse.shoes|giraffe.sold=T~I just sold my business to Girwoffe.~T:line,mouse.sold|giraffe.sold=F*mouse.advised=F*giraffeMet=T~Do you think I should sell my business to Girwoffe?~line,mouse.advice
-mouse.advice|No!~SetFlag,mouse.advised,T|Scampers
+mouse.advice|No, definitely not!~SetFlag,mouse.advised,T|Scampers
+|Why not?|You
+|That giraffe is a bully! And he's too tall.|Scampers
+|The mouse lowers his voice.|
+|And get this: My cousin's friend's wife was in that giraffe's store visiting her brother when she overheard the giraffe fire a kangaroo for working with a joey in her pouch!|Scampers
+|You can't let someone like that corner the shoemarket!|Scampers
+|You have strong feelings.|You
+|I just think your shoes provide really good value.|Scampers
+Check|mouseSecondMeeting=F~mouse.end1|mouse.end2
 mouse.shoes|Girwoffe's shoes may be cheap, but they fall apart in a week! I would bet my whiskers that Girwoffe's the one to blame!|Scampers
 |For the explosion? Or for the poison?|You
 |Both! Neither! Uh, poison?|Scampers
@@ -136,7 +144,7 @@ mouse.sold|Y-you did? But it was such a small explosion! Barely any of your inve
 Choice|Retire.~line,mouse.retire|Girwoffe might be hiring new employees.~line,mouse.hire|Pursue my ice-skating dream.~line,mouse.skate
 mouse.retire|That doesn't seem so bad. At least you'll finally be able to rest.~line,mouse.cont|
 mouse.skate|The mouse stops trembling to grin earnestly.|
-|You're wonderful skater already! At least, you're good at sliding gracefully on ice. Are you going to tie real shoes to your belly though?|
+|You are a wonderful skater already! At least, you're good at sliding gracefully on ice. Are you going to tie real shoes to your belly though?|
 |I'll look ridiculous. But it's the only way to compete.|
 |You'll look beautiful! Here, wait.|
 |The old mouse straightens his spectacles and pulls a thicket of cash from his wallet.~SetFlag,mouse.moneygiven,T:line,next|
@@ -144,7 +152,7 @@ mouse.skate|The mouse stops trembling to grin earnestly.|
 |No, that's far too much. Keep that money for your daughter's education.|You
 |I insist. You've done so much for me.|Scampers
 |All I've done is sell you shoes!|You
-|Since your cast renders you near helpless, you are unable to refuse as the mouse scrambles onto you and stuffs the wad of cash among your coils. My, but he smells tasty!|
+|Since your cast renders you near helpless, you are unable to refuse as the mouse scrambles onto you and stuffs the wad of cash among your coils. My, but he smells tasty!~SetFlag,receivedMouseMoney,T|
 |You bid the mouse a fond farewell.~SetFlag,mouse.exhaust,T:line,over|
 mouse.hire|No, you can't! Oh, this is terrible, it's all wrong, I didn't mean to force you to work for that tall bully!|Scampers
 |What's wrong?|
@@ -161,11 +169,11 @@ mouse.cont|Do you happen to know anything about who might be poisoning me?|You
 |Maybe they got impatient.|You
 |I suppose you're right.|Scampers
 |The mouse plays absently with his whiskers.|
-Choice|How is your daughter?~line,mouse.daughter|Why would Girwoffe want to poison me?~line,mouse.girwoffe|Why would Miss Guinn want to poison me?~line,mouse.guinn
+Choice|How is your daughter?~line,mouse.daughter|Why would Girwoffe want to poison me?~line,mouse.girwoffe|Why would Miss Guinn want to poison me?~line,mouse.guinn|Should I sell my store to Girwoffe?~line,mouse.advice
 mouse.daughter|leads to more open conversation that could lead to a confession on next day if player continues to ask about daughter~line,mouse1.end|
 mouse.girwoffe|leads to rumor about werewolves~line,mouse1.end|
 mouse.guinn|leads to some overheard conversation that guinn despises Mrs. Slitherkins~line,mouse1.end|
-mouse1.end|Well, ah, I need to get going. Should check up on my daughter. Uh. Give your son my regards when he wakes up. I really hope you find the poisoner. Yes. I do.|
+mouse.end1|Well, ah, I need to get going. Should check up on my daughter. Uh. Give your son my regards when he wakes up. I really hope you find the poisoner. Yes. I do.|
 |Thank you.|You
 |Buh-bye!|Scampers
 |The mouse scampers away, and the nurse returns.~SetFlag,mouse.appears,F:SetFlag,nurse.appears,T|
@@ -173,7 +181,7 @@ mouse1.end|Well, ah, I need to get going. Should check up on my daughter. Uh. Gi
 |She yanks your bed curtains shut.~SetFlag,nurse.appears,F:line,over|
 |over|
 |MOUSE - SECOND CONVERSATION|
-mouse2|Hello. How are you doing, Mrs. Slitherkins?|Scampers
+mouse2|Hello. How are you doing, Mrs. Slitherkins?~SetFlag,secondMouseMeeting,T:SetFlag,nurse.appears,F:SetFlag,mouse.appears,T|Scampers
 |What are you doing back here again?|You
 |You seemed so hungry yesterday. I brought you a snack.|Scampers
 |He offers you a duckblood pudding. It smells so good you nearly bite off his paws.|
@@ -183,7 +191,7 @@ mouse2|Hello. How are you doing, Mrs. Slitherkins?|Scampers
 |Mister Scampers rubs his paws anxiously.|
 |I'm glad you enjoyed it. I better get going.|Scampers
 |Wait, before you go ...|You
-Choice|Is this pudding poisoned?|Should I sell to Girwoffe?|How is your daughter doing?
+Choice|Is this pudding poisoned?~line,mouse.pudding|mouseAdvised=F~Should I sell to Girwoffe?~line,mouse.advise|How is your daughter doing?~line,mouse.daughter2
 mouse.pudding|
 mouse.daughter2|
 |**further daughter conversation could result in admitting that he bombed the shop, but he swears he is not behind the poisoning|
@@ -203,7 +211,7 @@ guin.enemies|Perhaps it's an enemy you don't know about yet.|
 guin.who|What's the name of that mouse who's always sneaking around? I've caught him filching snowcones from my ice rink.|
 Choice|Mr. Scampers is a loyal customer.|Everyone steals from you.|
 guin.cont|After a strained silence, you decide to speak.|
-Choice|Was your ice rink damaged in the blast?~line,guin.rink|giraffe.sold=T~Should I sell my business?~line,guin.business
+Choice|Was your ice rink damaged in the blast?~guin,2:line,guin.rink|giraffe.sold=T~Should I sell my business?~line,guin.business
 guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.~SetFlag,explosionKnown,T|
 |**more speaking about the other suspects and what happened**|
 |over|
@@ -219,10 +227,10 @@ guin.skate|<skate>|
 guin.noregret|It sounds like you're prepared for death.~guin,-1:line,next|Miss Guin
 |That is the task of all animals. Preparing to die.|You
 |Miss Guin shuffles on her flippers.|
-|Well, I'm prepared to eat snow cones.~line,guin.ending|
+|How very morbid! I've only been preparing to eat snow cones.~line,guin.ending|
 guin.ending|I thought you would have more visitors.|Miss Guin
 |The nurse only lets in one visitor a day.|You
-|And you're used up two of your days to see me.|Miss Guin
+|And you've used up two of your days to see me.|Miss Guin
 Choice|It's good to talk to someone who isn't trying to kill me.|I would rather see my son.
 |NURSE LINES|
 |DAY TWO|
@@ -254,14 +262,14 @@ Choice|giraffeMet=T,giraffe.exhaust=F~Girwoffe the giraffe.~line,giraffe2|giraff
 noVisitors|Looks like you have no visitors today.~SetFlag,nurse.appears,T|Nurse
 |Not even my son?|You
 |Nope! He was transferred to another hospital!|Nurse
-|Is his condition ... worse?|You
+|His condition ... worsened?|You
 |Nah, it got better. This hospital that you're in is the one for serious health problems.|Nurse
 |Great. Thanks.|You
 |Just take a nap. The police will eventually come for a statement.|Nurse
 |Thanks.|You
 |Have a carrot. It's healthy.|Nurse
 |The rabbit leaves a carrot on your tray.~SetFlag,nurse.appears,F|
-|You eat the carrot. There's nothing else you can do.|
+|You eat the carrot. All you can do now is wait for the police.~line,over|
 |over|
 |FINAL DAY|
 finalDay|You awake today feeling immensely weakened. It is difficult to think, much less string together a sentence.|
@@ -294,27 +302,56 @@ Choice|I do not wish to accuse an innocent.~line,next|I have no idea who the mur
 police.leaving|The Officer snaps shut his notebook.|
 |What a waste of time.|Officer
 |The police officer leaves, muttering.~SetFlag,police.appears,F:line,ending.postDeath|
-accuse.Girwoffe
-accuse.penguin
-accuse.mouse
+accuse.Girwoffe|I accuse Girwoffe of...|You
+Choice|Poisoning me to gain control of my business.~line,seriousAccusation|Poisoning me out of personal jealousy.~line,seriousAccusation|Poisoning me because he hates snakes.~line,seriousAccusation|Being a werewolf.~line,werewolfAccusation
+accuse.penguin|I accuse Miss Guin of...|You
+Choice|Poisoning me to expand her ice rink to the second floor.~line,seriousAccusation|Poisoning me because Girwoffe paid her to do it.~line,seriousAccusation|Poisoning me out of personal jealousy.~SetFlag,penguinCorrect,T:line,seriousAccusation|Poisoning me because she hates snakes.~line,seriousAccusation
+accuse.mouse|I accuse Mister Scampers of...|You
+Choice|Poisoning me so his family could live without fear of snakes.~line,seriousAccusation|Poisoning me because Girwoffe paid him to do it.~line,seriousAccusation|Exploding a portion of my shop to hurt my son.~line,seriousAccusation|Exploding a portion of my shop to protect his family.~SetFlag,mouseCorrect,T~line,seriousAccusation|
+seriousAccusation|That is a serious accusation Mrs. Slitherkins. We will investigate with the detail you provided.|Officer
+|I provided only one sentence. Let me tell you what else I discovered in my investigation.|You
+|You do your job, I do mine.|Officer
+|The police officer stands, snapping shut his notebook. Your snakelike senses also detect his stomach rumbling.|
+|That explains his hasty departure.~SetFlag,police.appears,F|
+|You settle in to wait for the investigation that hopefully will occur.|
+|Check|penguinCorrect=T~penguin.ending|ending.death
+|PENGUIN CORRECT ENDING|
+penguin.ending|**|
+|WEREWOLF ENDING|
+werewolfAccusation|The officer sits up straight.~SetFlag,werewolfAccused,T|
+|A werewolf? We've been trying to uncover their agents for over a year now. Trying and failing.|Officer
+|They've probably been voting to hang the wrong animal during the daytime. If the werewolves ever become the majority of eligible voters ...|
+|If you've discovered a werewolf, you will be greatly rewarded.|Officer
+|I must speak with my superiors at once.|Officer
+|The officer scurries out.~SetFlag,police.appears,F:line,ending.death
 |if correct with Girwoffe, player dies but Girwoffe is imprisoned and player is rewarded posthumously and player's son makes a killing selling shoes.|
 |if correct with Guin, Guin goes to jail and player continues to sell shoes and reflect on how to be a better person. if player sold shoe store, they run the ice skating rink instead|
 |if correct with Mouse, player dies but learns mouse's daughter goes to therapy for her kleptomania but is not able to cure a hatred for snakes|
 |incorrect endings - player dies, particulars of ending differ depending on whether player sold shoe store, whether girwoffe was discovered to be a werewolf, or whether Mouse admitted to his crime|
 |DEATH ENDING|
 ending.death|Well. Given that you appear quite on the verge of death, I'll waive the rule against having more than one visitor today.~SetFlag,nurse.appears,T|Nurse
-|Oh wait. You have no visitors.|Nurse
+|Even if the police to uncover the antidote, it's too late now. We have to act.|Nurse
+|With your permission, I will inject you with a random antidote. You have a one in three chance of surviving.|Nurse
+|And the rest of the time?|You
+|If the antidote fails, I will provide another injection to numb the pain.|Nurse
+|It's not ideal, but one in three is better than none in nothing.|Nurse
 |Is my son--?|You
 |The nurse's face softens, but only for an instant.|
 |He's recovering quite well. He wrote you a card, actually.|Nurse
 |Perhaps she was planning not to give it to you, but she pulls out a paper now and holds it up for you to read.|
-|In sloppy tailwriting, your son has scrawled a few words on a hospital notepad.|
-|HELLO MA, I HOPE THE FOOD IS BETTER WHERE YOU ARE AND THAT YOUR NURSE IS A NICE RABBIT (I HAVE A HARE AND HE IS PERSNICKITY). GET WELL SOON. YOUR SON, ADDAR|
-|You can still smell his scent on the card. You wheeze as your tongue flickers over it.~SetFlag,nurse.appears,F|
-Choice|At least he lives to carry on your legacy.|
-ending.postDeath|Check|giraffe.sold=T
+|In sloppy tailwriting, your son has scrawled a message on official hospital stationery.|
+|HELLO MA, I HOPE THE FOOD IS BETTER WHERE YOU ARE AND THAT YOUR NURSE IS A NICE RABBIT (I HAVE A HARE NURSE AND HE IS PERSNICKETY). GET WELL SOON. YOUR SON, ADDAR|
+|You can still smell his scent on the card. You wheeze as your tongue flickers over it.|
+|At least he lives to carry on your legacy.|
+|The nurse approaches you with the chosen antidote.|
+|You nod and close your eyes.~SetFlag,nurse.appears,F|
+ending.postDeath|
+|Check|Werewolf accused/disocvered
+|Check|giraffe.sold=T
 |Check|if so, how much it was sold for
+|Check|receivedMouseMoney
 |Check|giraffeRevealed=T~
+|Check|mouseCorrect=T~
 |Check|mouseAdmitted=T~
 |Check|nurseAccused=T~
 |over|
