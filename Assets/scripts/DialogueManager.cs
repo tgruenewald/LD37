@@ -275,6 +275,11 @@ public class DialogueManager : MonoBehaviour {
 			characterName = "";
 			dialogue = "";
 			options = parser.GetOptions (lineNum);
+			Debug.Log ("========================");
+			foreach (var option in options) {
+				Debug.Log ("option:  [" + option + "]");
+			}
+			Debug.Log ("========================");
 			CreateButtons ();
 		}
 	}
@@ -290,6 +295,7 @@ public class DialogueManager : MonoBehaviour {
 	}
 
 	void CreateButtons(){
+		Debug.Log ("Choice------------------------");
 		if (options.Length > 4)
 			Debug.Log ("ERROR: MORE THAN FOUR OPTIONS");
 		int b = 0;
@@ -297,7 +303,7 @@ public class DialogueManager : MonoBehaviour {
 		{
 			ChoiceButton cb = button[b].GetComponent<ChoiceButton> ();
 			string buttonText = options [i].Split ('~') [0];
-			//Debug.Log (buttonText);
+			Debug.Log (buttonText);
 
 
 			if (buttonText.Contains("*"))
@@ -314,10 +320,11 @@ public class DialogueManager : MonoBehaviour {
 				{
 					if (storyManager.checkStat(statCheck[j]))
 					{
-						//Debug.Log (statCheck[j] + "true");
+						Debug.Log (statCheck[j] + ":true");
 					} else 
 					{
-						//Debug.Log(statCheck[j] + "false");	
+						
+						Debug.Log(statCheck[j] + ":false");	
 						showButton = false;
 					}
 
@@ -326,8 +333,10 @@ public class DialogueManager : MonoBehaviour {
 				if (showButton)
 				{
 					roomScript.choiceText [b].text = options[i].Split ('~') [1];
+					Debug.Log ("roomScript.choiceText [b].text=" + roomScript.choiceText [b].text);
 					roomScript.choiceText [b].enabled = true;
-					cb.option = options [i].Split ('~') [2];
+					//cb.option = options [i].Split ('~') [2];
+					cb.SetOption(options [i].Split ('~') [2]);
 					b++;
 				}//if button passes all statchecks
 
@@ -337,7 +346,7 @@ public class DialogueManager : MonoBehaviour {
 			{
 				roomScript.choiceText [b].text = options [i].Split ('~') [0]; 
 				roomScript.choiceText [b].enabled = true;
-				//Debug.Log (options [i]);
+				Debug.Log ("options [i]="+options [i]);
 				cb.SetOption(options [i].Split ('~') [1]);
 				b++;
 			}
