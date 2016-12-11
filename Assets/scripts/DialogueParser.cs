@@ -78,7 +78,7 @@ public class DialogueParser : MonoBehaviour {
 		for(var ii=0; ii < lines_of_text.Length; ii++) 
 		{
 			line = lines_of_text[ii];
-//			Debug.Log ("LINE: " + line);
+			Debug.Log ("LINE: " + line);
 			if (line!= null){
 				string[] lineData = line.Split ('|');
 
