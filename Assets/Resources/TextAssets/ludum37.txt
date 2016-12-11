@@ -147,7 +147,7 @@ mouse.skate|The mouse stops trembling to grin earnestly.|
 |You are a wonderful skater already! At least, you're good at sliding gracefully on ice. Are you going to tie real shoes to your belly though?|
 |I'll look ridiculous. But it's the only way to compete.|
 |You'll look beautiful! Here, wait.|
-|The old mouse straightens his spectacles and pulls a thicket of cash from his wallet.~SetFlag,mouse.moneygiven,T:line,next|
+|The old mouse pulls a thicket of cash from his wallet.~SetFlag,mouse.moneygiven,T:line,next|
 |Here. The first investment in what I hope will be a flourishing career.|Scampers
 |No, that's far too much. Keep that money for your daughter's education.|You
 |I insist. You've done so much for me.|Scampers
@@ -316,19 +316,15 @@ seriousAccusation|That is a serious accusation Mrs. Slitherkins. We will investi
 |That explains his hasty departure.~SetFlag,police.appears,F:line,next|
 |You settle in to wait for the investigation that hopefully will occur.|
 |Check|penguinCorrect=T~penguin.ending|ending.death
-|PENGUIN CORRECT ENDING|
-penguin.ending|**|
+penguin.ending|Less than an hour later, the nurse returns with an antidote. Apparently, the penguin buckled under questioning from the police who knew what questions to ask.|
+|Soon after the injection of the antidote, you begin to regain strength. You and your son are released from the hospital on the same day.~line,ending.postRelease|
 |WEREWOLF ENDING|
-werewolfAccusation|The officer sits up straight.~SetFlag,werewolfAccused,T|
+werewolfAccusation|The officer sits up straight.~SetFlag,giraffeAccused,T|
 |A werewolf? We've been trying to uncover their agents for over a year now. Trying and failing.|Officer
 |They've probably been voting to hang the wrong animal during the daytime. If the werewolves ever become the majority of eligible voters ...|
 |If you've discovered a werewolf, you will be greatly rewarded.|Officer
 |I must speak with my superiors at once.|Officer
 |The officer scurries out.~SetFlag,police.appears,F:line,ending.death|
-|if correct with Girwoffe, player dies but Girwoffe is imprisoned and player is rewarded posthumously and player's son makes a killing selling shoes.|
-|if correct with Guin, Guin goes to jail and player continues to sell shoes and reflect on how to be a better person. if player sold shoe store, they run the ice skating rink instead|
-|if correct with Mouse, player dies but learns mouse's daughter goes to therapy for her kleptomania but is not able to cure a hatred for snakes|
-|incorrect endings - player dies, particulars of ending differ depending on whether player sold shoe store, whether girwoffe was discovered to be a werewolf, or whether Mouse admitted to his crime|
 |DEATH ENDING|
 ending.death|Well. Given that you appear quite on the verge of death, I'll waive the rule against having more than one visitor today.~SetFlag,nurse.appears,T|Nurse
 |Even if the police to uncover the antidote, it's too late now. We have to act.|Nurse
@@ -345,13 +341,50 @@ ending.death|Well. Given that you appear quite on the verge of death, I'll waive
 |You can still smell his scent on the card. You wheeze as your tongue flickers over it.|
 |At least he lives to carry on your legacy.|
 |The nurse approaches you with the chosen antidote.|
-|You nod and close your eyes.~SetFlag,nurse.appears,F|
-ending.postDeath||
-|Check|Werewolf accused/disocvered
-|Check|giraffe.sold=T
-|Check|if so, how much it was sold for
-|Check|receivedMouseMoney
-|Check|giraffeRevealed=T~
-|Check|mouseCorrect=T~
-|Check|mouseAdmitted=T~
+|You nod and close your eyes.~SetFlag,nurse.appears,F:line,death.ending|
+live.ending|After your release from the hospital ...|
+live.giraffeCheck|Check|giraffeRevealed=T~live.weregiraffe|live.salecheck
+live.weregiraffe|With your health somewhat recovered, you return to the police to tell them of the werewolf that visited you one day.|
+|They are thrilled with the knowledge.|
+|As it turns out investigating a secret werewolf society was exactly what they were busy doing instead of investigating your murder.|
+live.saleCheck|Check|giraffeRevealed=T*giraffe.sold~ending.soldWeregiraffe|giraffeAccused=T*giraffe.sold~live.soldWeregiraffe|giraffe.sold~live.reallySold|live.noSale
+live.soldWeregiraffe|Once it is confirmed that Girwoffe really is a member of the secret werewolf society, your sale of the shoe shop is invalidated.|
+live.noSale|You return home to restock your inventory and are soon open for business once more.~line,live.moneyCheck|
+live.reallySold|You return home to find Girwoffe has already cleaned out the inventory from his new shoe store. Yet the ice rink downstairs is in need of a new proprieter.|
+|You buy up the ice rink and continue a business that is more successful than ever.~line,mouseCheck|
+live.moneyCheck|Check|receivedMouseMoney=T*giraffe.soldBestPrice=T~live.bestMoney|receivedMouseMoney=T~live.mouseMoney|giraffe.soldBestPrice=T~live.bestPrice|live.noExtraMoney
+live.bestMoney|With the extra money from Mister Scampers and the business deal with Girwoffe, you are able to launch a separate career in figure skating.|
+live.mouseMoney|With the extra money from Mister Scampers, you buy yourself several pairs of figure skates.|
+live.bestPrice|With the extra money from the business deal with the Girwoffe, you send your son to college.|
+live.noExtraMoney|With some smart saving, you and your son are able to live comfortably for the rest of your days.|
+live.mouseCheck|Check|mouseAdmitted=T~live.mouseGrateful|live.finalEnding
+live.mouseGrateful|Mister Scampers is grateful that you say nothing about who caused the explosion. He is a loyal customer for life.|
+|Well, he was a loyal customer before already. Now he also brings you home-baked cookies.|
+live.finalEnding|THE END|
+|over|
+|POSTDEATH ENDING|
+death.ending|After your death ...|
+death.giraffeCheck|Check|giraffeAccused=T~death.weregiraffe|death.salecheck
+death.weregiraffe|As it turns out, investigating a secret werewolf society was exactly what the police were busy doing instead of investigating your murder.|
+|With your accusation, they uncover an entire network of werewolves, embedded among all animals.|
+|Gazelles that turn into wolves.|
+|Frogs that turn into wolves.|
+|Even wolves that turn into scarier wolves.|
+|The truth is horrifying!|
+|A grateful public honors you at your burial.|
+death.saleCheck|Check|giraffeAccused=T*giraffe.sold~death.soldWeregiraffe|giraffe.sold~death.reallySold|death.noSale
+death.soldWeregiraffe|Once it is confirmed that Girwoffe really is a member of the secret werewolf society, your sale of the shoe shop is invalidated.|
+death.noSale|Your son returns home to restock your inventory and is soon open for business once more.~line,death.moneyCheck|
+death.reallySold|Your son returns home to find Girwoffe has already cleaned out the inventory from his new shoe store. At first he's not quite sure what to do.~line,mouseCheck|
+death.moneyCheck|Check|receivedMouseMoney=T*giraffe.soldBestPrice=T~live.bestMoney|receivedMouseMoney=T~live.mouseMoney|giraffe.soldBestPrice=T~live.bestPrice|live.noExtraMoney
+death.bestMoney|With the extra money from Mister Scampers and the business deal with Girwoffe, your son launches his own career as a figure skater in your memory.|
+death.mouseMoney|With the extra money from Mister Scampers, your son supports himself as an eclectic sculptor.|
+death.bestPrice|With the extra money from the business deal with the Girwoffe, your son moves into the country and becomes a corn farmer.|
+death.noExtraMoney|In the end, your son makes a meager living shining shoes.|
+death.mouseCheck|Check|mouseCorrect=T~death.mouseJailed|death.finalEnding
+death.mouseJailed|Mister Scampers is sentenced to three years in prison, but is out on parole for good behavior after one year.|
+|He doesn't get along with prisoners, but he does finally master the art of playing clock solitaire in your mind.|
+|His daughter goes to therapy to cure her kleptomaniac ways.|
+|She eventually gains the self-confidence to stop, but not before stealing half the therapist's silverware.|
+death.finalEnding|THE END|
 |over|
