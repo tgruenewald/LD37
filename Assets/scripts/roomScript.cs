@@ -31,8 +31,9 @@ public class roomScript : MonoBehaviour {
 		illustration.sprite = Resources.Load<Sprite>("Sprites/bedwithsnake");
 		illustration.enabled = true;
 
-
 		Debug.Log ("room has started");
+
+
 	}
 
 

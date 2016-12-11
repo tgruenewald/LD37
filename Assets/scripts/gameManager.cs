@@ -49,7 +49,12 @@ public class gameManager : MonoBehaviour {
 
 
 	public Player[] player;
-
+	public IEnumerator lightUpRoom(){
+		Image illustration = GameObject.Find ("illustration").GetComponent<Image> ();	
+		illustration.CrossFadeAlpha (0f, 2f, false);
+		yield return new WaitForSeconds(2.2f);
+		illustration.CrossFadeAlpha (1f, .5f, true);		
+	}
 	public void Start()
 	{
 		dialogueManager = GameObject.Find ("Dialogue Manager").GetComponent<DialogueManager> ();
@@ -60,7 +65,9 @@ public class gameManager : MonoBehaviour {
 
 		Text dayDisplayText = GameObject.Find ("DayDisplayText").GetComponent<Text> ();
 		dayDisplayText.text = "Day " + day;
-		dayDisplayText.CrossFadeAlpha(0, 4f, false);
+		dayDisplayText.CrossFadeAlpha(0, 2.5f, false);
+		StartCoroutine (lightUpRoom ());
+
 	}
 
 	public void Update(){
@@ -82,11 +89,13 @@ public class gameManager : MonoBehaviour {
 		
 		Debug.Log ("loop back to beginning of nurse");
 		dialogueManager.lineNum = parser.SearchStory("startday");
+		dialogueManager.lineNum--;
 		day++;
 		Text dayDisplayText = GameObject.Find ("DayDisplayText").GetComponent<Text> ();
 		dayDisplayText.text = "Day " + day;
 		dayDisplayText.CrossFadeAlpha(1.0f, 0f, true);
-		dayDisplayText.CrossFadeAlpha(0, 4f, false);
+		dayDisplayText.CrossFadeAlpha(0, 2.5f, false);
+		StartCoroutine (lightUpRoom ());
 //		AdvanceWeek ();
 //		inStory = false;
 //		expRound = false;

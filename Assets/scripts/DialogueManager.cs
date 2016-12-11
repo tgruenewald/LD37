@@ -238,9 +238,16 @@ public class DialogueManager : MonoBehaviour {
 		else if (parser.GetKey (lineNum) != "Choice"){
 			gameManager.inChoice = false;
 			characterName = parser.GetSpeaker (lineNum);
-			dialogue = parser.GetContent (lineNum);
+			var text = parser.GetContent (lineNum);
 
 			//if dialogue contains commands
+			if (text == "over" && !gameManager.inChoice)
+			{
+				Debug.Log ("over called in DM");
+				gameManager.ExitAdventure ();
+				gameManager.gainingSkill = false;
+			}
+			dialogue = text;
 			if (dialogue.Contains("~"))
 			{
 				Debug.Log ("Commands: " + dialogue.Split ('~') [1]);
@@ -250,12 +257,7 @@ public class DialogueManager : MonoBehaviour {
 
 			}
 
-			else if (dialogue == "over" && !gameManager.inChoice)
-			{
-				Debug.Log ("over called in DM");
-				gameManager.ExitAdventure ();
-				gameManager.gainingSkill = false;
-			}
+
 		//	DisplayImages ();
 		}
 		else {
@@ -343,7 +345,10 @@ public class DialogueManager : MonoBehaviour {
 			ClearButtons();
 			//Debug.Log ("Buttons cleared");
 		}
-		dialogueBox.text = dialogue;
+		if (dialogue != "over")
+			dialogueBox.text = dialogue;
+		else
+			dialogueBox.text = "The next day";
 		//gameManager.animateStory (dialogue);
 		nameBox.text = characterName;
 	}//UpdateUI
