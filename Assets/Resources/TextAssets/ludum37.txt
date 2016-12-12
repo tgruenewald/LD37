@@ -288,8 +288,8 @@ guin.never|Of course not.~line,guin.cont|Miss Guin
 guin.honest|At least you're honest.|Miss Guin
 guin.cont|After a strained silence, you decide to speak.|
 Choice|Was your ice rink damaged in the blast?~guin,2:line,guin.rink|giraffeMet.flag=T~Do you think I should sell my business?~line,guin.business
-guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.~SetFlag,explosionKnown.flag,T:line,guin.blame|
-guin.business|I assume you're talking about to the giraffe.|Miss Guin
+guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.~SetFlag,explosionKnown.flag,T:line,guin.blame|Miss Guin
+guin.business|I assume you're talking about selling to the giraffe.|Miss Guin
 Choice|Yes.~line,next|Yes, though I'd rather sell to you.~guin,1:line,next
 |Hmmph. If you don't die soon, the business will die. I would sell.|Miss Guin
 guin.blame|Do you have any idea who might be trying to kill me?|You
@@ -381,14 +381,15 @@ guin.leave|The penguin waddles out.~SetFlag,penguin.appears,F:SetFlag,penguin.ex
 startday2|Wake up.~SetFlag,nurse.appears,T:line,next|Nurse
 |You have visitors.|Nurse
 |Shouldn't I have something to eat first?|You
-|Unless you want me to eat a visitor.|Nurse
+|Unless you want me to eat a visitor.|You
 |The nurse hands you a plate of questionable jellylike substance.~line,genChoiceCheck|
 |DAY THREE|
 startday3|Wake up.~SetFlag,nurse.appears,T:line,next|Nurse
 |You're snoring.|Nurse
 |What do you care whether I hiss?|You
 |I don't care.|Nurse
-|The nurse hands you what could be generously called a misshapen pancake, if pancakes are also hard enough to break tooth. At least it's drizzled with lizard blood.|
+|The nurse hands you what could be generously called a misshapen pancake, if pancakes are also hard enough to break fangs.|
+|Even the lizard blood drizzled on top seems past the expiration date.|
 |How is my son?|You
 |Alive. Not awake.~line,genChoiceCheck|Nurse
 |DAY FOUR|
@@ -401,7 +402,7 @@ startday4|The nurse enters, whistling through her buckteeth.~SetFlag,nurse.appea
 |GENERAL CHOICE|
 genChoiceCheck|giraffe.exhaust=T*mouse.exhaust=T*penguin.exhaust=T~noVisitors|game.started=T~pickVisitor
 pickVisitor|Who is your visitor today?|Nurse
-Choice|giraffeMet.flag=T*giraffe.exhaust=F~Girwoffe the giraffe.~line,giraffe2|giraffeMet.flag=F*game.started=T~The giraffe.~line,giraffe|penguinMet.flag=T*penguin.exhaust=F~Miss Guin the penguin.~line,penguin2|penguinMet.flag=F*game.started=T~The penguin.~line,penguin1|mouseMet.flag=T*mouse.exhaust=F~Mr. Scampers the mouse.~line,mouse2|mouseMet.flag=F*game.started=T~The mouse.~line,mouse1
+Choice|giraffeMet.flag=T*giraffe.exhaust=F~Girwoffe the giraffe.~line,giraffe2|giraffeMet.flag=F*game.started=T~The giraffe.~line,giraffe1|penguinMet.flag=T*penguin.exhaust=F~Miss Guin the penguin.~line,penguin2|penguinMet.flag=F*game.started=T~The penguin.~line,penguin1|mouseMet.flag=T*mouse.exhaust=F~Mr. Scampers the mouse.~line,mouse2|mouseMet.flag=F*game.started=T~The mouse.~line,mouse1
 |IF NO VISITORS|
 noVisitors|Looks like you have no visitors today.~SetFlag,nurse.appears,T|Nurse
 |Not even my son?|You
