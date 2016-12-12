@@ -276,7 +276,7 @@ public class gameManager : MonoBehaviour {
 					runLineCommand (commandModifier);	
 				}
 			}
-			else if (command == "line")
+			if (command == "line")
 			{
 				if (!inChoice)
 				{
