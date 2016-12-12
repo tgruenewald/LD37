@@ -14,7 +14,7 @@ Choice|Yes, I can hear you.~line,next|-hiss-~line,next|Let me sleep.~line,next
 |A poisoned snake!|Nurse
 Choice|Ha. Ha. Very amusing.~line,next|I am not a poisonous snake.~line,next|What type of poison is it?~line,nurse.poison
 |Poisoned, but not poisonous! Ahahaha! Ahem.|Nurse
-nurse.poison|Whatever venom is in your veins is slow-acting, but quite thorough. If not for the explosion, it wouldn't have been discovered until too latea.|Nurse
+nurse.poison|Whatever venom is in your veins is slow-acting, but quite thorough. If not for the explosion, it wouldn't have been discovered until too late.|Nurse
 |Neverthless, you have only five days to live.|Nurse
 |Five days! Is it time to put your affairs in order? Say farewell to family and friends? Splurge on some final roller coaster rides?|
 |Nope, you have a mystery to solve!|
@@ -57,7 +57,8 @@ giraffe.sonPoisonedYes|Hm. I guess I didn't need to talk to you after all. Usual
 giraffe.sonPoisonedNo|Hm. I wonder if his room is well-guarded ... not that I would consider poisoning him too. Anyway, what do you say to selling your business?|Girwoffe
 giraffe.sonPoisonedDunno|Didn't even think to ask? Snakes are terrible mothers. They don't know what to do once the child's out of the egg. Anyway, what do you say to selling your business?~SetFlag,giraffe.askSonPoison,T:line,next|Girwoffe
 giraffe.sell|Excellent! I will have the money transferred to your account right away. Wow, if I had known you would break this easily I would have hired someone to burn down your shop years ago!~SetFlag,giraffe.sold,T:SetFlag,giraffe.exhaust,T:line,next|Girwoffe
-|Not that I hired anyone this time, of course. So tell whoever really burned your shop that I owe them a favor. I suspect it was that tiny penguin. He once asked me whether I would help him expand his business to the upper floor, but he seemed to be suggesting something quite illegal so I ended that conversation right away.|Girwoffe
+|Not that I hired anyone this time, of course. So tell whoever really burned your shop that I owe them a favor. I suspect it was that tiny penguin.|Girwoffe
+|She once asked me whether I would help her expand her business, but she seemed to be suggesting something quite illegal so I ended that conversation right away.|Girwoffe
 |Because I would never do anything illegal. And it turns out I didn't even need to!|Girwoffe
 |The giraffe is so excited he hits his head on the window frame on his way out, but he doesn't even care.~SetFlag,giraffe.appears,F:line,next|
 |What's all this shouting?|Nurse
@@ -75,18 +76,18 @@ Choice|I'm sorry, but I will not sell.~line,giraffe.refusecont|I would want an a
 |The giraffe quivers with such rage that he strikes his head on the window frame, then barks in pain. The sound is distinctly not giraffe-like.|
 |He looks ready to headbutt you, which could be lethal in your condition.|
 Choice|Okay, I apologize, but I still refuse to sell.~line,giraffe.refusecont|It's a good thing your neck is so long, because your shoes smell.~line,next
-|Your shoes aren't even worth shed snake skin! Which is worthless! And disgusting!|
-giraffe.beforeReveal|Girwoffe is now so livid that appears gray. In fact, he seems to be spouting gray fur?~SetFlag,giraffe.appears,F:SetFlag,weregiraffe.appears,T:line,next|
+|Your shoes aren't even worth shed snake skin! Which is worthless! And disgusting!|Girwoffe
+giraffe.beforeReveal|Girwoffe is now so livid that appears gray. In fact, he seems to be spouting gray fur?|
 Choice|You should probably leave before you cause a giraffic jam.~line,next
 |The very shape of the giraffe's face is morphing, becoming more like that of a canine. The snout lengthens, Girwoffe throws back his head and howls.|
 Choice|It must be your feet that smell, not the shoes.~line,next
 |The giraffe's neck shrinks rapidly, and the spots increase in size until the giraffe's coat is a deep, dark brown. In fact, Girwoffe isn't a giraffe anymore.|
-|He's a wolf.~SetFlag.giraffe.appears,F:SetFlag,weregiraffe.appears,T|
+|He's a wolf.~SetFlag,giraffe.appears,F:SetFlag,weregiraffe.appears,T:line,next|
 |The creature hangs half in, half out of the window, snarling. You stretch hastily for the Emergency Aid button, but it's just out of reach.|
 |Help! Werewolf!|You
 |The werewolf topples backwards out of the window.~SetFlag,weregiraffe.appears,F:line,next|
 |Well, that was unexpected.|You
-|Another two minutes pass before the nurse hops calmly into the room.|
+|Another two minutes pass before the nurse hops calmly into the room.~SetFlag,nurse.appears,T:line,next|
 |I heard screaming. Did you eat your visitor?|Nurse
 |That giraffe is a werewolf! He fell out the window!|You
 |The rabbit hops to the window and looks out.|
@@ -95,6 +96,7 @@ Choice|It must be your feet that smell, not the shoes.~line,next
 |Try harder.|Nurse
 |The nurse hops out.~SetFlag,nurse.appears,F:line,next|
 |Hopefully that werewolf doesn't return.~SetFlag,giraffeRevealed,T:SetFlag,giraffe.exhaust,T:line,over|
+|over|
 giraffe.refusecont|You stubborn serpent. Doubtless you'll change your mind.|Girwoffe
 giraffe.time|I will return, and when I do, it will be with my final offer.|Girwoffe
 |The giraffe withdraws from the window, careful not to let his horns scrape the window frame. Soon he is gone.~SetFlag,giraffe.appears,F:line,over|
@@ -220,14 +222,16 @@ mouse.cont2|Do you happen to know anything about who might be poisoning me?|You
 Choice|How is your daughter?~line,mouse.daughter|Why would Girwoffe want to poison me?~line,mouse.girwoffe|Why would Miss Guin want to poison me?~line,mouse.guin|metGiraffe.flag=T*giraffe.sold=F*mouse.advised=F~Should I sell my store to Girwoffe?~line,mouse.advice
 mouse.daughter|She's well. But I'm worried about her. Because she's sick.|Scampers
 |I'm worried about my son too. I haven't seen him since the explosion.|You
-|You can hear the mouse's heart pounding underneath his fur.~line,mouse.end1|
+|You can hear the mouse's heart pounding underneath his fur.|
+|I'm sorry, I didn't think.|Scampers
+|I hope your son gets better.~line,mouse.end1|Scampers
 mouse.girwoffe|I don't know. But I've heard strange growling noises when passing by Girwoffe's shoe shop. He has something to hide.~line,mouse.end1|Scampers
 mouse.guin|I know she doesn't like you.|Scampers
 |How do you know that?|You
 |Just the way she glares at you when you're not looking. Especially when you're ice-skating.|Scampers
 |Is it an I-want-to-kill-you glare?|You
 |I don't know. I'm bad enough at reading bird expressions as it is.~line,mouse.end1|Scampers
-mouse.end1|Well, ah, I need to get going. Should check up on my daughter. She's sick. Uh. Give your son my regards when he wakes up. I really hope you find the poisoner. Yes. I do.|
+mouse.end1|Well, ah, I need to get going. Should check up on my daughter. She's sick. Uh. Give your son my regards when he wakes up. I really hope you find the poisoner. Yes. I do.|Scampers
 |Thank you.|You
 |Buh-bye!|Scampers
 |The mouse scampers away, and the nurse returns.~SetFlag,mouse.appears,F:SetFlag,nurse.appears,T:line,next|
@@ -262,7 +266,7 @@ mouse.daughter2|She's fine...she's doing great...she's...|Scampers
 |PENGUIN - FIRST CONVERSATION|
 penguin1|Miss Guin waddles in with fresh flowers that she exchanges with the stale flowers at your bedside. She's the proprieter of the ice rink under your shoe shop. You've known her since high school, albeit not very well.~SetFlag,penguin.appears,T:SetFlag,penguinMet.flag,T:line,next|
 |How are you feeling?|Miss Guin
-Choice|Like I'm about to die.~guin,1:line,guin.die|Very good, thanks for asking.~guin,-1:line,guin.cont
+Choice|Like I'm about to die.~guin,1:line,guin.die|Very good, thanks for asking.~guin,-1:line,guin.positive
 guin.die|I'm sure it's not so drastic.|Miss Guin
 Choice|Actually, I've been poisoned and they don't know the antidote.~line,guin.poison|True, at least I have all my limbs.~guin,-1:line,guin.limbs
 guin.limbs|How are you so positive?|Miss Guin
@@ -270,14 +274,23 @@ Choice|It's a genetic snake trait.~guin,-1:line,guin.positive|Daily meditation.~
 guin.positive|Hmmph.~line,guin.cont|Miss Guin
 guin.pretend|Hmmph.~line,guin.cont|Miss Guin
 guin.poison|That's terrible! Who would do such a thing?|Miss Guin
-Choice|That's what I will find out.~line,guin.who|I don't have any enemies.~guin,-1:line,guin.enemies|I must have done something wrong.~guin,1:line,guin.cont
-guin.enemies|Perhaps it's an enemy you don't know about yet.|
-guin.who|What's the name of that mouse who's always sneaking around? I've caught him filching snowcones from my ice rink.|
-Choice|Mr. Scampers is a loyal customer.~line,next|Everyone steals from you.~line,next
+Choice|That's what I will find out.~line,guin.who|I don't have any enemies.~guin,-1:line,guin.enemies|I must have done something wrong.~guin,1:line,guin.wrong
+guin.wrong|Miss Guin leans forward, almost eagerly.|
+|What have you done wrong?|Miss Guin
+|I'm not sure.|You
+|She leans back, disappointed.~line,guin.cont|
+guin.enemies|Perhaps it's an enemy you don't know about yet.|Miss Guin
+guin.who|What's the name of that mouse who's always sneaking around? I've caught him filching snowcones from my ice rink.|Miss Guin
+Choice|Mr. Scampers is a loyal customer.~line,guin.loyal|Everyone steals snowcones from you.~guin,-2:line,guin.everyone
+guin.loyal|If you say so.~guin.cont|Miss Guin
+guin.everyone|Is that so? Have you stolen from me?|Miss Guin
+Choice|I would never do such a thing!~line,guin.never|Maybe once?~guin,1:line,guin.honest|All the time.~line,guin.honest
+guin.never|Of course not.~line,guin.cont|Miss Guin
+guin.honest|At least you're honest.|Miss Guin
 guin.cont|After a strained silence, you decide to speak.|
-Choice|Was your ice rink damaged in the blast?~guin,2:line,guin.rink|Should I sell my business?~SetFlag,giraffe.sold=T:line,guin.business
-guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.~SetFlag,explosionKnown.flag,T:line,guin.blame|
-guin.business|I assume you're talking about to the giraffe.|Miss Guin
+Choice|Was your ice rink damaged in the blast?~guin,2:line,guin.rink|giraffeMet.flag=T*game.started=T~Do you think I should sell my business?~line,guin.business
+guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.~SetFlag,explosionKnown.flag,T:line,guin.blame|Miss Guin
+guin.business|I assume you're talking about selling to the giraffe.|Miss Guin
 Choice|Yes.~line,next|Yes, though I'd rather sell to you.~guin,1:line,next
 |Hmmph. If you don't die soon, the business will die. I would sell.|Miss Guin
 guin.blame|Do you have any idea who might be trying to kill me?|You
@@ -346,7 +359,7 @@ guin.confess|Miss Guin looks highly uncomfortable.|
 |Miss Guin folds her flippers in her lap. She looks like she wants to say something.|
 |What is it?|You
 |I thought you had the perfect life. Great family, great business ...|Miss Guin
-|It only appeared to be that way.|Miss Guin
+|It only appeared to be that way.|Miss Guinf
 |Thanks. Now I really feel better.|You
 |I'll just ... I'll be sorry to see you go.|Miss Guin
 |I hadn't expected that.|Miss Guin
@@ -369,14 +382,15 @@ guin.leave|The penguin waddles out.~SetFlag,penguin.appears,F:SetFlag,penguin.ex
 startday2|Wake up.~SetFlag,nurse.appears,T:line,next|Nurse
 |You have visitors.|Nurse
 |Shouldn't I have something to eat first?|You
-|Unless you want me to eat a visitor.|Nurse
+|Unless you want me to eat a visitor.|You
 |The nurse hands you a plate of questionable jellylike substance.~line,genChoiceCheck|
 |DAY THREE|
 startday3|Wake up.~SetFlag,nurse.appears,T:line,next|Nurse
 |You're snoring.|Nurse
 |What do you care whether I hiss?|You
 |I don't care.|Nurse
-|The nurse hands you what could be generously called a misshapen pancake, if pancakes are also hard enough to break tooth. At least it's drizzled with lizard blood.|
+|The nurse hands you what could be generously called a misshapen pancake, if pancakes are also hard enough to break fangs.|
+|Even the lizard blood drizzled on top seems past the expiration date.|
 |How is my son?|You
 |Alive. Not awake.~line,genChoiceCheck|Nurse
 |DAY FOUR|
@@ -389,7 +403,7 @@ startday4|The nurse enters, whistling through her buckteeth.~SetFlag,nurse.appea
 |GENERAL CHOICE|
 genChoiceCheck|giraffe.exhaust=T*mouse.exhaust=T*penguin.exhaust=T~noVisitors|game.started=T~pickVisitor
 pickVisitor|Who is your visitor today?|Nurse
-Choice|giraffeMet.flag=T*giraffe.exhaust=F~Girwoffe the giraffe.~line,giraffe2|giraffeMet.flag=F*game.started=T~The giraffe.~line,giraffe|penguinMet.flag=T*penguin.exhaust=F~Miss Guin the penguin.~line,penguin2|penguinMet.flag=F*game.started=T~The penguin.~line,penguin1|mouseMet.flag=T*mouse.exhaust=F~Mr. Scampers the mouse.~line,mouse2|mouseMet.flag=F*game.started=T~The mouse.~line,mouse1
+Choice|giraffeMet.flag=T*giraffe.exhaust=F~Girwoffe the giraffe.~line,giraffe2|giraffeMet.flag=F*game.started=T~The giraffe.~line,giraffe1|penguinMet.flag=T*penguin.exhaust=F~Miss Guin the penguin.~line,penguin2|penguinMet.flag=F*game.started=T~The penguin.~line,penguin1|mouseMet.flag=T*mouse.exhaust=F~Mr. Scampers the mouse.~line,mouse2|mouseMet.flag=F*game.started=T~The mouse.~line,mouse1
 |IF NO VISITORS|
 noVisitors|Looks like you have no visitors today.~SetFlag,nurse.appears,T|Nurse
 |Not even my son?|You
