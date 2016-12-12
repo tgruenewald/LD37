@@ -62,7 +62,7 @@ giraffe.sell|Excellent! I will have the money transferred to your account right 
 |She once asked me whether I would help her expand her business, but she seemed to be suggesting something quite illegal so I ended that conversation right away.|Girwoffe
 |Because I would never do anything illegal. And it turns out I didn't even need to!|Girwoffe
 |The giraffe is so excited he hits his head on the window frame on his way out, but he doesn't even care.~SetFlag,giraffe.appears,F:line,next|
-|What's all this shouting?~SetFlag,nurse.appears,T|Nurse
+|What's all this shouting?~SetFlag,nurse.appears,T:line,next|Nurse
 |I just bargained away my livelihood.|You
 |Sounds like you're using your time well.|Nurse
 |She snaps the curtain shut.|
@@ -426,7 +426,7 @@ noVisitors|Looks like you have no visitors today.~SetFlag,nurse.appears,T:line,n
 startday5|You awake today feeling immensely weakened. It is difficult to think, much less string together a sentence.|
 |As you awaken, you see your visitor for today has already arrived. Finally, a uniform.~SetFlag,police.appears,T:line,next|
 |It sssounds like you've been a busssy sssnake.|Officer
-Choice|Have you come to take my statement?~line,police.statement|Are you making fun of the snake accent, offissser?~line,police.accent|
+Choice|Have you come to take my statement?~line,police.statement|Are you making fun of the snake accent offissser?~line,police.accent|
 police.accent|Of course not. That would be unprofessional.~line,police.cont|Officer
 police.statement|Yes. I figured I would drop by during my lunch break.|Officer
 police.cont|I can only spare a few minutes, so tell me who poisoned you and we'll go arrest them.|Officer
