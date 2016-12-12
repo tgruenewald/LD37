@@ -36,7 +36,7 @@ startday|Three visitors have come to see you. A giraffe, a mouse, and a penguin.
 |What am I, your personal assistant? Ask them yourself.|Nurse
 Choice|I want to meet the giraffe.~line,giraffe1|I want to meet the penguin.~line,penguin1|I want to meet the mouse.~line,mouse1
 |GIRAFFE - FIRST CONVERSATION|
-giraffe1|The nurse leaves, and after several minutes, a giraffe pokes his head through the open window.~SetFlag,nurse.appears,F:SetFlag,giraffe.appears,T:line,next|
+giraffe1|The nurse leaves, and after several minutes, a giraffe pokes his head through the open window.~SetFlag,giraffeMet.flag,T:SetFlag,nurse.appears,F:SetFlag,giraffe.appears,T:line,next|
 |You should ask to be relocated to a higher floor. I have to bend down to talk to you and it is highly uncomfortable. Or should I say ... lowly?|Girwoffe
 |Of course. It's Girwoffe, your longtime business rival. To drive you out of business, he's been cutting his prices like a beaver cutting trees.|
 Choice|Did you come here to gloat?~line,giraffe.business|So slashing prices wasn't enough, now you're slashing throats?~line,next
@@ -149,7 +149,7 @@ mouse.advice|No, definitely not!~SetFlag,mouse.advised,T:line,next|Scampers
 |You have strong feelings.|You
 |I just think your shoes provide really good value.|Scampers
 Check|mouseSecondMeeting=F~mouse.end1|mouse.end2
-mouse.shoes|Girwoffe's shoes may be cheap, but they fall apart in a week! I would bet my whiskers that Girwoffe's the one to blame!|Scampers
+mouse.shoes|Girwoffe's shoes may be cheap, but they fall apart in a week! I would wager my whiskers that Girwoffe's the one to blame!|Scampers
 |For the explosion? Or for the poison?|You
 |Both! Neither! Uh, poison?|Scampers
 |Yes, I've been poisoned. Do you think Girwoffe did it?|You
@@ -389,7 +389,7 @@ startday4|The nurse enters, whistling through her buckteeth.~SetFlag,nurse.appea
 |GENERAL CHOICE|
 genChoiceCheck|giraffe.exhaust=T*mouse.exhaust=T*penguin.exhaust=T~noVisitors|game.started=T~pickVisitor
 pickVisitor|Who is your visitor today?|Nurse
-Choice|giraffeMet.flag=T*giraffe.exhaust=F~Girwoffe the giraffe.~line,giraffe2|giraffeMet.flag=F*game.started=T~The giraffe.~line,giraffe|penguinMet.flag=T*penguin.exhaust=F~Miss Guin the penguin.~line,penguin2|penguinMet.flag=T*game.started=T~The penguin.~line,penguin1|mouseMet.flag=T*mouse.exhaust=F~Mr. Scampers the mouse.~line,mouse2|mouseMet.flag=F*game.started=T~The mouse.~line,mouse1
+Choice|giraffeMet.flag=T*giraffe.exhaust=F~Girwoffe the giraffe.~line,giraffe2|giraffeMet.flag=F*game.started=T~The giraffe.~line,giraffe|penguinMet.flag=T*penguin.exhaust=F~Miss Guin the penguin.~line,penguin2|penguinMet.flag=F*game.started=T~The penguin.~line,penguin1|mouseMet.flag=T*mouse.exhaust=F~Mr. Scampers the mouse.~line,mouse2|mouseMet.flag=F*game.started=T~The mouse.~line,mouse1
 |IF NO VISITORS|
 noVisitors|Looks like you have no visitors today.~SetFlag,nurse.appears,T|Nurse
 |Not even my son?|You
