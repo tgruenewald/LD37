@@ -12,9 +12,9 @@ Choice|Yes, I can hear you.~line,next|-hiss-~line,next|Let me sleep.~line,next
 |Apparently so! Someone with a sense of humor.|Nurse
 |What's so funny?|You
 |A poisoned snake!|Nurse
-Choice|Ha. Ha. Very amusing.~line,next|I am not a poisonous snake.~line,next|What type of poison is it?~line,next
+Choice|Ha. Ha. Very amusing.~line,next|I am not a poisonous snake.~line,next|What type of poison is it?~line,nurse.poison
 |Poisoned, but not poisonous! Ahahaha! Ahem.|Nurse
-|Whatever venom is in your veins is slow-acting, but quite thorough. If not for the explosion, it wouldn't have been discovered until too latea.|Nurse
+nurse.poison|Whatever venom is in your veins is slow-acting, but quite thorough. If not for the explosion, it wouldn't have been discovered until too latea.|Nurse
 |Neverthless, you have only five days to live.|Nurse
 |Five days! Is it time to put your affairs in order? Say farewell to family and friends? Splurge on some final roller coaster rides?|
 |Nope, you have a mystery to solve!|
@@ -65,12 +65,16 @@ giraffe.sell|Excellent! I will have the money transferred to your account right 
 |Sounds like you're using your time well.|Nurse
 |She snaps the curtain shut.|
 |over|
-giraffe.refuse|Foolish reptile! Your business is already dead! I am offering you an incredible price, more than thrice what your business is worth, if I'm being generous, and I am being generous! Your fake snake shoes are worth 100 at best, and that's including what's left of your inventory!|
-Choice|I apologize. Still, I will not sell.~line,giraffe.refusecont|I would demand an apology, but it would take you too long to swallow your pride.~line,next
+giraffe.refuse|Foolish reptile! Your business is already dead!|Girwoffe
+|This isn't the first time you've refused, though 5000 is the highest offer yet.|
+|I am offering you an incredible price, more than thrice what your business is worth, if I'm being generous, and I am being generous!|Girwoffe
+Your fake snake shoes are worth 100 at best, and that's including what's left of your inventory!|Girwoffe
+Choice|I'm sorry, but I will not sell.~line,giraffe.refusecont|I would want an apology, but you'd take too long swallowing your pride.~line,next
+|You know, because of the length of your neck.|You
 |Snakes don't even wear shoes! Your store was always doomed to fail!|Girwoffe
 |The giraffe quivers with such rage that he strikes his head on the window frame, then barks in pain. The sound is distinctly not giraffe-like.|
 |He looks ready to headbutt you, which could be lethal in your condition.|
-Choice|Okay, I apologize, but I refuse to sell.~line,giraffe.refusecont|On the other hand, it's a good thing your neck is so long, because your shoes smell.~line,next
+Choice|Okay, I apologize, but I still refuse to sell.~line,giraffe.refusecont|It's a good thing your neck is so long, because your shoes smell.~line,next
 |Your shoes aren't even worth shed snake skin! Which is worthless! And disgusting!|
 giraffe.beforeReveal|Girwoffe is now so livid that appears gray. In fact, he seems to be spouting gray fur?~SetFlag,giraffe.appears,F:SetFlag,weregiraffe.appears,T:line,next|
 Choice|You should probably leave before you cause a giraffic jam.~line,next
@@ -130,10 +134,11 @@ mouse.yum|What's wrong with you? I'm one of your customers, remember?|Scampers
 Choice|Mm, I could just eat ... you ... alive.~line,mouse.flee|I am so sorry, I just woke up and I'm delirious.~line,mouse.sorry
 mouse.flee|You flicker your tongue at Mr. Scampers, who snatches up his briefcase and flees without another word.~SetFlag,mouse.appears,F:SetFlag,mouse.exhaust,T:line,over|
 |over|
-mouse.sorry|That's all right. I'll, uh, take it as a compliment.|Scampers
+mouse.sorry|That's all right. I'll, uh, take it as a compliment.~line,mouse.cont|Scampers
+|MOUSE PART 1|
 mouse.cont|I came because I hoped you are well. That is, you are well ... I hope. I just had to see you for myself.|Scampers
 |And you are well. I'm grateful. Because shoes. You know. I need somewhere to get new shoes.|Scampers
-Choice|Actually, I am not well. I need to find out who's trying to kill me.~line,mouse.cont|What about Girwoffe's shoes?~line,mouse.shoes|giraffe.sold=T*game.started=T~I just sold my business to Girwoffe.~line,mouse.sold|metGiraffe.flag=T*giraffe.sold=F~Do you think I should sell my business to Girwoffe?~line,mouse.advice
+Choice|Actually, I am not well. I need to find out who's trying to kill me.~line,mouse.cont2|What about Girwoffe's shoes?~line,mouse.shoes|giraffe.sold=T*game.started=T~I just sold my business to Girwoffe.~line,mouse.sold|metGiraffe.flag=T*giraffe.sold=F~Do you think I should sell my business to Girwoffe?~line,mouse.advice
 mouse.advice|No, definitely not!~SetFlag,mouse.advised,T:line,next|Scampers
 |Why not?|You
 |That giraffe is a bully! And he's too tall.|Scampers
@@ -146,13 +151,13 @@ Check|mouseSecondMeeting=F~mouse.end1|mouse.end2
 mouse.shoes|Girwoffe's shoes may be cheap, but they fall apart in a week! I would bet my whiskers that Girwoffe's the one to blame!|Scampers
 |For the explosion? Or for the poison?|You
 |Both! Neither! Uh, poison?|Scampers
-|Yes, I've been poisoned. Do you think Girwoffe did it?|
+|Yes, I've been poisoned. Do you think Girwoffe did it?|You
 |He's a ruthless businessanimal, but I don't think he would stoop to murder.|Scampers
 |He's much too tall.|Scampers
 |Mr. Scamper grins, his whiskers trembling as though trying to contain a laugh.|
 |Is that the only reason?|You
-|I just--I don't think he has it in him. Most people don't.|Scampers
-|Like us mice! Ha ha! We're so afraid of everything!~line,mouse.cont|Scampers
+|I just--I don't think he has it in him. Most animals don't.|Scampers
+|Like us mice! Ha ha! We're so afraid of everything!~line,mouse.cont2|Scampers
 mouse.sold|Y-you did? But it was such a small explosion! Barely any of your inventory was damaged!~SetFlag,mouse.toldSold,T:line,next|Scampers
 |How do you know about the size of the explosion?|You
 |You don't think I would have set off a bomb in your--why would I! I need new shoes!|Scampers
@@ -160,7 +165,7 @@ mouse.sold|Y-you did? But it was such a small explosion! Barely any of your inve
 |The mouse squeaks in horror.|
 |But-but what will you do?|Scampers
 Choice|Retire.~line,mouse.retire|Girwoffe might be hiring new employees.~line,mouse.hire|Pursue my ice-skating dream.~line,mouse.skate
-mouse.retire|That doesn't seem so bad. At least you'll finally be able to rest.~line,mouse.cont|
+mouse.retire|That doesn't seem so bad. At least you'll finally be able to rest.~line,mouse.cont2|
 mouse.skate|The mouse stops trembling to grin earnestly.|
 |You are a wonderful skater already! At least, you're good at sliding gracefully on ice. Are you going to tie real shoes to your belly though?|
 |I'll look ridiculous. But it's the only way to compete.|
@@ -205,7 +210,7 @@ mouse.takeCare|No! You can't eat her! I'll-I'll eat you first!|Scampers
 |Then you remember you might be living to help her.|
 |I'll try, anyway.|You
 |Right. You'll try. I need to go.~line,mouse.leave|Scampers
-mouse.cont|Do you happen to know anything about who might be poisoning me?|You
+mouse.cont2|Do you happen to know anything about who might be poisoning me?|You
 |The mouse looks uncomfortable.|
 |Have you considered ... that the animal who set off the bomb and the animal who is poisoning you might not be the same? Why would someone try to kill you when they're already trying to kill you?|Scampers
 |Maybe they got impatient.|You
@@ -220,7 +225,7 @@ mouse.guin|I know she doesn't like you.|Scampers
 |How do you know that?|You
 |Just the way she glares at you when you're not looking. Especially when you're ice-skating.|Scampers
 |Is it an I-want-to-kill-you glare?|You
-|I don't know. I'm bad enough at reading bird expressions as it is.~line,mouse1.end|Scampers
+|I don't know. I'm bad enough at reading bird expressions as it is.~line,mouse.end1|Scampers
 mouse.end1|Well, ah, I need to get going. Should check up on my daughter. She's sick. Uh. Give your son my regards when he wakes up. I really hope you find the poisoner. Yes. I do.|
 |Thank you.|You
 |Buh-bye!|Scampers
@@ -339,7 +344,10 @@ guin.confess|Miss Guin looks highly uncomfortable.|
 |You're a better conversationalist than the nurse.|You
 |Miss Guin folds her flippers in her lap. She looks like she wants to say something.|
 |What is it?|You
-|Nothing. I'll just ... I'll be sorry to see you go.|Miss Guin
+|I thought you had the perfect life. Great family, great business ...|Miss Guin
+|It only appeared to be that way.|Miss Guin
+|Thanks. Now I really feel better.|You
+|I'll just ... I'll be sorry to see you go.|Miss Guin
 |I hadn't expected that.|Miss Guin
 |Uh, thanks. Feel free to come to the funeral.|You
 |I would have done that anyway.|Miss Guin
