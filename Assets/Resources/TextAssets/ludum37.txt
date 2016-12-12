@@ -123,7 +123,7 @@ Choice|Anything else to say?~line,giraffe.cont2|Get lost, stiff-neck.~line,giraf
 giraffe.cont2|Only this. I can't wait for you to die.|Girwoffe
 |The giraffe stalks away.~SetFlag,giraffe.appears,F:SetFlag,giraffe.exhaust,T:line,over|
 |MOUSE - FIRST CONVERSATION|
-mouse1|Such a terrible thing that happened, a terrible thing!~SetFlag,mouse.appears,T:SetFlag,mouseMet.flag,T|Scampers
+mouse1|Such a terrible thing that happened, a terrible thing!~SetFlag,mouse.appears,T:SetFlag,mouseMet.flag,T:line,next|Scampers
 Choice|Thank you for visiting.~line,mouse.cont|You look delectable.~line,mouse.yum|What are you doing here?~line,mouse.cont
 mouse.yum|What's wrong with you? I'm one of your customers, remember?|Scampers
 |The mouse lifts his tiny feet and you can see indeed that is he is wearing genuine Snake Shoes.|
