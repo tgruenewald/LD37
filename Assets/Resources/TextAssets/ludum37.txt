@@ -103,7 +103,7 @@ giraffe.time|I will return, and when I do, it will be with my final offer.|Girwo
 giraffe2|Have you decided to sell?|Girwoffe
 |First, I want to ask you about the explosion.|You
 |Fine. But make it quick.|Girwoffe
-Choice|What do you know about my mouse visitor?~line,mouseVisitor|What do you know about my penguin visitor?~line,penguinVisitor
+Choice|What do you know about my mouse visitor?~line,giraffe.mouseVisitor|What do you know about my penguin visitor?~line,giraffe.penguinVisitor
 giraffe.mouseVisitor|All mice look the same to me.|Girwoffe
 |But now that I think about it, I saw some rodents arguing on the roof of your shop the day of the explosion.|Girwoffe
 |You have a rodent infestation in your walls and I mean to clean that up.|Girwoffe
@@ -221,7 +221,7 @@ Choice|How is your daughter?~line,mouse.daughter|Why would Girwoffe want to pois
 mouse.daughter|She's well. But I'm worried about her. Because she's sick.|Scampers
 |I'm worried about my son too. I haven't seen him since the explosion.|You
 |You can hear the mouse's heart pounding underneath his fur.~line,mouse.end1|
-mouse.girwoffe|I don't know. But I've heard strange growling noises when passing by Girwoffe's shoe shop. He has something to hide.~line,mouse1.end|Scampers
+mouse.girwoffe|I don't know. But I've heard strange growling noises when passing by Girwoffe's shoe shop. He has something to hide.~line,mouse.end1|Scampers
 mouse.guin|I know she doesn't like you.|Scampers
 |How do you know that?|You
 |Just the way she glares at you when you're not looking. Especially when you're ice-skating.|Scampers
@@ -230,7 +230,7 @@ mouse.guin|I know she doesn't like you.|Scampers
 mouse.end1|Well, ah, I need to get going. Should check up on my daughter. She's sick. Uh. Give your son my regards when he wakes up. I really hope you find the poisoner. Yes. I do.|
 |Thank you.|You
 |Buh-bye!|Scampers
-|The mouse scampers away, and the nurse returns.~SetFlag,mouse.appears,F:SetFlag,nurse.appears,T|
+|The mouse scampers away, and the nurse returns.~SetFlag,mouse.appears,F:SetFlag,nurse.appears,T:line,next|
 |No more visitors today!|Nurse
 |She yanks your bed curtains shut.~SetFlag,nurse.appears,F:line,over|
 |over|
