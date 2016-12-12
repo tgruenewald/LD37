@@ -217,7 +217,7 @@ mouse.cont2|Do you happen to know anything about who might be poisoning me?|You
 |Maybe they got impatient.|You
 |I suppose you're right.|Scampers
 |The mouse plays absently with his whiskers.|
-Choice|How is your daughter?~line,mouse.daughter|Why would Girwoffe want to poison me?~line,mouse.girwoffe|Why would Miss Guin want to poison me?~line,mouse.guin|metGiraffe=T*giraffe.sold=F*mouse.advised=F~Should I sell my store to Girwoffe?~line,mouse.advice
+Choice|How is your daughter?~line,mouse.daughter|Why would Girwoffe want to poison me?~line,mouse.girwoffe|Why would Miss Guin want to poison me?~line,mouse.guin|metGiraffe.flag=T*giraffe.sold=F*mouse.advised=F~Should I sell my store to Girwoffe?~line,mouse.advice
 mouse.daughter|She's well. But I'm worried about her. Because she's sick.|Scampers
 |I'm worried about my son too. I haven't seen him since the explosion.|You
 |You can hear the mouse's heart pounding underneath his fur.~line,mouse.end1|
