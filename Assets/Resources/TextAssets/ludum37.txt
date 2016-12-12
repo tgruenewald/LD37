@@ -204,7 +204,7 @@ mouse.wontTell|I promise. Thank you! I feel so much better having told you.~SetF
 |I'm impressed.|You
 |Me too. I guess. At least we still have digital copies?|Scampers
 |They'll have to do.|You
-|I should get going. Thank you again!|Scampers
+mouse.end2|I should get going. Thank you again!|Scampers
 mouse.leave|Scampers scampers off.~SetFlag,mouse.exhaust,T:SetFlag,mouse.appears,F:line,over|
 |over|
 mouse.willTell|I suppose ... it's the right thing to do. I did hurt someone, after all. I just couldn't turn myself in. What will happen to my daughter?|Scampers
@@ -454,13 +454,13 @@ Choice|I do not wish to accuse an innocent.~line,next|I have no idea who the mur
 |Well, we have no idea either.|Officer
 police.leaving|The Officer snaps shut his notebook.|
 |What a waste of time.|Officer
-|The police officer leaves, muttering.~SetFlag,police.appears,F:line,death.ending|
+|The police officer leaves, muttering.~SetFlag,police.appears,F:line,ending.death|
 accuse.Girwoffe|I accuse Girwoffe of...|You
 Choice|Poisoning me to gain control of my business.~line,seriousAccusation|Poisoning me out of personal jealousy.~line,seriousAccusation|Poisoning me because he hates snakes.~line,seriousAccusation|Being a werewolf.~line,werewolfAccusation
 accuse.penguin|I accuse Miss Guin of...|You
 Choice|Poisoning me to expand her ice rink to the second floor.~line,seriousAccusation|Poisoning me because Girwoffe paid her to do it.~line,seriousAccusation|Poisoning me out of personal jealousy.~SetFlag,penguinCorrect.flag,T:line,seriousAccusation|Poisoning me because she hates snakes.~line,seriousAccusation
 accuse.mouse|I accuse Mister Scampers of...|You
-Choice|Poisoning me so his family could live without fear of snakes.~line,seriousAccusation|Poisoning me because Girwoffe paid him to do it.~line,seriousAccusation|Exploding a portion of my shop to hurt my son.~line,seriousAccusation|Exploding a portion of my shop to protect his family.~SetFlag,mouseCorrect.flag,T~line,seriousAccusation
+Choice|Poisoning me so his family could live without fear of snakes.~line,seriousAccusation|Poisoning me because Girwoffe paid him to do it.~line,seriousAccusation|Exploding a portion of my shop to hurt my son.~line,seriousAccusation|Exploding a portion of my shop to protect his family.~SetFlag,mouseCorrect.flag,T:line,seriousAccusation
 seriousAccusation|That is a serious accusation Mrs. Slitherkins. We will investigate with the detail you provided.|Officer
 |I provided only one sentence. Let me tell you what else I discovered in my investigation.|You
 |You do your job, I do mine.|Officer
