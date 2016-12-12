@@ -14,7 +14,8 @@ Choice|Yes, I can hear you.~line,next|-hiss-~line,next|Let me sleep.~line,next
 |A poisoned snake!|Nurse
 Choice|Ha. Ha. Very amusing.~line,next|I am not a poisonous snake.~line,next|What type of poison is it?~line,next
 |Poisoned, but not poisonous! Ahahaha! Ahem.|Nurse
-|Whatever venom is in your veins is slow-acting, but quite thorough. You have only five days to live.|Nurse
+|Whatever venom is in your veins is slow-acting, but quite thorough. If not for the explosion, it wouldn't have been discovered until too latea.|Nurse
+|Neverthless, you have only five days to live.|Nurse
 |Five days! Is it time to put your affairs in order? Say farewell to family and friends? Splurge on some final roller coaster rides?|
 |Nope, you have a mystery to solve!|
 |I need to speak to the police.|You
@@ -42,7 +43,7 @@ Choice|Did you come here to gloat?~line,giraffe.business|So slashing prices wasn
 |You are crass, as usual.|Girwoffe
 giraffe.business|The giraffe attempts to stretch pompously. His task is rather impossible, since you can only see the head.|
 |I am here on business.|Girwoffe
-|I was planning to speak to you earlier today, but then this unfortunate accident happened. However, your business was already floundering, Mrs. Slitherskins. You and your son are both hospitalized, and someone has to pay the medical bills.|Girwoffe
+|I was planning to speak to you earlier today, but then this unfortunate accident happened. However, your business was already floundering, Mrs. Slitherkins. You and your son are both hospitalized, and someone has to pay the medical bills.|Girwoffe
 |You must sell your shoe business to me for five thousand. What do you say?|Girwoffe
 Check|explosionKnown.flag~giraffe.negotiate1|giraffe.offer1
 giraffe.negotiate1|I heard the explosion only destroyed part of my inventory. It's worth ten thousand at least.|You
@@ -279,9 +280,31 @@ guin.blame|Do you have any idea who might be trying to kill me?|You
 |She leaves you with that lovely image.~SetFlag,penguin.appears,F:line,over|
 |over|
 |PENGUIN - SECOND CONVERSATION|
-penguin2|**opportunities to sympathize about school memories**|
-|**parenthood conversation**|
-|I'm really at the end of my tail. According to the nurse, I'll die soon if I don't have the antidote.|You
+penguin2|Hello again.|Miss Guin
+|What brings you to visit me twice?|You
+|Just passing by. Thought you might appreciate a familiar face.|Miss Guin
+|Is that all?|
+|The penguin flops in the visitor's chair and examines your bandages curiously.|
+|Have you learned anything more about how the explosion happened?|Miss Guin
+|Nothing conclusive. Have you learned anything?|You
+|It has to be that giraffe. Who else has motive?|Miss Guin
+Choice|This terrible nurse.~guin,-1:line,penguin.motiveNurse|The mouse, perhaps?~line,penguin.motiveMouse|You.~guin,-2:line,penguin.motiveGuin
+penguin.motiveNurse|I really think this nurse is trying to kill me. Why can't she understand not all snakes are the same?|You
+|Don't pretend you've never been blinded by personal reasons.|Miss Guin
+|No, but it never led me to consider murder.|You
+|Not everyone is perfect like you.~line,penguin.facingDeath|Miss Guin
+penguin.motiveMouse|I hadn't thought about that, but it makes sense. That mouse doesn't like you.|Miss Guin
+|How do you know?|You
+|Mice are the natural prey of snakes. He was never going to feel safe living inside the walls of your shop.|Miss Guin
+|I've tried to be welcoming.|You
+|Don't try too hard.~line,facingDeath|Miss Guin
+penguin.motiveGuin|How rude of you. I think I will be going.|Miss Guin
+Choice|Bye.~line,penguin.leave|You just wish you had my ice-sliding skills.~guin,-2:line,penguin.skills|I'm sorry ... I just really don't want to die.~guin,4:line,guin.apology
+penguin.skills|Miss Guin scowls. The expression that would look strange on any other beaked-creature looks at home on her face.|
+|I am a penguin and my sliding skills are beyond dispute!|Miss Guin
+|She sounds rather defensive.~line,penguin.leave|
+penguin.apology|Miss Guin sits back down, looking satisfied.~line,penguin.facingDeath|
+penguin.facingDeath|I'm really at the end of my tail. According to the nurse, I'll die soon if I don't have the antidote.|You
 |Tell me, serpent, as someanimal facing death, what do you regret the most?|Miss Guin
 Choice|I should've gorged on cake instead of worrying about my waistline.~line,guin.weight|I could have been a more attentive mother.~line,guin.mother|I should have pursued my dream of being a figure skater.~line,guin.skate|I regret nothing.~line,guin.noregret
 guin.weight|Yes. Snakes, unlike penguins, should never look plump.~line,guin.ending|Miss Guin
@@ -296,7 +319,7 @@ guin.mother|Really? Your son seems to have turned out fine.~guin,3|Miss Guin
 |Roosters don't work for snakes.|Miss Guin
 |The penguin nods understandingly.~line,guin.ending|
 guin.skate|Eh, figure skating is harder than it looks. Lots of training for little reward.~guin,-1|
-|The reward is the skating itself.|You
+|The reward would have been the skating itself.|You
 |You would say that, being what you are.|Miss Guin
 |A snake?|You
 |Someone who is good at sliding on ice.~line,guin.ending|Miss Guin
@@ -309,15 +332,25 @@ guin.ending|I thought you would have more visitors.|Miss Guin
 |And you've used up two of your days to see me.|Miss Guin
 Choice|It's good to talk to someone who isn't trying to kill me.~guin,1:line,next|I would rather have seen my son.~guin,-1:line,next
 |I see.|Miss Guin
-Check|guin>10~guin.confess|guin>777~guin.tellPoison|guin.noConfess
-guin.tellPoison|**CURRENTLY MADE IMPOSSIBLE BECAUSE ENDINGS WOULD HAVE TO BE EDITED*The penguin bounces from foot to foot, looking like she wants to say something.~SetFlag,guin.poisonTold,T|
+Check|guin>10~guin.confess|guin.noConfess
+guin.confess|Miss Guin looks highly uncomfortable.|
 |What is it?|You
+|You've wasted your time talking to me.|Miss Guin
+|You're a better conversationalist than the nurse.|You
+|Miss Guin folds her flippers in her lap. She looks like she wants to say something.|
+|What is it?|You
+|Nothing. I'll just ... I'll be sorry to see you go.|Miss Guin
+|I hadn't expected that.|Miss Guin
+|Uh, thanks. Feel free to come to the funeral.|You
+|I would have done that anyway.|Miss Guin
+|In any case, I should be going. Good-bye, Mrs. Slitherkins.|Miss Guin
+|Good-bye.~line,penguin.leave|You
+|THIS PORTION NOT IN GAME AS IT WOULD REQUIRE CHANGING ENDING
 |The poison in your veins is called the Pirate Parrot Powder. That'll help them find the antidote, right?|Miss Guin
 |How do you know?|You
 |Well, it has been illuminating speaking with you.|Miss Guin
 |Wait! Did you poison me?|You
 |Why would I go and do a silly thing like that?~line,guin.leave|Miss Guin
-guin.confess||
 guin.noConfess|Well, it certainly has been illluminating speaking with you.|Miss Guin
 |I wish I could similarly illuminate your mystery, but I must be going.|Miss Guin
 guin.leave|The penguin waddles out.~SetFlag,penguin.appears,F:SetFlag,penguin.exhaust,T:line,over|
