@@ -112,9 +112,9 @@ public class DialogueParser : MonoBehaviour {
 					{
 						DialogueLine lineEntry = new DialogueLine(lineData[0],lineData[1],"");
 						lineEntry.options = new string[lineData.Length-1];
-						for (int i = 2; i < lineData.Length; i++)
+						for (int i = 1; i < lineData.Length; i++)
 						{
-							lineEntry.options[i-2] = lineData[i];
+							lineEntry.options[i-1] = lineData[i];
 						}
 						list.Add(lineEntry);
 					}
