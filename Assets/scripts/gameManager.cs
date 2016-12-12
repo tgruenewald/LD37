@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour {
 
@@ -96,6 +97,9 @@ public class gameManager : MonoBehaviour {
 		
 		Debug.Log ("loop back to beginning of nurse");
 		day++;
+		if (day > 5) {
+			SceneManager.LoadScene ("credits");
+		}
 		dialogueManager.lineNum = parser.SearchStory("startday"+day);
 		dialogueManager.lineNum--;
 
@@ -324,7 +328,7 @@ public class gameManager : MonoBehaviour {
 	public void runLineCommand(string lineCommand)
 	{
 		int previouslineNum = dialogueManager.lineNum;
-		if (lineCommand == "over")
+		if (lineCommand == "over" )
 		{
 			Debug.Log ("over in runLineCommand");
 			ExitAdventure ();
