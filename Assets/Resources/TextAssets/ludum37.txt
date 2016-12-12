@@ -1,7 +1,6 @@
 storyStart|Mrs. Slitherkins? Mrs. Slitherkins, can you hear me?~SetFlag,nurse.appears,T:SetFlag,game.started,T:line,next|Nurse
-Choice|Yes, I can hear you.~line,next|-hiss-~line,next|Let me sleep.~SetFlag,giraffeMet.flag,T:line,next
+Choice|Yes, I can hear you.~line,next|-hiss-~line,next|Let me sleep.~line,next
 |Listen carefully, Mrs. Slitherkins. You've had a terrible accident. A bomb exploded in your shoe shop.|Nurse
-Choice|Was your ice rink damaged in the blast?~guin,2:line,next|giraffeMet.flag=T*game.started=T~Do you think I should sell my business?~line,guin.business
 |A bomb? You jolt awake to find your tail in a cast and your head in a headache, but you have only one thought.|
 |My son! Is he--?|You
 |Alive, but unconscious still. Your shoe inventory was not so fortunate.|Nurse
@@ -242,7 +241,7 @@ mouse.end1|Well, ah, I need to get going. Should check up on my daughter. She's 
 |She yanks your bed curtains shut.~SetFlag,nurse.appears,F:line,over|
 |over|
 |MOUSE - SECOND CONVERSATION|
-mouse2|Hello. How are you doing, Mrs. Slitherkins?~SetFlag,secondMouseMeeting,T:SetFlag,nurse.appears,F:SetFlag,mouse.appears,T|Scampers
+mouse2|Hello. How are you doing, Mrs. Slitherkins?~SetFlag,secondMouseMeeting,T:SetFlag,nurse.appears,F:SetFlag,mouse.appears,T:line,next|Scampers
 |What are you doing back here again?|You
 |You seemed so hungry yesterday. I brought you a snack.|Scampers
 |He offers you a duckblood pudding. It smells so good you nearly bite off his paws.|
@@ -285,14 +284,14 @@ guin.wrong|Miss Guin leans forward, almost eagerly.|
 guin.enemies|Perhaps it's an enemy you don't know about yet.|Miss Guin
 guin.who|What's the name of that mouse who's always sneaking around? I've caught him filching snowcones from my ice rink.|Miss Guin
 Choice|Mr. Scampers is a loyal customer.~line,guin.loyal|Everyone steals snowcones from you.~guin,-2:line,guin.everyone
-guin.loyal|If you say so.~guin.cont|Miss Guin
+guin.loyal|If you say so.~line,guin.cont|Miss Guin
 guin.everyone|Is that so? Have you stolen from me?|Miss Guin
 Choice|I would never do such a thing!~line,guin.never|Maybe once?~guin,1:line,guin.honest|All the time.~line,guin.honest
 guin.never|Of course not.~line,guin.cont|Miss Guin
 guin.honest|At least you're honest.|Miss Guin
 guin.cont|After a strained silence, you decide to speak.|
 Choice|Was your ice rink damaged in the blast?~guin,2:line,next|giraffeMet.flag=T*game.started=T~Do you think I should sell my business?~line,guin.business
-guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling.~SetFlag,explosionKnown.flag,T|Miss Guin
+guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling.~SetFlag,explosionKnown.flag,T:line,next|Miss Guin
 |Nothing that can't be repaired.~line,guin.blame|Miss Guin
 guin.business|I assume you're talking about selling to the giraffe.|Miss Guin
 Choice|Yes.~line,next|Yes, though I'd rather sell to you.~guin,1:line,next
@@ -422,7 +421,7 @@ noVisitors|Looks like you have no visitors today.~SetFlag,nurse.appears,T|Nurse
 |You eat the carrot. All you can do now is wait for the police.~line,over|
 |over|
 |FINAL DAY|
-finalDay|You awake today feeling immensely weakened. It is difficult to think, much less string together a sentence.|
+startday5|You awake today feeling immensely weakened. It is difficult to think, much less string together a sentence.|
 |As you awaken, you see your visitor for today has already arrived. Finally, a uniform.~SetFlag,police.appears,T:line,next|
 |It sssounds like you've been a busssy sssnake.|Officer
 Choice|Have you come to take my statement?~line,police.statement|Are you making fun of the snake accent, offissser?~line,police.accent|
