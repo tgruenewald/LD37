@@ -426,14 +426,16 @@ noVisitors|Looks like you have no visitors today.~SetFlag,nurse.appears,T:line,n
 startday5|You awake today feeling immensely weakened. It is difficult to think, much less string together a sentence.|
 |As you awaken, you see your visitor for today has already arrived. Finally, a uniform.~SetFlag,police.appears,T:line,next|
 |It sssounds like you've been a busssy sssnake.|Officer
-Choice|Have you come to take my statement?~line,police.statement|Are you making fun of the snake accent offissser?~line,police.accent|
+Choice|Have you come to take my statement?~line,police.statement|Are you making fun of the snake accent, offissser?~line,police.accent
 police.accent|Of course not. That would be unprofessional.~line,police.cont|Officer
 police.statement|Yes. I figured I would drop by during my lunch break.|Officer
 police.cont|I can only spare a few minutes, so tell me who poisoned you and we'll go arrest them.|Officer
 |What if I suspect several animals?|You
 |We don't have the resources to investigate more than one animal, so you better make your one accusation count.|Officer
 |It's time. Hopefully you've gathered enough information. You have only one chance to save your own life.|
-mouseMet.flag|I accuse Girwoffe ...~accuse.Girwoffe|I accuse Miss Guin ...~line,accuse.penguin|I accuse Mister Scampers ...~line,accuse.mouse|More~line,next|
+lastOption|I accuse:
+Choice|Girwoffe ...~line,accuse.Girwoffe|Miss Guin ...~line,accuse.penguin|Mister Scampers ...~line,accuse.mouse|More~line,next
+|Other possible accusations:|
 Choice|I accuse the nurse!~line,accuse.nurse|I accuse you, officer!~line,accuse.officer|accused.none=F*game.started=T~I accuse no one.~line,accuse.none|Back~line,lastOption
 accuse.nurse|She has a personal vendetta against snakes and has refused allowing me to see more than one visitor a day.|You
 |If I had been able to see more than one visitor, I would have sussed out the true killer.|You
@@ -443,7 +445,7 @@ accuse.nurse|She has a personal vendetta against snakes and has refused allowing
 |You settle back as the officer leaves.~SetFlag,police.appears,F:line,next|
 |You might not have caught the poisoner, but you pinpointed someone who murdered you all the same.|
 |It is quite a relief to close your eyes and not have to awaken to the nurse's voice.|
-|On the other hand, that is because you do not awaken again.~line,postDeath|
+|On the other hand, that is because you do not awaken again.~line,death.ending|
 accuse.officer|Not just you, but all of the police are complicit in my death!|You
 |It's already the fifth day, and you only just arrive? You expect me to do all of your investigative work from this one room?|You
 |I've heard enough.~line,police.leaving|Officer
@@ -452,13 +454,13 @@ Choice|I do not wish to accuse an innocent.~line,next|I have no idea who the mur
 |Well, we have no idea either.|Officer
 police.leaving|The Officer snaps shut his notebook.|
 |What a waste of time.|Officer
-|The police officer leaves, muttering.~SetFlag,police.appears,F:line,ending.postDeath|
+|The police officer leaves, muttering.~SetFlag,police.appears,F:line,death.ending|
 accuse.Girwoffe|I accuse Girwoffe of...|You
 Choice|Poisoning me to gain control of my business.~line,seriousAccusation|Poisoning me out of personal jealousy.~line,seriousAccusation|Poisoning me because he hates snakes.~line,seriousAccusation|Being a werewolf.~line,werewolfAccusation
 accuse.penguin|I accuse Miss Guin of...|You
 Choice|Poisoning me to expand her ice rink to the second floor.~line,seriousAccusation|Poisoning me because Girwoffe paid her to do it.~line,seriousAccusation|Poisoning me out of personal jealousy.~SetFlag,penguinCorrect.flag,T:line,seriousAccusation|Poisoning me because she hates snakes.~line,seriousAccusation
 accuse.mouse|I accuse Mister Scampers of...|You
-Choice|Poisoning me so his family could live without fear of snakes.~line,seriousAccusation|Poisoning me because Girwoffe paid him to do it.~line,seriousAccusation|Exploding a portion of my shop to hurt my son.~line,seriousAccusation|Exploding a portion of my shop to protect his family.~SetFlag,mouseCorrect.flag,T~line,seriousAccusation|
+Choice|Poisoning me so his family could live without fear of snakes.~line,seriousAccusation|Poisoning me because Girwoffe paid him to do it.~line,seriousAccusation|Exploding a portion of my shop to hurt my son.~line,seriousAccusation|Exploding a portion of my shop to protect his family.~SetFlag,mouseCorrect.flag,T~line,seriousAccusation
 seriousAccusation|That is a serious accusation Mrs. Slitherkins. We will investigate with the detail you provided.|Officer
 |I provided only one sentence. Let me tell you what else I discovered in my investigation.|You
 |You do your job, I do mine.|Officer
@@ -467,9 +469,9 @@ seriousAccusation|That is a serious accusation Mrs. Slitherkins. We will investi
 |You settle in to wait for the investigation that hopefully will occur.|
 Check|penguinCorrect.flag=T~penguin.ending|ending.death
 penguin.ending|Less than an hour later, the nurse returns with an antidote. Apparently, the penguin buckled under questioning from the police who knew what questions to ask.|
-|Soon after the injection of the antidote, you begin to regain strength. You and your son are released from the hospital on the same day.~line,ending.postRelease|
+|Soon after the injection of the antidote, you begin to regain strength. You and your son are released from the hospital on the same day.~line,live.ending|
 |WEREWOLF ENDING|
-werewolfAccusation|The officer sits up straight.~SetFlag,giraffeAccused.flag,T|
+werewolfAccusation|The officer sits up straight.~SetFlag,giraffeAccused.flag,T:line,next|
 |A werewolf? We've been trying to uncover their agents for over a year now. Trying and failing.|Officer
 |They've probably been voting to hang the wrong animal during the daytime. If the werewolves ever become the majority of eligible voters ...|
 |If you've discovered a werewolf, you will be greatly rewarded.|Officer
@@ -495,7 +497,7 @@ ending.death|Well. Given that you appear quite on the verge of death, I'll waive
 |The nurse approaches you with the chosen antidote.|
 |Do it.|You
 |You close your eyes.~SetFlag,nurse.appears,F:line,death.ending|
-live.ending|After your release from the hospital ...|
+live.ending|After your release from the hospital ...~line,next|
 live.giraffeCheck|giraffeRevealed=T~live.weregiraffe|live.salecheck
 live.weregiraffe|With your health somewhat recovered, you return to the police to tell them of the werewolf that visited you one day.|
 |They are thrilled with the knowledge.|
