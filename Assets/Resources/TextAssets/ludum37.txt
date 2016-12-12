@@ -49,20 +49,20 @@ Check|explosionKnown.flag~giraffe.negotiate1|giraffe.offer1
 giraffe.negotiate1|I heard the explosion only destroyed part of my inventory. It's worth ten thousand at least.|You
 |Hmph. Seven thousand then. That's my final offer.~SetFlag,giraffe.priceIncrease,T:line,next|Girwoffe
 giraffe.offer1|That amount will pay for all the medical bills and several years of living besides.|Girwoffe
-Choice|Fine. My shoe store is yours.~line,giraffe.sell|I will not sell.~line,giraffe.refuse|I will sell to you, if you tell me the antidote for this poison.~SetFlag,giraffe.f.poison,T:line,giraffe.poison|I need time to consider.~line,giraffe.time
+Choice|Fine. My shoe store is yours.~line,giraffe.sell|I will not sell.~line,giraffe.refuse|giraffe.askedPoison=F*game.started=T~I will sell to you, if you tell me the antidote for this poison.~SetFlag,giraffe.askedPoison,T:line,giraffe.poison|I need time to consider.~line,giraffe.time
 giraffe.poison|I would gladly take that trade, but I didn't even know you were poisoned. Hmm, maybe I don't need to sell, if you're about to die ... then again ... Is your son poisoned too?~SetFlag,giraffe.f.poison,T:line,next|
-Choice|Yes. (lie)~line,next|No.~line,Giraffe.sonPoisonedNo|I don't know.~line,Giraffe.sonPoisonedDunno
+Choice|Yes. (lie)~line,next|No.~line,giraffe.sonPoisonedNo|I don't know.~line,giraffe.sonPoisonedDunno
 giraffe.sonPoisonedYes|Hm. I guess I didn't need to talk to you after all. Usually I only have this kind of luck when the moon is full.|Girwoffe
 |The giraffe pulls out of the building and saunters off.~SetFlag,giraffe.appears,F:SetFlag,giraffe.exhaust,T:line,over|
 |over|
-giraffe.sonPoisonedNo|Hm. I wonder if his room is well-guarded ... not that I would consider poisoning him too. Anyway, what do you say to selling your business?|Girwoffe
-giraffe.sonPoisonedDunno|Didn't even think to ask? Snakes are terrible mothers. They don't know what to do once the child's out of the egg. Anyway, what do you say to selling your business?~SetFlag,giraffe.askSonPoison,T:line,next|Girwoffe
+giraffe.sonPoisonedNo|Hm. I wonder if his room is well-guarded ... not that I would consider poisoning him too. Anyway, what do you say to selling your business?~line,giraffe.offer1|Girwoffe
+giraffe.sonPoisonedDunno|Didn't even think to ask? Snakes are terrible mothers. They don't know what to do once the child's out of the egg. Anyway, what do you say to selling your business?~SetFlag,giraffe.askSonPoison,T:line,giraffe.offer1|Girwoffe
 giraffe.sell|Excellent! I will have the money transferred to your account right away. Wow, if I had known you would break this easily I would have hired someone to burn down your shop years ago!~SetFlag,giraffe.sold,T:SetFlag,giraffe.exhaust,T:line,next|Girwoffe
 |Not that I hired anyone this time, of course. So tell whoever really burned your shop that I owe them a favor. I suspect it was that tiny penguin.|Girwoffe
 |She once asked me whether I would help her expand her business, but she seemed to be suggesting something quite illegal so I ended that conversation right away.|Girwoffe
 |Because I would never do anything illegal. And it turns out I didn't even need to!|Girwoffe
 |The giraffe is so excited he hits his head on the window frame on his way out, but he doesn't even care.~SetFlag,giraffe.appears,F:line,next|
-|What's all this shouting?|Nurse
+|What's all this shouting?~SetFlag,nurse.appears,T|Nurse
 |I just bargained away my livelihood.|You
 |Sounds like you're using your time well.|Nurse
 |She snaps the curtain shut.|
@@ -125,7 +125,8 @@ giraffe.BestOffer|I've spoken with my business associates, and we're willing to 
 giraffe.betterOffer|I've spoken with my business associates, and we're willing to offer eight thousand.|Girwoffe
 giraffe.chooseToSell|What do you say?|Girwoffe
 Choice|Very well. My shoe store is yours.~line,giraffe.sell|I will not sell.~line,giraffe.refuse2
-giraffe.refuse2|What a waste of my time. But at least I'm not a waste of oxygen.|
+giraffe.refuse2|What a waste of my time.|Girwoffe
+|But at least I'm not a waste of oxygen.|Girwoffe
 Choice|Anything else to say?~line,giraffe.cont2|Get lost, stiff-neck.~line,giraffe.beforeReveal
 giraffe.cont2|Only this. I can't wait for you to die.|Girwoffe
 |The giraffe stalks away.~SetFlag,giraffe.appears,F:SetFlag,giraffe.exhaust,T:line,over|
@@ -233,7 +234,8 @@ mouse.guin|I know she doesn't like you.|Scampers
 |Just the way she glares at you when you're not looking. Especially when you're ice-skating.|Scampers
 |Is it an I-want-to-kill-you glare?|You
 |I don't know. I'm bad enough at reading bird expressions as it is.~line,mouse.end1|Scampers
-mouse.end1|Well, ah, I need to get going. Should check up on my daughter. She's sick. Uh. Give your son my regards when he wakes up. I really hope you find the poisoner. Yes. I do.|Scampers
+mouse.end1|Well, ah, I need to get going. Should check up on my daughter. She's sick.|Scampers
+|Uh. Give your son my regards when he wakes up. I really hope you find the poisoner. Yes. I do.|Scampers
 |Thank you.|You
 |Buh-bye!|Scampers
 |The mouse scampers away, and the nurse returns.~SetFlag,mouse.appears,F:SetFlag,nurse.appears,T:line,next|
@@ -406,9 +408,9 @@ startday4|The nurse enters, whistling through her buckteeth.~SetFlag,nurse.appea
 |GENERAL CHOICE|
 genChoiceCheck|giraffe.exhaust=T*mouse.exhaust=T*penguin.exhaust=T~noVisitors|game.started=T~pickVisitor
 pickVisitor|Who is your visitor today?|Nurse
-Choice|giraffeMet.flag=T*giraffe.exhaust=F~Girwoffe the giraffe.~line,giraffe2|giraffeMet.flag=F*game.started=T~The giraffe.~line,giraffe1|penguinMet.flag=T*penguin.exhaust=F~Miss Guin the penguin.~line,penguin2|penguinMet.flag=F*game.started=T~The penguin.~line,penguin1|mouseMet.flag=T*mouse.exhaust=F~Mr. Scampers the mouse.~line,mouse2|mouseMet.flag=F*game.started=T~The mouse.~line,mouse1
+Choice|giraffeMet.flag=T*giraffe.exhaust=F~Girwoffe the giraffe.~line,giraffe2|giraffeMet.flag=F*game.started=T~The giraffe.~line,giraffe1|penguinMet.flag=T*penguin.exhaust=F~Miss Guin the penguin.~line,penguin2|penguinMet.flag=F*game.started=T~The penguin.~line,penguin1|mouseMet.flag=T*mouse.exhaust=F~Mister Scampers the mouse.~line,mouse2|mouseMet.flag=F*game.started=T~The mouse.~line,mouse1
 |IF NO VISITORS|
-noVisitors|Looks like you have no visitors today.~SetFlag,nurse.appears,T|Nurse
+noVisitors|Looks like you have no visitors today.~SetFlag,nurse.appears,T:line,next|Nurse
 |Not even my son?|You
 |Nope! He was transferred to another hospital!|Nurse
 |His condition ... worsened?|You
@@ -417,7 +419,7 @@ noVisitors|Looks like you have no visitors today.~SetFlag,nurse.appears,T|Nurse
 |Just take a nap. The police will eventually come for a statement.|Nurse
 |Thanks.|You
 |Have a carrot. It's healthy.|Nurse
-|The rabbit leaves a carrot on your tray.~SetFlag,nurse.appears,F|
+|The rabbit leaves a carrot on your tray.~SetFlag,nurse.appears,F:line,next|
 |You eat the carrot. All you can do now is wait for the police.~line,over|
 |over|
 |FINAL DAY|
@@ -474,7 +476,7 @@ werewolfAccusation|The officer sits up straight.~SetFlag,giraffeAccused.flag,T|
 |I must speak with my superiors at once.|Officer
 |The officer scurries out.~SetFlag,police.appears,F:line,ending.death|
 |DEATH ENDING|
-ending.death|Well. Given that you appear quite on the verge of death, I'll waive the rule against having more than one visitor today.~SetFlag,nurse.appears,T|Nurse
+ending.death|Well. Given that you appear quite on the verge of death, I'll waive the rule against having more than one visitor today.~SetFlag,nurse.appears,T:line,next|Nurse
 |I don't have any visitors, do I?|You
 |You're catching on.|Nurse
 |Now, even if the police do uncover the antidote, it's too late now. We have to act.|Nurse
