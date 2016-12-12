@@ -177,7 +177,7 @@ public class DialogueManager : MonoBehaviour {
 		}
 
 		Debug.Log ("we are at line " + lineNum + " with this content: " + parser.GetContent (lineNum));
-		if (parser.GetKey(lineNum) == "Check")
+		if (parser.GetKey(lineNum).Contains("Check"))
 		{
 			Debug.Log ("In check");
 			inCheck = true;

@@ -108,7 +108,7 @@ public class DialogueParser : MonoBehaviour {
 					}
 					list.Add(lineEntry);
 				}
-					else if (lineData[0] == "Check")
+				else if (lineData[0].Contains("Check"))
 					{
 						DialogueLine lineEntry = new DialogueLine(lineData[0],lineData[1],"");
 						lineEntry.options = new string[lineData.Length-1];
