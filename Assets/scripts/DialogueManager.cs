@@ -28,13 +28,14 @@ public class DialogueManager : MonoBehaviour {
 	public bool inCheck = false;
 	bool debugging = false;
 	public bool gameOver = false;
+	Image illustration;
 
-	private string[] visitors = new string[] {"penguin", "mouse", "nurse", "police"};
-	private string[] giraffes = new string[] {"giraffe", "weregiraffe"};
+	private string[] visitors = new string[] {"penguin", "mouse", "nurse", "police","giraffe", "weregiraffe", "emptyroom"};
 
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("DiaMgr STARTING");
+		illustration =GameObject.Find ("illustration").GetComponent<Image> ();
 		characterArt = GameObject.Find ("characterArt").GetComponent<Image> ();
 		dialogue = "";
 		characterName = "";
@@ -95,46 +96,25 @@ public class DialogueManager : MonoBehaviour {
 
 	}
 
-	private void check_for_window_visitor() {
-		Image giraffeImage = GameObject.Find ("giraffe").GetComponent<Image> ();
-		bool showSomeone = false;
-		foreach (var visitor in giraffes) {
-			bool showVisitor = false;
-			parser.Flags.TryGetValue (visitor+".appears", out showVisitor);
-			if (showVisitor) { 
-				Debug.Log (visitor + " appears");
-
-				giraffeImage.sprite = Resources.Load<Sprite> ("Sprites/" + visitor);
-				giraffeImage.enabled = true;
-				showSomeone = true;
-				break;
-			}
-
-		}
-		if (!showSomeone) {
-			giraffeImage.enabled = false;
-		}		
-	}
 
 	private void check_for_visitor() {
-		Image visitorImage = GameObject.Find ("visitor").GetComponent<Image> ();
 		bool showSomeone = false;
 		foreach (var visitor in visitors) {
 			bool showVisitor = false;
 			parser.Flags.TryGetValue (visitor+".appears", out showVisitor);
 			if (showVisitor) { 
-				Debug.Log (visitor + " appears");
-				visitorImage.sprite = Resources.Load<Sprite> ("Sprites/" + visitor);
-				visitorImage.enabled = true;
+				Debug.Log ("####################[" + visitor + "] appears");
+				illustration.sprite = Resources.Load<Sprite> ("Sprites/" + visitor);
 				showSomeone = true;
 				break;
 			}
 
 		}
-		if (!showSomeone) {
-			visitorImage.enabled = false;
-		}
 
+		if (!showSomeone) {
+			// then room is just the snake
+			illustration.sprite = Resources.Load<Sprite> ("Sprites/just_snake");
+		}
 
 	}
 
@@ -144,7 +124,6 @@ public class DialogueManager : MonoBehaviour {
 
 		// check flags
 		check_for_visitor();
-		check_for_window_visitor ();
 	}
 
 	void ResetImages(){
