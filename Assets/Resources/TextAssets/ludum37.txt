@@ -52,7 +52,8 @@ giraffe.offer1|That amount will pay for all the medical bills and several years 
 Choice|Fine. My shoe store is yours.~line,giraffe.sell|I will not sell.~line,giraffe.refuse|I will sell to you, if you tell me the antidote for this poison.~SetFlag,giraffe.f.poison,T:line,giraffe.poison|I need time to consider.~line,giraffe.time
 giraffe.poison|I would gladly take that trade, but I didn't even know you were poisoned. Hmm, maybe I don't need to sell, if you're about to die ... then again ... Is your son poisoned too?~SetFlag,giraffe.f.poison,T:line,next|
 Choice|Yes. (lie)~line,next|No.~line,Giraffe.sonPoisonedNo|I don't know.~line,Giraffe.sonPoisonedDunno
-giraffe.sonPoisonedYes|Hm. I guess I didn't need to talk to you after all. Usually I only have this kind of luck when the moon is full.~SetFlag,giraffe.appears,F:line,over|Girwoffe
+giraffe.sonPoisonedYes|Hm. I guess I didn't need to talk to you after all. Usually I only have this kind of luck when the moon is full.|Girwoffe
+|The giraffe pulls out of the building and saunters off.~SetFlag,giraffe.appears,F:SetFlag,giraffe.exhaust,T:line,over|
 |over|
 giraffe.sonPoisonedNo|Hm. I wonder if his room is well-guarded ... not that I would consider poisoning him too. Anyway, what do you say to selling your business?|Girwoffe
 giraffe.sonPoisonedDunno|Didn't even think to ask? Snakes are terrible mothers. They don't know what to do once the child's out of the egg. Anyway, what do you say to selling your business?~SetFlag,giraffe.askSonPoison,T:line,next|Girwoffe
@@ -105,7 +106,7 @@ giraffe.time|I will return, and when I do, it will be with my final offer.|Girwo
 giraffe2|Have you decided to sell?|Girwoffe
 |First, I want to ask you about the explosion.|You
 |Fine. But make it quick.|Girwoffe
-Choice|What do you know about my mouse visitor?~line,mouseVisitor|What do you know about my penguin visitor?~line,penguinVisitor
+Choice|What do you know about my mouse visitor?~line,giraffe.mouseVisitor|What do you know about my penguin visitor?~line,giraffe.penguinVisitor
 giraffe.mouseVisitor|All mice look the same to me.|Girwoffe
 |But now that I think about it, I saw some rodents arguing on the roof of your shop the day of the explosion.|Girwoffe
 |You have a rodent infestation in your walls and I mean to clean that up.|Girwoffe
@@ -215,7 +216,8 @@ mouse.takeCare|No! You can't eat her! I'll-I'll eat you first!|Scampers
 |Right. You'll try. I need to go.~line,mouse.leave|Scampers
 mouse.cont2|Do you happen to know anything about who might be poisoning me?|You
 |The mouse looks uncomfortable.|
-|Have you considered ... that the animal who set off the bomb and the animal who is poisoning you might not be the same? Why would someone try to kill you when they're already trying to kill you?|Scampers
+|Have you considered ... that the animal who set off the bomb and the animal who is poisoning you might not be the same?|Scampers
+|Why would someone try to kill you when they're already trying to kill you?|Scampers
 |Maybe they got impatient.|You
 |I suppose you're right.|Scampers
 |The mouse plays absently with his whiskers.|
@@ -288,8 +290,9 @@ Choice|I would never do such a thing!~line,guin.never|Maybe once?~guin,1:line,gu
 guin.never|Of course not.~line,guin.cont|Miss Guin
 guin.honest|At least you're honest.|Miss Guin
 guin.cont|After a strained silence, you decide to speak.|
-Choice|Was your ice rink damaged in the blast?~guin,2:line,guin.rink|giraffeMet.flag=T*game.started=T~Do you think I should sell my business?~line,guin.business
-guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.~SetFlag,explosionKnown.flag,T:line,guin.blame|Miss Guin
+Choice|Was your ice rink damaged in the blast?~guin,2:line,next|giraffeMet.flag=T*game.started=T~Do you think I should sell my business?~line,guin.business
+guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling.~SetFlag,explosionKnown.flag,T|Miss Guin
+|Nothing that can't be repaired.~line,guin.blame|Miss Guin
 guin.business|I assume you're talking about selling to the giraffe.|Miss Guin
 Choice|Yes.~line,next|Yes, though I'd rather sell to you.~guin,1:line,next
 |Hmmph. If you don't die soon, the business will die. I would sell.|Miss Guin
