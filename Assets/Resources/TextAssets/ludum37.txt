@@ -1,8 +1,8 @@
-storyStart|Mrs. Slitherkins? Mrs. Slitherkins, can you hear me?~SetFlag,nurse.appears,T:SetFlag,game.started,T:line,next|Nurse
+storyStart|Mrs. Slitherkins? Mrs. Slitherkins, can you hear me?~SetFlag,nurse.appears,T:SetFlag,game.started,T:SetFlag,gamestarted,T:line,next|Nurse
 Choice|Yes, I can hear you.~line,next|-hiss-~line,next|Let me sleep.~line,next
 |Listen carefully, Mrs. Slitherkins. You've had a terrible accident. A bomb exploded in your shoe shop.|Nurse
-|A bomb? You jolt awake to find your tail in a cast and your head in a headache, but you have only one thought.~line,startday4|
-|My son! Is he--?|You
+a|A bomb? You jolt awake to find your tail in a cast and your head in a headache, but you have only one thought.~line,startday4|
+b|My son! Is he--?|You
 |Alive, but unconscious still. Your shoe inventory was not so fortunate.|Nurse
 |Not that it was ever alive.|Nurse
 |She chortles to herself.|

@@ -183,12 +183,21 @@ public class DialogueManager : MonoBehaviour {
 			inCheck = true;
 			checks = parser.GetOptions (lineNum);
 			Debug.Log ("LINE NUM: " + lineNum);
-			for (int i = 0; i< options.Length; i++)
+			Debug.Log ("========================");
+			foreach (var check in checks) {
+				Debug.Log ("check:  [" + check + "]");
+			}
+			Debug.Log ("========================");
+			for (int i = 0; i< checks.Length; i++)
 			{
 				Debug.Log ("LINE NUM: " + lineNum + "and i=" + i);
 				string entireCheck = checks [i];
 				Debug.Log ("Entire check: " + entireCheck);
 
+				if (entireCheck == null) {
+					Debug.Log ("entireCheck == null so breaking");
+					break;
+				}
 				if (entireCheck.Contains("~"))//if there is a check
 				{
 					string allChecks = entireCheck.Split ('~') [0];

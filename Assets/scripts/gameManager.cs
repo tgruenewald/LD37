@@ -234,7 +234,7 @@ public class gameManager : MonoBehaviour {
 			commandModifier = partOption.Split(',')[1];
 			Debug.Log ("command is: " + command);
 			Debug.Log ("command Modifier is: " + commandModifier);
-
+			Debug.Log ("()()()())()  parse options");
 			if (option.Contains(":"))
 			{
 				do {
@@ -257,6 +257,7 @@ public class gameManager : MonoBehaviour {
 
 					}
 					else{
+						Debug.Log("==runOptionCommand:  command = " + command + ", command modifer=" + commandModifier);
 						runOptionCommand(command,commandModifier);
 					}
 
@@ -273,18 +274,25 @@ public class gameManager : MonoBehaviour {
 
 				if (inChoice)
 				{
+					Debug.Log("==inChoice in if:  command = " + command + ", command modifer=" + commandModifier);
 					runLineCommand (commandModifier);	
+					hideChoices ();
+					inChoice = false;
+					return;
 				}
 			}
+			Debug.Log("=============command: option=" + option+ ", command = " + command + ", command modifer=" + commandModifier);
 			if (command == "line")
 			{
 				if (!inChoice)
 				{
+					Debug.Log ("Delayed line");
 					delayedLineCommand = true;
 					return;
 				}
 				else
 				{
+					Debug.Log ("in choice");
 					runLineCommand (commandModifier);
 					hideChoices ();
 					inChoice = false;
@@ -292,7 +300,8 @@ public class gameManager : MonoBehaviour {
 				}
 
 			}//else if
-			else
+
+			if (option.Contains(","))
 			{
 				runOptionCommand (command, commandModifier);
 				return;
