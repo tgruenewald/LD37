@@ -1,7 +1,6 @@
 storyStart|Mrs. Slitherkins? Mrs. Slitherkins, can you hear me?~SetFlag,nurse.appears,T:SetFlag,game.started,T:line,next|Nurse
-Choice|Yes, I can hear you.~line,next|-hiss-~line,next|Let me sleep.~SetFlag,giraffeMet.flag,T:line,next
+Choice|Yes, I can hear you.~line,next|-hiss-~line,next|Let me sleep.~line,next
 |Listen carefully, Mrs. Slitherkins. You've had a terrible accident. A bomb exploded in your shoe shop.|Nurse
-Choice|Was your ice rink damaged in the blast?~guin,2:line,next|giraffeMet.flag=T*game.started=T~Do you think I should sell my business?~line,guin.business
 |A bomb? You jolt awake to find your tail in a cast and your head in a headache, but you have only one thought.|
 |My son! Is he--?|You
 |Alive, but unconscious still. Your shoe inventory was not so fortunate.|Nurse
@@ -53,8 +52,7 @@ giraffe.offer1|That amount will pay for all the medical bills and several years 
 Choice|Fine. My shoe store is yours.~line,giraffe.sell|I will not sell.~line,giraffe.refuse|I will sell to you, if you tell me the antidote for this poison.~SetFlag,giraffe.f.poison,T:line,giraffe.poison|I need time to consider.~line,giraffe.time
 giraffe.poison|I would gladly take that trade, but I didn't even know you were poisoned. Hmm, maybe I don't need to sell, if you're about to die ... then again ... Is your son poisoned too?~SetFlag,giraffe.f.poison,T:line,next|
 Choice|Yes. (lie)~line,next|No.~line,Giraffe.sonPoisonedNo|I don't know.~line,Giraffe.sonPoisonedDunno
-giraffe.sonPoisonedYes|Hm. I guess I didn't need to talk to you after all. Usually I only have this kind of luck when the moon is full.|Girwoffe
-|The giraffe pulls out of the building and saunters off.~SetFlag,giraffe.appears,F:SetFlag,giraffe.exhaust,T:line,over|
+giraffe.sonPoisonedYes|Hm. I guess I didn't need to talk to you after all. Usually I only have this kind of luck when the moon is full.~SetFlag,giraffe.appears,F:line,over|Girwoffe
 |over|
 giraffe.sonPoisonedNo|Hm. I wonder if his room is well-guarded ... not that I would consider poisoning him too. Anyway, what do you say to selling your business?|Girwoffe
 giraffe.sonPoisonedDunno|Didn't even think to ask? Snakes are terrible mothers. They don't know what to do once the child's out of the egg. Anyway, what do you say to selling your business?~SetFlag,giraffe.askSonPoison,T:line,next|Girwoffe
@@ -217,17 +215,20 @@ mouse.takeCare|No! You can't eat her! I'll-I'll eat you first!|Scampers
 |Right. You'll try. I need to go.~line,mouse.leave|Scampers
 mouse.cont2|Do you happen to know anything about who might be poisoning me?|You
 |The mouse looks uncomfortable.|
-|Have you considered ... that the animal who set off the bomb and the animal who is poisoning you might not be the same?|Scampers
-|Why would someone try to kill you when they're already trying to kill you?|Scampers
+|Have you considered ... that the animal who set off the bomb and the animal who is poisoning you might not be the same? Why would someone try to kill you when they're already trying to kill you?|Scampers
 |Maybe they got impatient.|You
 |I suppose you're right.|Scampers
 |The mouse plays absently with his whiskers.|
 Choice|How is your daughter?~line,mouse.daughter|Why would Girwoffe want to poison me?~line,mouse.girwoffe|Why would Miss Guin want to poison me?~line,mouse.guin|metGiraffe.flag=T*giraffe.sold=F*mouse.advised=F~Should I sell my store to Girwoffe?~line,mouse.advice
 mouse.daughter|She's well. But I'm worried about her. Because she's sick.|Scampers
 |I'm worried about my son too. I haven't seen him since the explosion.|You
+<<<<<<< HEAD
+|You can hear the mouse's heart pounding underneath his fur.~line,mouse.end1|
+=======
 |You can hear the mouse's heart pounding underneath his fur.|
 |I'm sorry, I didn't think.|Scampers
 |I hope your son gets better.~line,mouse.end1|Scampers
+>>>>>>> 2f6a8e7d6ae8c998bf0bfcd95ae2596eeb94da12
 mouse.girwoffe|I don't know. But I've heard strange growling noises when passing by Girwoffe's shoe shop. He has something to hide.~line,mouse.end1|Scampers
 mouse.guin|I know she doesn't like you.|Scampers
 |How do you know that?|You
@@ -291,9 +292,8 @@ Choice|I would never do such a thing!~line,guin.never|Maybe once?~guin,1:line,gu
 guin.never|Of course not.~line,guin.cont|Miss Guin
 guin.honest|At least you're honest.|Miss Guin
 guin.cont|After a strained silence, you decide to speak.|
-Choice|Was your ice rink damaged in the blast?~guin,2:line,next|giraffeMet.flag=T*game.started=T~Do you think I should sell my business?~line,guin.business
-guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling.~SetFlag,explosionKnown.flag,T|Miss Guin
-|Nothing that can't be repaired.~line,guin.blame|Miss Guin
+Choice|Was your ice rink damaged in the blast?~guin,2:line,guin.rink|giraffeMet.flag=T*game.started=T~Do you think I should sell my business?~line,guin.business
+guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling. Nothing that can't be repaired.~SetFlag,explosionKnown.flag,T:line,guin.blame|Miss Guin
 guin.business|I assume you're talking about selling to the giraffe.|Miss Guin
 Choice|Yes.~line,next|Yes, though I'd rather sell to you.~guin,1:line,next
 |Hmmph. If you don't die soon, the business will die. I would sell.|Miss Guin

@@ -33,6 +33,7 @@ public class ChoiceButton : MonoBehaviour, IPointerEnterHandler, IPointerDownHan
 	}
 
 	public void SetText (string newText){
+
 		this.GetComponentInChildren<Text>().text = newText;
 	}
 

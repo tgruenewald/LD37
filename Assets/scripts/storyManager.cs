@@ -41,6 +41,7 @@ public class storyManager : MonoBehaviour {
 		} else {
 			Stat [stat] += change;
 		}
+		Debug.Log ("STAT:  ["+ stat + "] = " + Stat [stat]);
 		gameManager.updateStats ();
 	}
 

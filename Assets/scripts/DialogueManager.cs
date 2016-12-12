@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour {
 	public Text dialogueBox;
 	public Text nameBox;
 	public GameObject choiceBox;
-	Image characterArt;
+	public Image characterArt;
 
 	bool firstScreen = true;
 	public bool inCheck = false;
