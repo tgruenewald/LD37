@@ -50,6 +50,11 @@ public class gameManager : MonoBehaviour {
 
 
 	public Player[] player;
+	public IEnumerator dimRoom(){
+		Image illustration = GameObject.Find ("illustration").GetComponent<Image> ();	
+		yield return new WaitForSeconds(.2f);
+		illustration.CrossFadeAlpha (0f, 2f, false);		
+	}
 	public IEnumerator lightUpRoom(){
 		Image illustration = GameObject.Find ("illustration").GetComponent<Image> ();	
 		yield return new WaitForSeconds(1.2f);
@@ -99,15 +104,17 @@ public class gameManager : MonoBehaviour {
 		day++;
 		if (day > 5) {
 			SceneManager.LoadScene ("credits");
-		}
-		dialogueManager.lineNum = parser.SearchStory("startday"+day);
-		dialogueManager.lineNum--;
+			StartCoroutine (dimRoom ());
+		} else {
+			dialogueManager.lineNum = parser.SearchStory ("startday" + day);
+			dialogueManager.lineNum--;
 
-		Text dayDisplayText = GameObject.Find ("DayDisplayText").GetComponent<Text> ();
-		dayDisplayText.text = "Day " + day;
-		dayDisplayText.CrossFadeAlpha(1.0f, 0f, true);
-		dayDisplayText.CrossFadeAlpha(0, 2.5f, false);
-		StartCoroutine (transitionToNewDaylightUpRoom ());
+			Text dayDisplayText = GameObject.Find ("DayDisplayText").GetComponent<Text> ();
+			dayDisplayText.text = "Day " + day;
+			dayDisplayText.CrossFadeAlpha (1.0f, 0f, true);
+			dayDisplayText.CrossFadeAlpha (0, 2.5f, false);
+			StartCoroutine (transitionToNewDaylightUpRoom ());
+		}
 //		AdvanceWeek ();
 //		inStory = false;
 //		expRound = false;

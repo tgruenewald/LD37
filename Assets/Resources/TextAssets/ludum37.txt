@@ -433,7 +433,7 @@ police.cont|I can only spare a few minutes, so tell me who poisoned you and we'l
 |What if I suspect several animals?|You
 |We don't have the resources to investigate more than one animal, so you better make your one accusation count.|Officer
 |It's time. Hopefully you've gathered enough information. You have only one chance to save your own life.|
-lastOption|I accuse:
+lastOption|I accuse:|
 Choice|Girwoffe ...~line,accuse.Girwoffe|Miss Guin ...~line,accuse.penguin|Mister Scampers ...~line,accuse.mouse|More~line,next
 |Other possible accusations:|
 Choice|I accuse the nurse!~line,accuse.nurse|I accuse you, officer!~line,accuse.officer|accused.none=F*game.started=T~I accuse no one.~line,accuse.none|Back~line,lastOption
@@ -449,7 +449,7 @@ accuse.nurse|She has a personal vendetta against snakes and has refused allowing
 accuse.officer|Not just you, but all of the police are complicit in my death!|You
 |It's already the fifth day, and you only just arrive? You expect me to do all of your investigative work from this one room?|You
 |I've heard enough.~line,police.leaving|Officer
-accuse.none|No one? You don't even have any suspects? An estranged uncle? A spurned lover? A reanimated fire hydrant?~SetFlag,accused.none,T|Officer
+accuse.none|No one? You don't even have any suspects? An estranged uncle? A spurned lover? A reanimated fire hydrant?~SetFlag,accused.none,T:line,next|Officer
 Choice|I do not wish to accuse an innocent.~line,next|I have no idea who the murderer is.~line,next|Actually, I know who to accuse.~line,lastOption|
 |Well, we have no idea either.|Officer
 police.leaving|The Officer snaps shut his notebook.|

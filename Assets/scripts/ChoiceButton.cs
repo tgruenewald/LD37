@@ -49,13 +49,11 @@ public class ChoiceButton : MonoBehaviour, IPointerEnterHandler, IPointerDownHan
 
 	}//parseOptions
 	public void OnPointerEnter( PointerEventData ped ) {
-		Debug.Log ("=============================hover");
 		audioHighlight.Play ();
 
 	}
 
 	public void OnPointerDown( PointerEventData ped ) {
-		Debug.Log ("=============================CLICK");
 		audioSelect.Play ();
 	}    
 }

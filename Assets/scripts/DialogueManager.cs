@@ -344,11 +344,16 @@ public class DialogueManager : MonoBehaviour {
 			}
 			else
 			{
-				roomScript.choiceText [b].text = options [i].Split ('~') [0]; 
-				roomScript.choiceText [b].enabled = true;
-				Debug.Log ("options [i]="+options [i]);
-				cb.SetOption(options [i].Split ('~') [1]);
-				b++;
+				if (options [i].Length > 0) {
+					roomScript.choiceText [b].text = options [i].Split ('~') [0]; 
+					roomScript.choiceText [b].enabled = true;
+					Debug.Log ("options [i]=" + options [i]);
+					cb.SetOption (options [i].Split ('~') [1]);
+					b++;
+				} else {
+					Debug.Log ("WARNING:  The option is empty");
+				}
+
 			}
 
 			//Debug.Log (cb.option);
@@ -365,7 +370,7 @@ public class DialogueManager : MonoBehaviour {
 		}
 		if (dialogue != "over")
 			dialogueBox.text = dialogue;
-		else
+		else if (dialogue != "THE END")
 			dialogueBox.text = "The next day";
 		//gameManager.animateStory (dialogue);
 		nameBox.text = characterName;
