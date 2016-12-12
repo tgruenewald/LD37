@@ -183,6 +183,7 @@ public class DialogueManager : MonoBehaviour {
 			inCheck = true;
 			checks = parser.GetOptions (lineNum);
 			Debug.Log ("LINE NUM: " + lineNum);
+			Debug.Log ("CHECKS");
 			Debug.Log ("========================");
 			foreach (var check in checks) {
 				Debug.Log ("check:  [" + check + "]");
