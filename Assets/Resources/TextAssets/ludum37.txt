@@ -1,8 +1,8 @@
-storyStart|Mrs. Slitherkins? Mrs. Slitherkins, can you hear me?~SetFlag,nurse.appears,T:SetFlag,game.started,T:SetFlag,gamestarted,T:line,next|Nurse
+storyStart|Mrs. Slitherkins? Mrs. Slitherkins, can you hear me?~SetFlag,nurse.appears,T:SetFlag,game.started,T:line,next|Nurse
 Choice|Yes, I can hear you.~line,next|-hiss-~line,next|Let me sleep.~line,next
 |Listen carefully, Mrs. Slitherkins. You've had a terrible accident. A bomb exploded in your shoe shop.|Nurse
-a|A bomb? You jolt awake to find your tail in a cast and your head in a headache, but you have only one thought.~line,startday4|
-b|My son! Is he--?|You
+|A bomb? You jolt awake to find your tail in a cast and your head in a headache, but you have only one thought.~line,next|
+|My son! Is he--?|You
 |Alive, but unconscious still. Your shoe inventory was not so fortunate.|Nurse
 |Not that it was ever alive.|Nurse
 |She chortles to herself.|
@@ -532,7 +532,7 @@ death.saleCheck|giraffeAccused.flag=T*giraffe.sold=T~death.soldWeregiraffe|giraf
 death.soldWeregiraffe|Once it is confirmed that Girwoffe really is a member of the secret werewolf society, your sale of the shoe shop is invalidated.|
 death.noSale|Your son returns home to restock your inventory and is soon open for business once more.~line,death.moneyCheck|
 death.reallySold|Your son returns home to find Girwoffe has already cleaned out the inventory from his new shoe store. At first he's not quite sure what to do.~line,death.mouseCheck|
-death.moneyCheck|receivedMouseMoney.flag=T*giraffe.bestOffer=T*giraffe.sold=T~live.bestMoney|receivedMouseMoney.flag=T~live.mouseMoney|giraffe.bestoffer=T*giraffe.sold=T~live.bestPrice|live.noExtraMoney
+death.moneyCheck|receivedMouseMoney.flag=T*giraffe.bestOffer=T*giraffe.sold=T~live.bestMoney|receivedMouseMoney.flag=T~live.mouseMoney|giraffe.bestoffer=T*giraffe.sold=T~live.bestPrice|death.noExtraMoney
 death.bestMoney|With the extra money from Mister Scampers and the business deal with Girwoffe, your son launches his own career as a figure skater in your memory.~line,death.mousecheck|
 death.mouseMoney|With the extra money from Mister Scampers, your son supports himself as an eclectic sculptor.~line,death.mouseCheck|
 death.bestPrice|With the extra money from the business deal with the Girwoffe, your son moves into the country and becomes a corn farmer.~line,death.mouseCheck|
