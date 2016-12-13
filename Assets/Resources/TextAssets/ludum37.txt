@@ -146,7 +146,7 @@ mouse.sorry|That's all right. I'll, uh, take it as a compliment.~line,mouse.cont
 |MOUSE PART 1|
 mouse.cont|I came because I hoped you are well. That is, you are well ... I hope. I just had to see you for myself.|Scampers
 |And you are well. I'm grateful. Because shoes. You know. I need somewhere to get new shoes.|Scampers
-Choice|Actually, I am not well. I need to find out who's trying to kill me.~line,mouse.cont2|What about Girwoffe's shoes?~line,mouse.shoes|giraffe.sold=T*game.started=T~I just sold my business to Girwoffe.~line,mouse.sold|metGiraffe.flag=T*giraffe.sold=F~Do you think I should sell my business to Girwoffe?~line,mouse.advice
+Choice|Actually, I am not well. I need to find out who's trying to kill me.~line,mouse.cont2|What about Girwoffe's shoes?~line,mouse.shoes|giraffe.sold=T*game.started=T~I just sold my business to Girwoffe.~line,mouse.sold|metGiraffe.flag=T*giraffe.sold=F*giraffe.revealed=F~Do you think I should sell my business to Girwoffe?~line,mouse.advice
 mouse.advice|No, definitely not!~SetFlag,mouse.advised,T:line,next|Scampers
 |Why not?|You
 |That giraffe is a bully! And he's too tall.|Scampers
@@ -296,7 +296,7 @@ Choice|I would never do such a thing!~line,guin.never|Maybe once?~guin,1:line,gu
 guin.never|Of course not.~line,guin.cont|Miss Guin
 guin.honest|At least you're honest.|Miss Guin
 guin.cont|After a strained silence, you decide to speak.|
-Choice|Was your ice rink damaged in the blast?~guin,2:line,next|giraffeMet.flag=T*game.started=T~Do you think I should sell my business?~line,guin.business
+Choice|Was your ice rink damaged in the blast?~guin,2:line,next|giraffeMet.flag=T*game.started=T*giraffe.revealed=F~Do you think I should sell my business?~line,guin.business
 guin.rink|It was a rather small blast, actually, only making a small hole in my ceiling.~SetFlag,explosionKnown.flag,T:line,next|Miss Guin
 |Nothing that can't be repaired.~line,guin.blame|Miss Guin
 guin.business|I assume you're talking about selling to the giraffe.|Miss Guin
