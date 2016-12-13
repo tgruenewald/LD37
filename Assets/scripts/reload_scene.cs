@@ -15,6 +15,6 @@ public class reload_scene : MonoBehaviour {
 
 	public void reload() {
 		Debug.Log("-----reloading scene");
-		Application.LoadLevel(Application.loadedLevel);
+		Application.LoadLevel("title");
 	}
 }

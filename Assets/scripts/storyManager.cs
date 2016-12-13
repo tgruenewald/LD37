@@ -60,6 +60,7 @@ public class storyManager : MonoBehaviour {
 		//if the stat check is not a flag
 		else
 		{
+			Debug.Log ("^^^^^^^^^^^^^^^^^^^^^^^^^Stat check:  " + statCheck);
 			if (statCheck.Contains(">="))
 			{
 				oper = '>';
@@ -73,6 +74,7 @@ public class storyManager : MonoBehaviour {
 				else
 					comparison = Stat [stat];
 
+				Debug.Log ("comparison >= check:  " + comparison + ", check: " + check);
 				if (comparison >= check)
 					return true;
 				else
