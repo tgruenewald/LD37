@@ -30,7 +30,7 @@ public class DialogueManager : MonoBehaviour {
 	public bool gameOver = false;
 	Image illustration;
 
-	private string[] visitors = new string[] {"penguin", "mouse", "nurse", "police","giraffe", "weregiraffe", "emptyroom"};
+	private string[] visitors = new string[] {"penguin", "mouse", "police","giraffe", "weregiraffe", "emptyroom", "nurse"};
 
 	// Use this for initialization
 	void Start () {

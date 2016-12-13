@@ -103,7 +103,7 @@ giraffe.time|I will return, and when I do, it will be with my final offer.|Girwo
 |The giraffe withdraws from the window, careful not to let his horns scrape the window frame. Soon he is gone.~SetFlag,giraffe.appears,F:line,over|
 |over|
 |GIRAFFE - SECOND CONVERSATION|
-giraffe2|Have you decided to sell?~SetFlag,giraffe.appears,T:line,next|Girwoffe
+giraffe2|Have you decided to sell?~SetFlag,nurse.appears,F:SetFlag,giraffe.appears,T:line,next|Girwoffe
 |First, I want to ask you about the explosion.|You
 |Fine. But make it quick.|Girwoffe
 Choice|What do you know about my mouse visitor?~line,giraffe.mouseVisitor|What do you know about my penguin visitor?~line,giraffe.penguinVisitor
@@ -540,7 +540,7 @@ death.noExtraMoney|In the end, your son makes a meager living shining shoes.~lin
 death.mouseCheck|mouseCorrect.flag=T~death.mouseJailed|death.finalEnding
 death.mouseJailed|Mister Scampers is sentenced to three years in prison, but is out on parole for good behavior after one year.|
 |He doesn't get along with prisoners, but he does finally master the art of playing clock solitaire in your mind.|
-death.promiseCheck|mouseCorrect=T*mouse.promiseMade=T~death.promiseBroken|death.therapy
+death.promiseCheck|mouseCorrect.flag=T*mouse.promiseMade=T~death.promiseBroken|death.therapy
 death.promiseBroken|He never forgives you for breaking your promise.|
 death.therapy|His daughter goes to therapy to cure her kleptomaniac ways.|
 |She eventually gains the self-confidence to stop, but not before stealing half the therapist's silverware.|
