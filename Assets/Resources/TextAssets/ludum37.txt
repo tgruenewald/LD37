@@ -523,9 +523,9 @@ death.ending|After your death ...|
 death.giraffeCheck|giraffeAccused.flag=T~death.weregiraffe|death.saleCheck
 death.weregiraffe|As it turns out, investigating a secret werewolf society was exactly what the police were busy doing instead of investigating your murder.|
 |With your accusation, they uncover an entire network of werewolves, embedded among all animals.|
-|Gazelles that turn into wolves.|
-|Frogs that turn into wolves.|
-|Wolves that turn into scarier wolves.|
+|Gazelles who turn into wolves.|
+|Frogs who turn into wolves.|
+|Wolves who turn into scarier wolves.|
 |The truth is horrifying, but with one member of the conspiracy revealed, more will follow.|
 |A grateful police force honors you at your burial. Your son does not appreciate their untimely gratitude.|
 death.saleCheck|giraffeAccused.flag=T*giraffe.sold=T~death.soldWeregiraffe|giraffe.sold=T~death.reallySold|death.noSale
