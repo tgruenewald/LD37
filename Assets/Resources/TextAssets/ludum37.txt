@@ -122,7 +122,7 @@ giraffe.penguinVisitor|Miss Guin might be visiting you to offer to buy you out s
 |But she will never offer you as much as I will.|Girwoffe
 |Anyway, to business.|Girwoffe
 Check|giraffe.priceIncreased=F*explosionKnown.flag=T~giraffe.negotiate2|giraffe.offer2Check
-negotiate2|I heard the explosion destroyed only a small part of my inventory. My business is worth ten thousand at least.~SetFlag,giraffe.priceIncreased,T:line,next|You
+giraffe.negotiate2|I heard the explosion destroyed only a small part of my inventory. My business is worth ten thousand at least.~SetFlag,giraffe.priceIncreased,T:line,next|You
 giraffe.offer2Check|giraffe.priceIncreased=T~giraffe.BestOffer|giraffe.betterOffer
 giraffe.BestOffer|I've spoken with my business associates, and we're willing to offer nine thousand.~SetFlag,giraffe.bestOffer,T:line,giraffe.chooseToSell|Girwoffe
 giraffe.betterOffer|I've spoken with my business associates, and we're willing to offer eight thousand.|Girwoffe
